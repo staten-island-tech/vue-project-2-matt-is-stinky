@@ -1,6 +1,6 @@
 <template>
 <nav>
-    <h1>LEAGUE OF LEGENDS</h1>
+    <img alt="logo" src="../assets/ugly.png">
     <div>
         <router-link to="/">Home</router-link>
     </div>
@@ -10,7 +10,7 @@
     </div>
     <div>
         <router-link to="/login">Login</router-link>
-        <router-link to="signup">Signup</router-link>
+        <router-link to="/signup">Signup</router-link>
     </div>
 </nav>
 </template>
