@@ -1,5 +1,5 @@
 <template>
-  <div class="Sign-In">
+  <div class="Sign-Up">
     <h1>POOPOO</h1>
   </div>
 </template>
