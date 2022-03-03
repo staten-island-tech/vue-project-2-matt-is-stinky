@@ -1,12 +1,28 @@
 <template>
-  <div class="Sign-Up">
-    <h1>POOPOO</h1>
-  </div>
+    <form @submit.prevent="handleSubmit">        
+    <h3> Sign Up</h3>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" v-model="email" required>
+    
+    <label for="email">Password:</label>
+    <input type="password" name="password" v-model="password" required>
+
+    <button>SignUp</button>
+    </form>
 </template>
 <script>
+import { ref } from 'vue'
+
 export default {
-  name: 'SignUpView',
-  components: { },
-  methods: { },
+    setup() {
+        const email = ref('')
+        const password = ref('')
+
+        const handleSubmit = () => {
+            console.log(email.value, password.value)
+        }
+        return {handleSubmit, email, password}
+    }
 }
 </script>

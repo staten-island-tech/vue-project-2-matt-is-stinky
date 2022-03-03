@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="handleSubmit">        
-    <h3> LogIn</h3>
+    <h3> Log In</h3>
 
     <label for="email">Email:</label>
     <input type="email" name="email" v-model="email" required>
@@ -15,8 +15,14 @@
 import { ref } from 'vue'
 
 export default {
-    name:'LogInView',
-    components: { },
-    methods: { },
+    setup() {
+        const email = ref('')
+        const password = ref('')
+
+        const handleSubmit = () => {
+            console.log(email.value, password.value)
+        }
+        return {handleSubmit, email, password}
+    }
 }
 </script>
