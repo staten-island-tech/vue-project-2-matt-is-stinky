@@ -1,5 +1,12 @@
 <template>
-  <div class="home"></div>
+<div>
+  <div>points: {{ points }}</div>
+  <button @click="updatePoints(1)">add a point</button>
+  <button @click="updatePoints(-1)">remove a point</button>
+  <div v-for="Champion in Champions" :key="Champion.id">
+    <h3>{{Champion.name}}</h3>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -8,13 +15,18 @@ import { ref } from 'vue'
 
 export default {
   setup() {
-    const blogs = ref([
-      { title: 'peanut butter is orange', id: 1},
-      { title: 'beans are not very cool', id:2},
-      { title: 'why i like to eat paper', id:3}
+    const Champions = ref([
+      { name: 'thing 1', id: 1},
+      { name: 'thing 2', id:2},
+      { name: 'thing 3', id:3}
     ])
     return {
-      blogs
+      Champions
+    }
+  },
+  methods: {
+    updatePoints(points) {
+      this.$store.commit('updatePoints', points)
     }
   },
   computed:{
