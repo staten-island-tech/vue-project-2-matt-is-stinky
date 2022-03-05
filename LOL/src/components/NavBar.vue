@@ -9,8 +9,8 @@
         <button>Logout</button>
     </div>
     <div>
-        <router-link to="/login">Login</router-link>
-        <router-link to="/signup">Signup</router-link>
+        <router-link to="/Log-In">Login</router-link>
+        <router-link to="/Sign-Up">Signup</router-link>
     </div>
 </nav>
 </template>
