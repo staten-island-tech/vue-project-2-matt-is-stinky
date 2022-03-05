@@ -6,7 +6,7 @@
     </div>
     <div>
         <span>Logged in as...</span>
-        <button>Logout</button>
+        <button @click="handleClick">Logout</button>
     </div>
     <div>
         <router-link to="/Log-In">Login</router-link>
@@ -14,3 +14,18 @@
     </div>
 </nav>
 </template>
+
+<script>
+import { useStore } from 'vuex'
+
+export default {
+    setup() {
+        const store = useStore()
+        const handleClick = () => {
+            store.dispatch('logout')
+        }
+        return { handleClick }
+    }
+}
+
+</script>
