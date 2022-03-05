@@ -52,5 +52,7 @@ button {
 }
 
 nav a.router-link-exact-active {
-  color: red;
+  background: red;
+  padding: 1rem 1rem;
+  border-radius: 2rem;
 }

@@ -1,6 +1,7 @@
 <template>
 <nav>
     <img alt="logo" src="../assets/ugly.png">
+    <template v-if="authIsReady">
     <div>
         <router-link to="/">Home</router-link>
     </div>
@@ -12,6 +13,7 @@
         <router-link to="/Log-In">Login</router-link>
         <router-link to="/Sign-Up">Signup</router-link>
     </div>
+    </template>
 </nav>
 </template>
 
@@ -27,7 +29,8 @@ export default {
         }
         return { 
             handleClick,
-            user: computed(() => store.state.user)
+            user: computed(() => store.state.user),
+            authIsReady: computed(() => store.state.authIsReady),
         }
     }
 }
