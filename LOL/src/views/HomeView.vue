@@ -12,7 +12,7 @@
 <script>
 // @ is an alias to /src
 import { ref, computed } from 'vue'
-import { useStore} from 'vuex'
+import { useStore } from 'vuex'
 
 export default {
   setup() {
