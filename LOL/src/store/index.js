@@ -1,4 +1,6 @@
 import { createStore } from "vuex";
+import { auth } from "../firebase/config";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const store = createStore({
   state: {
@@ -11,14 +13,14 @@ const store = createStore({
     },
   },
   actions: {
-    signup(context, { email, password }) {
+    async signup(context, { email, password }) {
       console.log("signup action");
-      setTimeout(() => {
-        context.commit("setUser", {
-          email,
-          password,
-        });
-      }, 2000);
+      const res = await createUserWithEmailAndPassword(auth, email, password);
+      if (res) {
+        context.commit("setUser", res.user);
+      } else {
+        throw new Error("could not complete signup");
+      }
     },
   },
 });

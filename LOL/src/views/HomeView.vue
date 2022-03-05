@@ -7,7 +7,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import { ref } from 'vue'
 import { useStore } from 'vuex'
 
@@ -22,7 +21,6 @@ export default {
     const store = useStore()
 
     console.log(store.state.user)
-    store.commit('setUser', 'sans')
   
     return {
       Champions, 
