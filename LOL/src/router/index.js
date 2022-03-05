@@ -9,7 +9,6 @@ const routes = [
   },
   {
     path: "/Sign-Up",
-<<<<<<< Updated upstream
     name: "Sign Up",
     component: function () {
       return import(/* webpackChunkName: "SignUp" */ "../views/SignUp.vue");
@@ -21,13 +20,6 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "LogIn" */ "../views/LogIn.vue");
     },
-=======
-    name: "Sign-Up",
-    component: SignUp,
-  },
-  {
-    path: "/",
->>>>>>> Stashed changes
   },
 ];
 
