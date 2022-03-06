@@ -1,4 +1,5 @@
 <template>
+<div class="loginBackground">
     <form @submit.prevent="handleSubmit">        
     <h3>Sign Up</h3>
 
@@ -11,7 +12,9 @@
     <button>Sign Up</button>
     <div v-if="error">{{ error }}</div>
     </form>
+    </div>
 </template>
+
 <script>
 import { ref } from 'vue'
 import { useStore } from 'vuex'
@@ -41,3 +44,12 @@ export default {
     }
 }
 </script>
+
+<style>
+.loginBackground {
+    background-color: black;
+    height: 40rem;
+    width: 20rem;
+    border-radius: 2rem;
+}
+</style>

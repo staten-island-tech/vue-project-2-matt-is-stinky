@@ -2,23 +2,23 @@
 
 body {
   font-family: "Mukta", sans-serif;
+  color: white;
 }
 img {
   max-width: 15rem;
 }
 
 .container {
-  max-width: 96rem;
+  max-width: 100%;
   margin: 0 auto;
   background-color: black;
   color: #ffff;
+  text-align: right;
 }
 
 nav {
-  position: relative;
   display: flex;
   align-items: center;
-  padding: 3rem;
 }
 
 nav h1 {

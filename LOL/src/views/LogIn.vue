@@ -1,5 +1,6 @@
 <template>
-    <form @submit.prevent="handleSubmit">        
+    <div class="loginBackground"> 
+    <form @submit.prevent="handleSubmit">       
     <h3>Log In</h3>
 
     <label for="email">Email:</label>
@@ -8,9 +9,10 @@
     <label for="email">Password:</label>
     <input type="password" name="password" v-model="password" required>
 
-    <button>LogIn</button>
+    <button>Log In</button>
     <div v-if="error">{{ error }}</div>
     </form>
+    </div>
 </template>
 <script>
 import { ref } from 'vue'
@@ -42,3 +44,11 @@ export default {
     }
 }
 </script>
+<style>
+.loginBackground {
+    background-color: black;
+    height: 40rem;
+    width: 20rem;
+    border-radius: 2rem;
+}
+</style>
