@@ -12,6 +12,7 @@
     <div v-if="!user">
         <router-link to="/Log-In">Login</router-link>
         <router-link to="/Sign-Up">Signup</router-link>
+        <router-link to="/Create-Card">AddCard</router-link>
     </div>
     </template>
 </nav>
