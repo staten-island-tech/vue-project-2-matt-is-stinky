@@ -31,3 +31,9 @@ export default {
   },
 }
 </script>
+
+<style>
+body {
+  color: black;
+}
+</style>
