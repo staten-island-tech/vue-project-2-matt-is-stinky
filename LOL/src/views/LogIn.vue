@@ -48,7 +48,7 @@ export default {
 .loginBackground {
     background-color: black;
     height: 40rem;
-    width: 20rem;
-    border-radius: 2rem;
+    width: 28rem;
+    border-radius: 6rem;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-<div class="loginBackground">
+<div class="signupBackground">
     <form @submit.prevent="handleSubmit">        
     <h3>Sign Up</h3>
 
@@ -46,10 +46,10 @@ export default {
 </script>
 
 <style>
-.loginBackground {
+.signupBackground {
     background-color: black;
     height: 40rem;
-    width: 20rem;
-    border-radius: 2rem;
+    width: 28rem;
+    border-radius: 6rem;
 }
 </style>
