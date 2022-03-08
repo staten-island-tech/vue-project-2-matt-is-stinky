@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap");
 
 body {
-  font-family: "Mukta", sans-serif;
+  font-family: "Trade Winds", cursive;
   color: black;
+  background: ;
 }
 img {
   max-width: 15rem;
