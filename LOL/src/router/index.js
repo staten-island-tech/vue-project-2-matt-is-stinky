@@ -21,6 +21,15 @@ const routes = [
       return import(/* webpackChunkName: "LogIn" */ "../views/LogIn.vue");
     },
   },
+  {
+    path: "/Create-Card",
+    name: "Create Card",
+    component: function () {
+      return import(
+        /* webpackChunkName: "CreateCard" */ "../views/CreateCard.vue"
+      );
+    },
+  },
 ];
 
 const router = createRouter({
