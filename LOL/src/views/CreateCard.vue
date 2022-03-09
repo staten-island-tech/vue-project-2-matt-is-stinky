@@ -1,6 +1,15 @@
 <template>
-    <div class=""> Make a card</div>
+    <div class="createCard">
+        {{ name }}
+    </div>
 </template>
 <script>
+    export default {
+        props: {
+            name: ,
+            fileImage: ,
+            description: ,
 
+        }
+    }
 </script>
