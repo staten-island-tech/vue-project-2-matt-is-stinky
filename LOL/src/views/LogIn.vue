@@ -1,17 +1,19 @@
 <template>
-    <div class="loginBackground"> 
-    <form @submit.prevent="handleSubmit">       
-    <h3>Log In</h3>
+    <div class="everything">
+     <div class="loginBackground"> 
+      <form @submit.prevent="handleSubmit">       
+     <h3>Log In</h3>
 
-    <label for="email">Email:</label>
-    <input type="email" name="email" v-model="email" required>
-    
-    <label for="email">Password:</label>
-    <input type="password" name="password" v-model="password" required>
+     <label for="email">Email:</label>
+     <input type="email" name="email" v-model="email"    required>
 
-    <button>Log In</button>
-    <div v-if="error">{{ error }}</div>
-    </form>
+       <label for="email">Password:</label>
+       <input type="password" name="password"  v-model="password" required>
+
+       <button>Log In</button>
+      <div v-if="error">{{ error }}</div>
+     </form>
+      </div>
     </div>
 </template>
 <script>
@@ -50,5 +52,13 @@ export default {
     height: 40rem;
     width: 28rem;
     border-radius: 6rem;
+}
+.everything{
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
 }
 </style>
