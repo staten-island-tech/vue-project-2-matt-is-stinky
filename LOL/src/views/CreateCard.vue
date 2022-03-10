@@ -1,4 +1,6 @@
 <template>
+    <div class="createCard">
+        {{ name }}
     <div class="everything">
      <div class="CardBG">
         <form>
@@ -7,7 +9,7 @@
          <input type="text" name="title" v-model="title" required>
 
          <label for="Card">Image</label>
-         <style="display: none" input type="file" @change="onFileSelected" refname="image">
+         <input style="display: none" input type="file" @change="onFileSelected" refname="image">
          <button></button>
 
          <label for="Card">Blurb</label>
@@ -17,9 +19,11 @@
          </form>
      </div>
     </div>
+    </div>
 </template>
 <script>
 export default {
+    
     data(){
         return{
         selectedFile: null

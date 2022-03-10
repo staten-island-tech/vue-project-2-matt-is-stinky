@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap");
 
 body {
-  font-family: "Mukta", sans-serif;
-  color: white;
+  font-family: "Trade Winds", cursive;
+  color: black;
+  background: "../assets/runeterra.png";
 }
 img {
   max-width: 15rem;
@@ -10,7 +11,7 @@ img {
 
 .container {
   max-width: 100%;
-  margin: 0 auto;
+  margin-top: 0rem;
   background-color: black;
   color: #ffff;
   text-align: right;
