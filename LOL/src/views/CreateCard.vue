@@ -1,24 +1,39 @@
 <template>
     <div class="everything">
-        <div class="CardBG">
-           <h3>Create a Card</h3>
-           <div class="CreateBG enterName">
-              <h3>Name</h3>
-          </div>
-           <div class="CreateBG enterImage">
-               <h3>File Image</h3>
-          </div>
-          <div class="CreateBG enterBlurb">
-                <h3>Short Blurb</h3>
-            </div>
-            <div class="Publish">
-                <h3>Publish</h3>
-            </div>
-        </div>
+     <div class="CardBG">
+        <form>
+         <h3> Create A Card</h3>
+         <label for="Card">Title</label>
+         <input type="text" name="title" v-model="title" required>
+
+         <label for="Card">Image</label>
+         <style="display: none" input type="file" @change="onFileSelected" refname="image">
+         <button></button>
+
+         <label for="Card">Blurb</label>
+         <input type="text" name="blurb" v-model="blurb" required>
+
+         <button @click="onUpload">Submit</button>
+         </form>
+     </div>
     </div>
 </template>
 <script>
-
+export default {
+    data(){
+        return{
+        selectedFile: null
+        }
+    },
+    methods:{
+        onFileSelected(event){
+          this.selectedFile = event.target.files[0]
+        },
+        onUpload(){
+            
+        }
+    }
+}
 </script>
 <style>
 .everything{
