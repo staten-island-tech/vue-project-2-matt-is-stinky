@@ -3,20 +3,19 @@
      <div class="CardBG">
         <form class="form">
          <div class="form-inputs">
-         <input style="backrgound-color: grey" type="text" name="title" v-model="title" required>
+         <input style="backrgound-color: grey" type="text" name="title" v-model="title" placeholder="Name" required>
         </div>
         <div class="form-inputs">
          <input input type="file" @change="onFileSelected" refname="image">
         </div>
         <div class="form-inputs">
-         <input type="text" name="blurb" v-model="blurb" required>
+         <input type="text" name="blurb" v-model="blurb" placeholder="Description" required>
         </div>
         <div class="submit">
          <button @click="onUpload">Submit</button>
          </div>
          </form>
      </div>
-    </div>
     </div>
 </template>
 <script>
