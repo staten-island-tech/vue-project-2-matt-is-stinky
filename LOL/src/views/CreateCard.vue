@@ -1,11 +1,10 @@
 <template>
-    <div class="createCard">
-        {{ name }}
+    <div class="createCard">{{ name }}</div>
     <div class="everything">
         <div class="CardBG">
            <h3>Create a Card</h3>
            <div class="CreateBG enterName">
-              <h3>Name</h3>
+              <input type="text" class="textBox" placeholder="Name" />
           </div>
            <div class="CreateBG enterImage">
                <h3>File Image</h3>
@@ -28,7 +27,6 @@
 
         }
     } */
-</script>
 </script>
 <style>
 .everything{
@@ -68,5 +66,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.textBox {
+    align-content: center;
+    background: none;
+    border: none;
 }
 </style>
