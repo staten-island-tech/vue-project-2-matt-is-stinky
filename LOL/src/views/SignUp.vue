@@ -1,5 +1,6 @@
 <template>
-<div class="loginBackground">
+<div class="everything">
+<div class="signupBackground">
     <form @submit.prevent="handleSubmit">        
     <h3>Sign Up</h3>
 
@@ -12,6 +13,7 @@
     <button>Sign Up</button>
     <div v-if="error">{{ error }}</div>
     </form>
+    </div>
     </div>
 </template>
 
@@ -49,10 +51,21 @@ export default {
 body {
     color: white;
 }
-.loginBackground {
+
+.signupBackground {
     background-color: black;
     height: 40rem;
-    width: 20rem;
-    border-radius: 2rem;
+    width: 28rem;
+    border-radius: 6rem;
+    display: flex;
+    flex-direction: column;
+}
+.everything{
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
 }
 </style>
