@@ -48,9 +48,6 @@ export default {
 </script>
 
 <style>
-body {
-    color: white;
-}
 
 .signupBackground {
     background-color: black;

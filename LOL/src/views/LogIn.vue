@@ -47,9 +47,7 @@ export default {
 }
 </script>
 <style>
-body {
-    color: white;
-}
+
 .loginBackground {
     background-color: black;
     height: 40rem;
