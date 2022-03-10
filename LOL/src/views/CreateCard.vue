@@ -1,5 +1,4 @@
 <template>
-    <div class="createCard">{{ name }}</div>
     <div class="everything">
         <div class="CardBG">
            <h3>Create a Card</h3>
@@ -19,14 +18,14 @@
     </div>
 </template>
 <script>
-/*     export default {
+    export default {
         props: {
-            name: ,
-            fileImage: ,
-            description: ,
+            name: String,
+            fileImage: undefined,
+            description: String,
 
         }
-    } */
+    } 
 </script>
 <style>
 .everything{
