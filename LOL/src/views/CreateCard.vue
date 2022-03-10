@@ -5,7 +5,7 @@
      <div class="CardBG">
         <form class="form">
          <div class="form-inputs">
-         <input style="backrgound-color: grey" type="text" name="title" v-model="title" required>
+         <input type="text" name="title" v-model="title" required>
         </div>
         <div class="form-inputs">
          <input input type="file" @change="onFileSelected" refname="image">
