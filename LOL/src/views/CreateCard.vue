@@ -3,13 +3,13 @@
      <div class="CardBG">
         <form class="form">
          <div class="form-inputs">
-         <input style="backrgound-color: grey" type="text" name="title" v-model="title" placeholder="Name" required>
+         <input class="title-input" type="text" name="title" v-model="title" required>
         </div>
         <div class="form-inputs">
-         <input input type="file" @change="onFileSelected" refname="image">
+         <input class="upload-input" type="file" @change="onFileSelected" refname="image">
         </div>
         <div class="form-inputs">
-         <input type="text" name="blurb" v-model="blurb" placeholder="Description" required>
+         <input class="blurb-input" type="text" name="blurb" v-model="blurb" required>
         </div>
         <div class="submit">
          <button @click="onUpload">Submit</button>
@@ -34,6 +34,7 @@ export default {
             
         }
     }
+    
 }
 </script>
 <style>
@@ -76,9 +77,7 @@ export default {
     justify-content: center;
 }
 .form-inputs{
-    background-color: grey;
     margin: 1rem;
-    padding: 2.6rem;
     border-radius: 6rem;
 }
 .submit{
@@ -90,5 +89,24 @@ export default {
 .form{
     display: flex;
     flex-direction: column;
+}
+.title-input{
+    background-color: grey;
+    border-color: grey;  
+    border-radius: 6rem;
+    padding: 2.6rem;
+    width: 16rem;
+}
+.blurb-input{
+    background-color: grey;
+    border-radius: 6rem;
+    padding: 2.6rem;
+    width: 16rem;
+}
+.upload-input{
+    background-color: grey;
+    border-radius: 6rem;
+    padding: 2.6rem;
+    width: 16rem;
 }
 </style>
