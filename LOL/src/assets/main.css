@@ -3,6 +3,9 @@
 body {
   font-family: "Trade Winds", cursive;
   background: "../assets/runeterra.png";
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 img {
   max-width: 15rem;
@@ -33,13 +36,13 @@ nav span {
 }
 
 nav a {
-  color: white;
   text-decoration: none;
   font-weight: bold;
+  color: white;
 }
 
 nav span {
-  color: #white;
+  color: white;
 }
 
 button {
@@ -47,7 +50,6 @@ button {
   border: 0;
   padding: 1rem 1rem;
   border-radius: 2rem;
-  color: #fff;
   cursor: pointer;
 }
 

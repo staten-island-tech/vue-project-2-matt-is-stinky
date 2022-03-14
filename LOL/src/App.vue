@@ -18,5 +18,8 @@ export default {
 #app {
   text-align: center;
 }
+body {
+  background-color: gray;
+}
 
 </style>
