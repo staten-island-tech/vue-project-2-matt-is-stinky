@@ -1,3 +1,12 @@
+html,
+body,
+* {
+  font-size: 10px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap");
 
 body {

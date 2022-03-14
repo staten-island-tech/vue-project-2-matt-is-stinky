@@ -62,6 +62,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2rem;
+    padding: 2rem;
 }
 </style>
