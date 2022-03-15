@@ -9,7 +9,7 @@
         </form>
         <div class="cardPreview">
             <h3>Preview Card</h3>
-            <p>Card Title: {{ blog.title }}</p>
+            <p>Card Title: {{ card.title }}</p>
             <p>Card Content:</p>
             <p>{{ card.content }}</p>
         </div>
@@ -18,10 +18,13 @@
 
 <script>
 export default {
+    name: "AddCard",
     data(){
         return{
+            card:{
             title:"",
-            content:""
+            content:"", 
+            }
         }
     },
     methods:{
