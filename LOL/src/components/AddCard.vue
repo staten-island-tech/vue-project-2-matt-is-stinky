@@ -6,6 +6,7 @@
             <input type="text" v-model.lazy="card.title" required />
             <label>Content:</label> 
             <textarea v-model.lazy="card.content"></textarea>
+            <button>submit</button>
         </form>
         <div class="cardPreview">
             <h3>Preview Card</h3>

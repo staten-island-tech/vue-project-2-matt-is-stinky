@@ -1,16 +1,16 @@
 <template>
 <div>
- <add-card></add-card>
+ <AddCard></AddCard>
 </div>
 </template>
 <script>
-import { AddCard } from '../components/AddCard.vue'
+import AddCard from '../components/AddCard.vue'
  export default{
      methods:{
 
      },
      components: {
-        'add-card': AddCard
+        AddCard
      }
  }
 </script>
