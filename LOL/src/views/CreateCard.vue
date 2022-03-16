@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { AddCard } from '../components/AddCard.vue'
+import AddCard from '../components/AddCard.vue'
  export default{
      methods:{
 
