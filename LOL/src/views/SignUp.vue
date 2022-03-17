@@ -3,6 +3,8 @@
 <div class="signupBackground">
     <form @submit.prevent="handleSubmit">        
     <h3>Sign Up</h3>
+    <label for="username">Username:</label>
+    <input type="username" name="username" v-model="username">
 
     <label for="email">Email:</label>
     <input type="email" name="email" v-model="email" required>
@@ -24,6 +26,7 @@ import { useRouter } from 'vue-router'
 
 export default {
     setup() {
+        const username = ref('')
         const email = ref('')
         const password = ref('')
         const error = ref(null)
@@ -34,6 +37,7 @@ export default {
         const handleSubmit = async () => {
             try {
                 await store.dispatch('signup', {
+                    username: username.value,
                     email: email.value,
                     password: password.value
                 })
@@ -42,7 +46,7 @@ export default {
                 error.value = err.message
             }
         }
-        return { handleSubmit, email, password, error }
+        return { handleSubmit, username, email, password, error }
     }
 }
 </script>
