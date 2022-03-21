@@ -1,18 +1,20 @@
 <template>
 <nav>
+    <div class="logo">
     <img alt="logo" src="../assets/ugly.png">
+    </div>
     <template v-if="authIsReady">
     <div>
-        <router-link to="/">Home</router-link>
+        <router-link class="links" to="/">Home</router-link>
     </div>
     <div v-if="user">
         <span>Logged in as {{ user.email }}</span>
         <button @click="handleClick">Logout</button>
     </div>
     <div v-if="!user">
-        <router-link to="/Log-In">Login</router-link>
-        <router-link to="/Sign-Up">Signup</router-link>
-        <router-link to="/Create-Card">AddCard</router-link> 
+        <router-link class="links" to="/Log-In">Login</router-link>
+        <router-link class="links" to="/Sign-Up">Signup</router-link>
+        <router-link class="links" to="/Create-Card">AddCard</router-link> 
     </div>
     </template>
 </nav>
@@ -38,4 +40,20 @@ export default {
 
 </script>
 <style>
+/* nav {
+    display: flex;
+    padding: 2.5rem 0;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.links {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 3.2rem;
+} */
 </style>

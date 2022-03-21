@@ -27,7 +27,7 @@ img {
   text-align: right;
 }
 
-nav {
+/* nav {
   display: flex;
   align-items: center;
 }
@@ -51,7 +51,7 @@ nav a {
 
 nav span {
   color: white;
-}
+} */
 
 button {
   background: red;
