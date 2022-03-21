@@ -1,20 +1,33 @@
 <template>
-<div>
-  <div v-for="Champion in Champions" :key="Champion.id">
-    <h3>{{Champion.name}}</h3>
-    <div class="icons" v-if="user">
-      <span class="material-icons">thumb_up</span>
-      <span class="material-icons">thumb_down</span>
-    </div>
-    </div>
+<div class="home">
+  <BlogPost :post="post" v-for="(post, index) in Posts" :key="index"/>
   </div>
 </template>
 
 <script>
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
-
+import BlogPost from '../components/CardPost.vue'
 export default {
+  components:{
+    BlogPost
+  },
+  data(){
+    return {
+      Posts: [
+        {
+          title: "test",
+          PostContent: "test",
+          PostImage: "test",
+        },
+        {
+          title: "test2",
+          PostContent: "test2",
+          PostImage: "test2",
+        }
+      ]
+    }
+  },
   setup() {
     const Champions = ref([
       { name: 'thing 1', id: 1},
