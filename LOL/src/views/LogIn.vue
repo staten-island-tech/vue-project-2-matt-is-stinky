@@ -1,20 +1,21 @@
 <template>
-    <div class="everything">
-     <div class="loginBackground"> 
-      <form @submit.prevent="handleSubmit">       
-     <h3>Log In</h3>
-
-     <label for="email">Email:</label>
-     <input type="email" name="email" v-model="email"    required>
-
-       <label for="email">Password:</label>
-       <input type="password" name="password"  v-model="password" required>
-
-       <button>Log In</button>
-      <div v-if="error">{{ error }}</div>
-     </form>
-      </div>
-    </div>
+   <div class="form-warp">
+       <form class="login">
+           <h2>Log In</h2>
+           <div class="inputs">
+               <div class="input">
+                   <input type="text" placeholder="Email" v-model="email" required />
+               </div>
+               <div class="input">
+                   <input type="password" placeholder="Password" v-model="password" required />
+               </div>
+           </div>
+           <button>Sign In</button>
+            <div v-if="error">Username or password is incorrect.</div>
+            <div class="angle"></div>
+       </form>
+       <div class="background"></div>
+   </div>
 </template>
 <script>
 import { ref } from 'vue'
@@ -47,19 +48,49 @@ export default {
 }
 </script>
 <style>
-
-.loginBackground {
-    background-color: black;
-    height: 40rem;
-    width: 28rem;
-    border-radius: 6rem;
-}
-.everything{
-    width: 100%; 
-    height: 100%;
+.form-wrap {
+    overflow: hidden;
     display: flex;
-    align-items: center;
+    height: 100vh;
     justify-content: center;
-    padding: 2rem;
+    align-self: center;
+    margin: 0 auto;
+    width: 90%;
 }
+form {
+    padding: 0 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+h2 {
+    text-align: center;
+    font-size: 3.2rem;
+    color: #000000;
+    margin-bottom: 4rem;
+}
+.inputs {
+    width: 100%;
+    max-width: 35rem;
+}
+
+.input {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+input {
+    width: 100%;
+    border: none;
+    background-color: #FFFFFF;
+    padding: 0.4rem 0.4rem 0.4rem 3rem;
+    height: 5rem;
+}
+
 </style>
