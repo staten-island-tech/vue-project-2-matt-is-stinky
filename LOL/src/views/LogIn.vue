@@ -1,6 +1,6 @@
 <template>
    <div class="form-warp">
-       <form class="login">
+       <form class="login" @submit.prevent="handleSubmit">
            <h2>Log In</h2>
            <div class="inputs">
                <div class="input">
@@ -14,7 +14,6 @@
             <div v-if="error">Username or password is incorrect.</div>
             <div class="angle"></div>
        </form>
-       <div class="background"></div>
    </div>
 </template>
 <script>
@@ -55,10 +54,9 @@ export default {
     justify-content: center;
     align-self: center;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
 }
 form {
-    padding: 0 1rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -92,5 +90,18 @@ input {
     padding: 0.4rem 0.4rem 0.4rem 3rem;
     height: 5rem;
 }
-
+/*.angle {
+    display: none;
+    position: absolute;
+    background-color: white;
+    transform: rotateZ(3deg);
+    width: 6rem;
+    right: -3rem;
+    height: 101%;
+}*/
+body {
+    object-fit: fill;
+    background-size:cover;
+    background-image: url("../assets/notstolenbtw.jpg");
+}
 </style>
