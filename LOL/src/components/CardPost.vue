@@ -1,9 +1,8 @@
 <template>
 <div class="card-wrapper">
-        <div class="card-content">
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.PostContent }}</p>
-            
+        <div class="card-content">           
+            <h2 >{{ post.title }}</h2>
+            <p class="content-preview">{{ post.PostContent }}</p>
         </div>
     </div>
 </template>

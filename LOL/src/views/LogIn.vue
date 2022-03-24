@@ -11,7 +11,7 @@
        <input type="password" name="password"  v-model="password" required>
 
        <button>Log In</button>
-      <div v-if="error">{{ error }}</div>
+      <div v-if="error">Wrong Password!</div>
      </form>
       </div>
     </div>
