@@ -1,4 +1,4 @@
-/* html,
+html,
 body,
 * {
   margin: 0;
@@ -10,7 +10,6 @@ body,
 
 body {
   font-family: "Trade Winds", cursive;
-  background: "../assets/runeterra.png";
   color: white;
   margin: 0;
   padding: 0;
@@ -26,44 +25,3 @@ img {
   color: #ffff;
   text-align: right;
 }
-
-nav {
-  display: flex;
-  align-items: center;
-}
-
-nav h1 {
-  margin-right: auto;
-}
-
-nav a,
-nav button,
-nav span {
-  margin-left: 2rem;
-  text-transform: uppercase;
-}
-
-nav a {
-  text-decoration: none;
-  font-weight: bold;
-  color: white;
-}
-
-nav span {
-  color: white;
-}
-
-button {
-  background: red;
-  border: 0;
-  padding: 1rem 1rem;
-  border-radius: 2rem;
-  cursor: pointer;
-}
-
-nav a.router-link-exact-active {
-  background: red;
-  padding: 1rem 1rem;
-  border-radius: 2rem;
-}
- */

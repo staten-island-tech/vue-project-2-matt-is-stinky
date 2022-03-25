@@ -40,9 +40,10 @@ export default {
 
 </script>
 <style>
-/* nav {
+ nav {
     display: flex;
-    padding: 2.5rem 0;
+    padding: 0.5rem 0;
+    align-items: center;
 }
 .logo {
     display: flex;
@@ -55,5 +56,35 @@ export default {
     align-items: center;
     justify-content: flex-end;
     margin-right: 3.2rem;
-} */
+}
+
+nav a,
+nav button,
+nav span {
+  margin-left: 40rem;
+  text-transform: uppercase;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+nav span {
+  color: white;
+}
+
+button {
+  background: red;
+  border: 0;
+  padding: 1rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+nav a.router-link-exact-active {
+  color: blue;
+}
+
 </style>

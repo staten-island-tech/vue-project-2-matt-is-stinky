@@ -1,15 +1,15 @@
 <template>
 <div class="container">
-<!--   <Navbar/> -->
+ <Navbar/>
 </div>
   <router-view/>
 </template>
 
 <script>
-/*import Navbar from './components/NavBar'*/
+import Navbar from './components/NavBar'
 export default {
   components: {
-/*     Navbar, */
+     Navbar, 
   }
 }
 </script>
@@ -17,9 +17,6 @@ export default {
 <style>
 #app {
   text-align: center;
-}
-body {
-  background-color: gray;
 }
 
 </style>
