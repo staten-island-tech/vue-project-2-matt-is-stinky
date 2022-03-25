@@ -1,16 +1,23 @@
 <template>
 <div class="home">
-  <BlogPost :post="post" v-for="(post, index) in Posts" :key="index"/>
+  <div class="post-card-wrap">
+    <div class="container">
+      <h3>View More Recent Posts</h3>
+      <div class="blog-cards">
+        <Cards v-for="(post, index) in Posts" :key/>
+      </div>
+    </div>
+  </div>
   </div>
 </template>
 
 <script>
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
-import BlogPost from '../components/CardPost.vue'
+import Cards from '../components/PostCard.vue'
 export default {
   components:{
-    BlogPost
+    Cards
   },
   data(){
     return {
@@ -19,11 +26,13 @@ export default {
           title: "test",
           PostContent: "test",
           PostImage: "test",
+          PostDate: "test",   
         },
         {
           title: "test2",
           PostContent: "test2",
           PostImage: "test2",
+          PostDate: "test",
         }
       ]
     }
@@ -48,5 +57,12 @@ export default {
 <style>
 body {
   color: black;
+}
+.blog-card-wrap{
+  h3{
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
 }
 </style>
