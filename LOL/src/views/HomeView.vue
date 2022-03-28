@@ -1,23 +1,18 @@
 <template>
-<div class="home">
   <div class="post-card-wrap">
-    <div class="container">
-      <h3>View More Recent Posts</h3>
       <div class="blog-cards">
-        <Cards v-for="(post, index) in Posts" :key/>
+        <SomeCards v-for="(post, index) in Posts" :key="index"/>
       </div>
     </div>
-  </div>
-  </div>
 </template>
 
 <script>
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
-import Cards from '../components/PostCard.vue'
+import SomeCards from '../components/PostCard.vue'
 export default {
   components:{
-    Cards
+    SomeCards
   },
   data(){
     return {
@@ -58,11 +53,14 @@ export default {
 body {
   color: black;
 }
-.blog-card-wrap{
-  h3{
-    font-weight: 300;
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-  }
+.post-card-wrap {
+  position: relative;
+  padding: 5rem 1rem;
+  background-color: #f1f1f1;
+}
+.blog-cards{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 </style>
