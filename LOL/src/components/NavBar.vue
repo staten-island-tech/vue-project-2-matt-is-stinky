@@ -6,7 +6,6 @@
     <template v-if="authIsReady">
     <div>
         <router-link class="links" to="/">Home</router-link>
-    </div>
     <div v-if="user">
         <span>Logged in as {{ user.email }}</span>
         <button @click="handleClick">Logout</button>
@@ -15,6 +14,7 @@
         <router-link class="links" to="/Log-In">Login</router-link>
         <router-link class="links" to="/Sign-Up">Signup</router-link>
         <router-link class="links" to="/Create-Card">AddCard</router-link> 
+    </div>
     </div>
     </template>
 </nav>
@@ -84,7 +84,7 @@ button {
 }
 
 nav a.router-link-exact-active {
-  color: blue;
+  color: red;
 }
 
 </style>

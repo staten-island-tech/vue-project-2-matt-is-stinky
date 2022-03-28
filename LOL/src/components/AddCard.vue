@@ -2,10 +2,14 @@
     <div class="addCard">
         <h2>Create a New Card</h2>
         <form>
-            <label>Title:</label>
-            <input type="text" v-model.lazy="card.title" required />
-            <label>Content:</label> 
-            <textarea v-model.lazy="card.content"></textarea>
+            <div class="inputs">
+                <div class="input">
+                    <input type="text" placeholder="Title" v-model.lazy="card.title" required />
+                </div>
+                <div class="input">
+                    <input type="content" placeholder="Content" v-model.lazy="card.title" required />
+                </div>
+            </div>
         </form>
         <div class="cardPreview">
             <h3>Preview Card</h3>
@@ -13,6 +17,7 @@
             <p>Card Content:</p>
             <p>{{ card.content }}</p>
         </div>
+        <button>Publish</button>
     </div>
 </template>
 
@@ -58,4 +63,53 @@ input[type="text"], textarea{
 h3{
     margin-top: .625rem
 }
+.form-wrap {
+    overflow: hidden;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+    width: 100%;
+}
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+h2 {
+    text-align: center;
+    font-size: 3.2rem;
+    color: #000000;
+    margin-bottom: 4rem;
+}
+.inputs {
+    width: 100%;
+    max-width: 35rem;
+}
+
+.input {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+input {
+    width: 100%;
+    border: none;
+    background-color: #FFFFFF;
+    padding: 0.4rem 0.4rem 0.4rem 3rem;
+    height: 5rem;
+}
+
+body {
+    background-size:cover;
+    background-image: url("../assets/notstolenbtw.jpg");
+}
+
 </style>
