@@ -34,7 +34,6 @@ export default {
 
 <style>
 body {
-    background-size: cover;
     background-image: url("../assets/runeterra.png");
 }
 </style>

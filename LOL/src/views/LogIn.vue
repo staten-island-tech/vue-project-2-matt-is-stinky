@@ -46,52 +46,8 @@ export default {
 }
 </script>
 <style>
-.form-wrap {
-    overflow: hidden;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-self: center;
-    margin: 0 auto;
-    width: 100%;
-}
-form {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-}
-
-h2 {
-    text-align: center;
-    font-size: 3.2rem;
-    color: #000000;
-    margin-bottom: 4rem;
-}
-.inputs {
-    width: 100%;
-    max-width: 35rem;
-}
-
-.input {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0.8rem;
-}
-input {
-    width: 100%;
-    border: none;
-    background-color: #FFFFFF;
-    padding: 0.4rem 0.4rem 0.4rem 3rem;
-    height: 5rem;
-}
 
 body {
-    background-size: cover;
     background-image: url("../assets/notstolenbtw.jpg");
 }
 </style>
