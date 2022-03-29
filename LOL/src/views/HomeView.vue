@@ -1,7 +1,7 @@
 <template>
   <div class="post-card-wrap">
       <div class="blog-cards">
-        <SomeCards v-for="(post, index) in Posts" :key="index"/>
+        <PostCard :post="post" v-for="(post, index) in Posts" :key=index />
       </div>
     </div>
 </template>
@@ -9,27 +9,33 @@
 <script>
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
-import SomeCards from '../components/PostCard.vue'
+import PostCard from '../components/PostCard'
 export default {
   components:{
-    SomeCards
+    PostCard
   },
   data(){
-    return {
+    return {   
       Posts: [
         {
-          title: "test",
-          PostContent: "test",
+          name: "Yasuo",
+          PostContent: "Kinda cool, has a brother, killed him tho :/",
           PostImage: "test",
-          PostDate: "test",   
+          PostDate: "date",   
         },
         {
-          title: "test2",
-          PostContent: "test2",
+          name: "irelia",
+          PostContent: "Super cringe, not a wife, ionian menace,",
           PostImage: "test2",
-          PostDate: "test",
-        }
-      ]
+          PostDate: "date",
+        },
+        {
+          name: "sett",
+          PostContent: "Super awesome, mafiaboss, can do situps, ionian gigachad,",
+          PostImage: "test3",
+          PostDate: "date",
+        },
+      ]   
     }
   },
   setup() {

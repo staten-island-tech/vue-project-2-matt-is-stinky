@@ -1,22 +1,31 @@
 <template>
-
   <div class="card-post">
-      <h3> hey </h3>
+
+      <div class="card-wrapper">
+      <h2> {{post.name}} </h2>
+      <h3> {{post.PostDate}} </h3>
+      <!-- <p> {{post.PostContent}} </p> -->
+      </div>
       </div>
 </template>
 
 <script>
 export default {
-name: "SomeCards",
+name: "PostCard",
 props: ["post"]
 }
 </script>
 
 <style>
-.h3{
-    color: black;
+h2{
+    font-size: 2.5rem;
 }
-
+h3{
+    font-size: 1.5rem;
+}
+p{
+    font-size: 1.23rem;
+}
 .card-post{
     width: 30%
 }
