@@ -35,6 +35,12 @@ export default {
           PostImage: "test3",
           PostDate: "date",
         },
+        {
+          name: "talon",
+          PostContent: "images/assets/sett.jpg",
+          PostImage: "test3",
+          PostDate: "date", 
+        },
       ]   
     }
   },
@@ -60,13 +66,12 @@ body {
   color: black;
 }
 .post-card-wrap {
-  position: relative;
-  padding: 5rem 1rem;
+  flex-wrap: wrap;
   background-color: #f1f1f1;
 }
 .blog-cards{
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 </style>
