@@ -4,7 +4,7 @@
       <div class="card-wrapper">
       <h2> {{post.name}} </h2>
       <h3> {{post.PostDate}} </h3>
-      <img class="image" src="">
+      <img src={require}>
       </div>
       </div>
 </template>

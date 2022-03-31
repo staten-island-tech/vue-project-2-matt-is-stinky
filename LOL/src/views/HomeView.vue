@@ -20,24 +20,24 @@ export default {
         {
           name: "Yasuo",
           PostContent: "Kinda cool, has a brother, killed him tho :/",
-          PostImage: "test",
+          PostImage: "yasuo",
           PostDate: "date",   
         },
         {
           name: "irelia",
           PostContent: "Super cringe, not a wife, ionian menace,",
-          PostImage: "test2",
+          PostImage: "irelia",
           PostDate: "date",
         },
         {
           name: "sett",
           PostContent: "Super awesome, mafiaboss, can do situps, ionian gigachad,",
-          PostImage: "test3",
+          PostImage: 'sett',
           PostDate: "date",
         },
         {
           name: "talon",
-          PostContent: "images/assets/sett.jpg",
+          PostContent: "talon",
           PostImage: "test3",
           PostDate: "date", 
         },
