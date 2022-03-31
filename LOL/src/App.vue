@@ -1,15 +1,15 @@
 <template>
 <div class="container">
- <Navbar2/>
+ <Navbar/>
 </div>
   <router-view/>
 </template>
 
 <script>
-import Navbar2 from './components/NavBar2'
+import Navbar from './components/NavBar'
 export default {
   components: {
-     Navbar2, 
+     Navbar, 
   }
 }
 </script>

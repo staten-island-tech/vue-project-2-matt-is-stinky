@@ -69,3 +69,7 @@ input {
   padding: 0.4rem 0.4rem 0.4rem 3rem;
   height: 5rem;
 }
+
+button {
+  background: red;
+}
