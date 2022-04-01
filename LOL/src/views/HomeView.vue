@@ -1,5 +1,8 @@
 <template>
-<div>
+<div class="main">
+  <div class="inputs">
+    <input type="text" id="SearchBar" placeholder="SEARCH FOR CHAMPION">
+    </div>
   <div v-for="Champion in Champions" :key="Champion.id">
     <h3>{{Champion.name}}</h3>
     <div class="icons" v-if="user">
@@ -29,10 +32,19 @@ export default {
       user: computed(() => store.state.user)
     }
   },
+  computed: {
+        searchPosts: function() {
+            return this.Posts.filter((Post) => {
+                return Post.name.match(this.search);
+            })
+        }
+    }
 }
 </script>
 
 <style>
+
+
 body {
     background-image: url("../assets/runeterra.png");
 }
