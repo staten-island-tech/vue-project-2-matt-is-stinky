@@ -1,8 +1,9 @@
 <template>
   <div class="post-card-wrap">
       <div class="blog-cards">
-        <PostCard :post="post" v-for="(post, index) in Posts" :key=index />
+        <PostCard  v-for="post in Posts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
       </div>
+
     </div>
 </template>
 
@@ -20,25 +21,25 @@ export default {
         {
           name: "Yasuo",
           PostContent: "Kinda cool, has a brother, killed him tho :/",
-          PostImage: "yasuo",
+          PostImage: "../assets/images/yasuo.jpg",
           PostDate: "date",   
         },
         {
           name: "irelia",
           PostContent: "Super cringe, not a wife, ionian menace,",
-          PostImage: "irelia",
+          PostImage: "../assets/images/irelia.jpg",
           PostDate: "date",
         },
         {
           name: "sett",
           PostContent: "Super awesome, mafiaboss, can do situps, ionian gigachad,",
-          PostImage: 'sett',
+          PostImage: "../assets/images/sett.jpg",
           PostDate: "date",
         },
         {
           name: "talon",
           PostContent: "talon",
-          PostImage: "test3",
+          PostImage: "../assets/images/talon.jpg",
           PostDate: "date", 
         },
       ]   

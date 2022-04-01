@@ -2,9 +2,9 @@
   <div class="card-post">
 
       <div class="card-wrapper">
-      <h2> {{post.name}} </h2>
-      <h3> {{post.PostDate}} </h3>
-      <img src={require}>
+      <h2> {{ name }} </h2>
+      <h3> {{ date }} </h3>
+      <img src="../assets/images/yasuo.jpg">
       </div>
       </div>
 </template>
@@ -12,7 +12,11 @@
 <script>
 export default {
 name: "PostCard",
-props: ["post"]
+props: {
+    name:String,
+    image:String,
+    date:String,
+}
 }
 </script>
 
