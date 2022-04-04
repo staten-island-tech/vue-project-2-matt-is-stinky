@@ -9,15 +9,52 @@
       <span class="material-icons">thumb_up</span>
       <span class="material-icons">thumb_down</span>
     </div>
+  <div class="post-card-wrap">
+      <div class="blog-cards">
+        <PostCard  v-for="post in Posts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
+      </div>
+
     </div>
-  </div>
 </template>
 
 <script>
 import { ref, computed } from 'vue'
 import { useStore } from 'vuex'
-
+import PostCard from '../components/PostCard'
 export default {
+  components:{
+    PostCard
+  },
+  data(){
+    return {   
+      Posts: [
+        {
+          name: "Yasuo",
+          PostContent: "Kinda cool, has a brother, killed him tho :/",
+          PostImage: "../assets/images/yasuo.jpg",
+          PostDate: "date",   
+        },
+        {
+          name: "irelia",
+          PostContent: "Super cringe, not a wife, ionian menace,",
+          PostImage: "../assets/images/irelia.jpg",
+          PostDate: "date",
+        },
+        {
+          name: "sett",
+          PostContent: "Super awesome, mafiaboss, can do situps, ionian gigachad,",
+          PostImage: "../assets/images/sett.jpg",
+          PostDate: "date",
+        },
+        {
+          name: "talon",
+          PostContent: "talon",
+          PostImage: "../assets/images/talon.jpg",
+          PostDate: "date", 
+        },
+      ]   
+    }
+  },
   setup() {
     const Champions = ref([
       { name: 'thing 1', id: 1},
@@ -47,5 +84,14 @@ export default {
 
 body {
     background-image: url("../assets/runeterra.png");
+}
+.post-card-wrap {
+  flex-wrap: wrap;
+  background-color: #f1f1f1;
+}
+.blog-cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 </style>
