@@ -1,20 +1,12 @@
 <template>
 <div class="main">
-  <div class="inputs">
-    <input type="text" id="SearchBar" placeholder="SEARCH FOR CHAMPION">
-    </div>
-  <div v-for="Champion in Champions" :key="Champion.id">
-    <h3>{{Champion.name}}</h3>
-    <div class="icons" v-if="user">
-      <span class="material-icons">thumb_up</span>
-      <span class="material-icons">thumb_down</span>
-    </div>
+  <input class="searchBar" type="text" v-model="search" placeholder="SEARCH FOR CHAMPION">
   <div class="post-card-wrap">
       <div class="blog-cards">
-        <PostCard  v-for="post in Posts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
+        <PostCard  v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
       </div>
-
     </div>
+  </div>
 </template>
 
 <script>
@@ -23,7 +15,7 @@ import { useStore } from 'vuex'
 import PostCard from '../components/PostCard'
 export default {
   components:{
-    PostCard
+    PostCard,
   },
   data(){
     return {   
@@ -52,7 +44,8 @@ export default {
           PostImage: "../assets/images/talon.jpg",
           PostDate: "date", 
         },
-      ]   
+      ],  
+      search: '' 
     }
   },
   setup() {
@@ -80,18 +73,22 @@ export default {
 </script>
 
 <style>
-
-
 body {
     background-image: url("../assets/runeterra.png");
 }
 .post-card-wrap {
   flex-wrap: wrap;
-  background-color: #f1f1f1;
 }
 .blog-cards{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+.searchBar {
+  width: 77rem;
+  height: 5rem;
+  background: #000000;
+  border-radius: 20rem;
+  color: white;
 }
 </style>

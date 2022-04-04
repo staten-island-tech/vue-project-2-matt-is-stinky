@@ -7,14 +7,9 @@
                     <input type="text" placeholder="Title" v-model.lazy="card.title" required />
                 </div>
                 <div class="input">
-                    <input type="content" placeholder="Content" v-model.lazy="card.title" required />
+                    <textarea v-model.lazy="card.content"/>
                 </div>
             </div>
-            <label>Title:</label>
-            <input type="text" v-model.lazy="card.title" required />
-            <label>Content:</label> 
-            <textarea v-model.lazy="card.content"></textarea>
-            <button >submit</button>
         </form>
         <div class="cardPreview">
             <h3>Preview Card</h3>
@@ -29,7 +24,7 @@
 <script>
 export default {
     name: "AddCard",
-    data(){
+    data() {
         return{
             card:{
             title:"",
@@ -51,31 +46,9 @@ export default {
     margin: 1.25rem auto;
     max-width: 31.25rem;
 }
-label{
-    display: block;
-    margin: 1.25rem 0 .625rem
-}
-input[type="text"], textarea{
-    display: block;
-    width: 100%;
-    padding: .5rem;
-}
-.preview{
-    padding: .625rem 1.25rem;
-    border: .1rem dotted #ccc;
-    margin: 2rem 0
-}
+
 h3{
     margin-top: .625rem
-}
-.form-wrap {
-    overflow: hidden;
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-self: center;
-    margin: 0 auto;
-    width: 100%;
 }
 form {
     position: relative;
@@ -104,13 +77,7 @@ h2 {
     align-items: center;
     margin-bottom: 0.8rem;
 }
-input {
-    width: 100%;
-    border: none;
-    background-color: #FFFFFF;
-    padding: 0.4rem 0.4rem 0.4rem 3rem;
-    height: 5rem;
-}
+
 
 body {
     background-size:cover;
