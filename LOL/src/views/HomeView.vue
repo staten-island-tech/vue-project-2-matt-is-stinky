@@ -86,7 +86,7 @@ body {
 }
 .searchBar {
   width: 77rem;
-  height: 5rem;
+  height: 4rem;
   background: #000000;
   border-radius: 20rem;
   color: white;

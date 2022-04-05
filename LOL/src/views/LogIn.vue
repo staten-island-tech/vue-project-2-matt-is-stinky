@@ -1,4 +1,5 @@
 <template>
+<div class="cardContainer">
    <div class="form-warp">
        <form class="login" @submit.prevent="handleSubmit">
            <h2>Log In</h2>
@@ -13,6 +14,7 @@
            <button>Sign In</button>
             <div v-if="error">Username or password is incorrect.</div>
        </form>
+   </div>
    </div>
 </template>
 <script>

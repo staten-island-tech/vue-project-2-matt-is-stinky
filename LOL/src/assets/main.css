@@ -63,13 +63,15 @@ h2 {
   align-items: center;
   margin-bottom: 0.8rem;
 }
+
 input {
   width: 100%;
   border: none;
   background-color: #ffffff;
-  padding: 0.4rem 0.4rem 0.4rem 3rem;
+  padding: 0.4rem 0.4rem 0.4rem 4rem;
   height: 2.5rem;
   border-radius: 20rem;
+  outline: none;
 }
 
 button {

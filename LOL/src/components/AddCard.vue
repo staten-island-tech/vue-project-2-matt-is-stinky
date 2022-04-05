@@ -4,10 +4,10 @@
         <form>
             <div class="inputs">
                 <div class="input">
-                    <input type="text" placeholder="Title" v-model.lazy="card.title" required />
+                    <input class="title" type="text" placeholder="Title" v-model.lazy="card.title" required />
                 </div>
                 <div class="input">
-                    <textarea v-model.lazy="card.content"/>
+                    <textarea class="contentData" placeholder="Content" v-model.lazy="card.content"/>
                 </div>
             </div>
         </form>
@@ -65,23 +65,30 @@ h2 {
     color: #000000;
     margin-bottom: 4rem;
 }
-.inputs {
-    width: 100%;
-    max-width: 35rem;
-}
-
-.input {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0.8rem;
-}
-
 
 body {
-    background-size:cover;
     background-image: url("../assets/notstolenbtw.jpg");
 }
 
+.contentData {
+    background-color: white;
+    color: gray;
+    padding: 1rem;
+    border-radius: 4rem;
+    border: 0.2rem solid transparent;
+    outline: none;
+    font-weight: 500;
+    line-height: 1.4;
+    width: 500rem
+}
+
+.title {
+  width: 100%;
+  border: none;
+  background-color: #ffffff;
+  padding: 0.4rem 0.4rem 0.4rem 16.5rem;
+  height: 2.5rem;
+  border-radius: 20rem;
+  outline: none;
+}
 </style>
