@@ -74,7 +74,7 @@ export default {
 
 <style>
 body {
-    background-image: url("../assets/runeterra.png");
+    background-image: url("../assets/notstolenbtw.jpg");
 }
 .post-card-wrap {
   flex-wrap: wrap;
@@ -90,5 +90,15 @@ body {
   background: #000000;
   border-radius: 20rem;
   color: white;
+  font-family: "Trade Winds", cursive;
+  border: none;
+  background: black;
+  transition: ease-out 0.3s;
+  outline: none;
+}
+
+.searchBar:hover {
+  box-shadow: inset 77rem 0 0 0 red;
+  cursor: pointer;
 }
 </style>
