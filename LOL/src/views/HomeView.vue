@@ -85,7 +85,7 @@ body {
   justify-content: space-around;
 }
 .searchBar {
-  width: 77rem;
+  width: 50rem;
   height: 4rem;
   background: #000000;
   border-radius: 20rem;
@@ -93,12 +93,12 @@ body {
   font-family: "Trade Winds", cursive;
   border: none;
   background: black;
-  transition: ease-out 0.3s;
+  transition: ease-out 1s;
   outline: none;
 }
 
 .searchBar:hover {
-  box-shadow: inset 77rem 0 0 0 red;
+  box-shadow: inset 77rem 0 0 0 rgb(39, 39, 39);
   cursor: pointer;
 }
 </style>
