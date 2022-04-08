@@ -11,7 +11,7 @@
                 </div>
             </div>
             <button>Register</button>
-        <div v-if="error">{{ error }}</div>
+        <h3 class="errorMessage" v-if="error">The email address is already in use!</h3>
     </form>
     </div>
 </template>
@@ -50,7 +50,5 @@ export default {
 
 <style>
 
-body {
-    background-image: url("../assets/notstolenbtw.jpg");
-}
+
 </style>

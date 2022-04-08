@@ -7,14 +7,16 @@ body,
   padding: 0;
   box-sizing: border-box;
   background: no-repeat;
+  font-family: "Trade Winds", cursive;
 }
 
 body {
-  font-family: "Trade Winds", cursive;
   color: white;
   margin: 0;
   padding: 0;
+  background-image: url("../assets/notstolenbtw.jpg");
 }
+
 img {
   max-width: 15rem;
 }
@@ -96,4 +98,33 @@ button:hover {
 }
 
 .cardContainer {
+}
+
+.errorMessage {
+  color: red;
+  animation: 1s shake infinite alternate;
+}
+
+@keyframes shake {
+  0% {
+    transform: skewX(-15deg);
+  }
+  20% {
+    transform: skewX(15deg);
+  }
+  40% {
+    transform: skewX(-15deg);
+  }
+  60% {
+    transform: skewX(15deg);
+  }
+  80% {
+    transform: skewX(-15deg);
+  }
+  100% {
+    transform: skewX(15deg);
+  }
+}
+
+@keyframes cardCover {
 }

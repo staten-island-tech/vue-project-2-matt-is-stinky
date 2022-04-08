@@ -12,7 +12,7 @@
                </div>
            </div>
            <button>Sign In</button>
-            <div v-if="error">Username or password is incorrect.</div>
+            <h3 class="errorMessage" v-if="error">Username or password is incorrect.</h3>
        </form>
    </div>
    </div>
@@ -48,8 +48,4 @@ export default {
 }
 </script>
 <style>
-
-body {
-    background-image: url("../assets/notstolenbtw.jpg");
-}
 </style>

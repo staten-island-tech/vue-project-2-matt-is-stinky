@@ -8,6 +8,7 @@
             <div v-if="user">
                 <span>Logged in as {{ user.email }}</span>
                 <button class="logoutButton" @click="handleClick">Logout</button>
+                <!-- <li><router-link class="links" to "">Your Profile</router-link></li> -->
             </div>
             <div v-if="!user">
                 <li><router-link class="links" to="/Log-In">Login</router-link></li>

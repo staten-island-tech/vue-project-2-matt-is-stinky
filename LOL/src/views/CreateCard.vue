@@ -66,20 +66,17 @@ h2 {
     margin-bottom: 4rem;
 }
 
-body {
-    background-image: url("../assets/notstolenbtw.jpg");
-}
-
 .contentData {
     background-color: white;
     color: gray;
     padding: 1rem;
-    border-radius: 4rem;
+    border-radius: 2rem;
     border: 0.2rem solid transparent;
     outline: none;
     font-weight: 500;
     line-height: 1.4;
     width: 500rem;
+    height: 20rem;
 }
 
 </style>

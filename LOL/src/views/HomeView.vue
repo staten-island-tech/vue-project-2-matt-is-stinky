@@ -73,9 +73,6 @@ export default {
 </script>
 
 <style>
-body {
-    background-image: url("../assets/notstolenbtw.jpg");
-}
 .post-card-wrap {
   flex-wrap: wrap;
 }
@@ -84,13 +81,17 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.blog-cards:hover {
+  animation: 1s cardCover infinite; 
+}
+
 .searchBar {
   width: 50rem;
   height: 4rem;
   background: #000000;
   border-radius: 20rem;
   color: white;
-  font-family: "Trade Winds", cursive;
   border: none;
   background: black;
   transition: ease-out 1s;
