@@ -36,11 +36,25 @@ const store = createStore({
         PostDate: "date",
       },
     ],
+    blogHTML: "Write your blog title here...",
+    blogTitle: "",
+    blogPhotoName: "",
+    blogPhotoURL: null,
     editPost: null,
     user: null,
     authIsReady: false,
   },
   mutations: {
+    newBlogPost(state, payload) {
+      state.blogHTML = payload;
+      console.log(state.blogHTML);
+    },
+    updateBlogTitle() {},
+    updateBlogHTML() {},
+    newBlogTitle(state, payload) {
+      state.blogTitle = payload;
+      console.log(state.blogTitle);
+    },
     setUser(state, payload) {
       state.user = payload;
       console.log("user state changed:", state.user);

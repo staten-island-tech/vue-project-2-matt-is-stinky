@@ -3,24 +3,24 @@
         <h2 class="header-text">Create a New Card</h2>
         <form>
             <label>Title:</label>
-            <input type="text" placeholder="Enter Blog Title" v-model.lazy="card.title" required />
+            <input type="text" placeholder="Enter Blog Title" v-model="blogTitle"/>
             <label>Content:</label> 
-            <textarea placeholder="Enter Blog Content" v-model.lazy="card.content"></textarea>
-            <button >submit</button>
+            <textarea placeholder="Enter Blog Content" v-model="blogHTMl"></textarea>
+            <button @click = "uploadBlog">submit</button>
         </form>
-        <div class="cardPreview">
+        <!-- <div class="cardPreview">
             <h3>Preview Card</h3>
             <p>Card Title: {{ card.title }}</p>
             <p>Card Content:</p>
             <p>{{ card.content }}</p>
-        </div>
+        </div> -->
     </div>
 </template>
 
 <script>
-import firebase from "firebase/compat/app"
+// import firebase from "firebase/compat/app"
 import "firebase/compat/storage"
-import db from "../firebase/config"
+// import db from "../firebase/config"
 
 export default {
     name: "AddCard",
@@ -29,11 +29,32 @@ export default {
             card:{
             title:"",
             content:"", 
+            error: null,
+            errorMsg: null,
+
             }
         }
     },
     methods:{
         
+    },
+    computed:{
+    blogTitle: {
+        get() {
+            return this.$store.state.blogTitle
+        },
+        set(payload) {
+            this.$store.commit("updateBlogTitle", payload)
+        }
+    },
+    blogHTML: {
+        get() {
+            return this.$store.state.blogHTML
+        },
+        set(payload) {
+            this.$store.commit("updateBlogHTML", payload)
+        }
+    }
     }
 }
 </script>
