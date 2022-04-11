@@ -1,19 +1,18 @@
 <template>
-<div class="everything">
-<div class="signupBackground">
+<div class="form-warp">
     <form @submit.prevent="handleSubmit">        
-    <h3>Sign Up</h3>
-
-    <label for="email">Email:</label>
-    <input type="email" name="email" v-model="email" required>
-    
-    <label for="email">Password:</label>
-    <input type="password" name="password" v-model="password" required>
-
-    <button>Sign Up</button>
-    <div v-if="error">{{ error }}</div>
+        <h2>Sign Up</h2>
+            <div class="inputs">
+                <div class="input">
+                    <input type="text" placeholder="Email" v-model="email" required />
+                </div>
+                <div class="input">
+                    <input type="password" placeholder="Password" v-model="password" required />
+                </div>
+            </div>
+            <button>Register</button>
+        <h3 class="errorMessage" v-if="error">The email address is already in use!</h3>
     </form>
-    </div>
     </div>
 </template>
 
@@ -24,6 +23,7 @@ import { useRouter } from 'vue-router'
 
 export default {
     setup() {
+        const username = ref('')
         const email = ref('')
         const password = ref('')
         const error = ref(null)
@@ -34,6 +34,7 @@ export default {
         const handleSubmit = async () => {
             try {
                 await store.dispatch('signup', {
+                    username: username.value,
                     email: email.value,
                     password: password.value
                 })
@@ -42,30 +43,12 @@ export default {
                 error.value = err.message
             }
         }
-        return { handleSubmit, email, password, error }
+        return { handleSubmit, username, email, password, error }
     }
 }
 </script>
 
 <style>
-body {
-    color: white;
-}
 
-.signupBackground {
-    background-color: black;
-    height: 40rem;
-    width: 28rem;
-    border-radius: 6rem;
-    display: flex;
-    flex-direction: column;
-}
-.everything{
-    width: 100%; 
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
+
 </style>

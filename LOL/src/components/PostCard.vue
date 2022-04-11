@@ -1,12 +1,11 @@
 <template>
   <div class="card-post">
-
       <div class="card-wrapper">
-      <h2> {{ name }} </h2>
-      <h3> {{ date }} </h3>
-      <img src="../assets/images/yasuo.jpg">
+            <h2> {{ name }} </h2>
+            <h3> {{ date }} </h3>
+            <img src="../assets/images/yasuo.jpg">
       </div>
-      </div>
+    </div>
 </template>
 
 <script>

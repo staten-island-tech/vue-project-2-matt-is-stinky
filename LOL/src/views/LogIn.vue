@@ -1,20 +1,21 @@
 <template>
-    <div class="everything">
-     <div class="loginBackground"> 
-      <form @submit.prevent="handleSubmit">       
-     <h3>Log In</h3>
-
-     <label for="email">Email:</label>
-     <input type="email" name="email" v-model="email"    required>
-
-       <label for="email">Password:</label>
-       <input type="password" name="password"  v-model="password" required>
-
-       <button>Log In</button>
-      <div v-if="error">Wrong Password!</div>
-     </form>
-      </div>
-    </div>
+<div class="cardContainer">
+   <div class="form-warp">
+       <form class="login" @submit.prevent="handleSubmit">
+           <h2>Log In</h2>
+           <div class="inputs">
+               <div class="input">
+                   <input type="text" placeholder="Email" v-model="email" required />
+               </div>
+               <div class="input">
+                   <input type="password" placeholder="Password" v-model="password" required />
+               </div>
+           </div>
+           <button>Sign In</button>
+            <h3 class="errorMessage" v-if="error">Username or password is incorrect.</h3>
+       </form>
+   </div>
+   </div>
 </template>
 <script>
 import { ref } from 'vue'
@@ -47,21 +48,4 @@ export default {
 }
 </script>
 <style>
-body {
-    color: white;
-}
-.loginBackground {
-    background-color: black;
-    height: 40rem;
-    width: 28rem;
-    border-radius: 6rem;
-}
-.everything{
-    width: 100%; 
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
 </style>

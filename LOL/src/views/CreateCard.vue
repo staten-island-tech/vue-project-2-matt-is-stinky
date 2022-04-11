@@ -67,6 +67,43 @@ export default {
     margin: 1.25rem auto;
     max-width: 31.25rem;
 }
+
+h3{
+    margin-top: .625rem
+}
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+h2 {
+    text-align: center;
+    font-size: 3.2rem;
+    color: #000000;
+    margin-bottom: 4rem;
+}
+.contentData {
+    background-color: white;
+    color: gray;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 0.2rem solid transparent;
+    outline: none;
+    font-weight: 500;
+    line-height: 1.4;
+    width: 500rem;
+    height: 20rem;
+}
+.add-card *{
+    box-sizing: border-box;
+}
+.add-card{
+    margin: 1.25rem auto;
+    max-width: 31.25rem;
+}
 label{
     display: block;
     margin: 1.25rem 0 .625rem

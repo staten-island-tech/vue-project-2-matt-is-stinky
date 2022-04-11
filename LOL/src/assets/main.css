@@ -1,19 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap");
+
 html,
 body,
 * {
-  font-size: 10px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: no-repeat;
+  font-family: "Trade Winds", cursive;
+  background-image: url("../assets/notstolenbtw.jpg");
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap");
 
 body {
-  font-family: "Trade Winds", cursive;
-  color: black;
-  background: "../assets/runeterra.png";
+  color: white;
+  margin: 0;
+  padding: 0;
 }
+
 img {
   max-width: 15rem;
 }
@@ -26,43 +29,102 @@ img {
   text-align: right;
 }
 
-nav {
+.form-wrap {
+  overflow: hidden;
   display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-self: center;
+  margin: 0 auto;
+  width: 100%;
+}
+form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
-nav h1 {
-  margin-right: auto;
+h2 {
+  text-align: center;
+  font-size: 3.2rem;
+  color: #000000;
+  margin-bottom: 4rem;
+}
+.inputs {
+  width: 100%;
+  max-width: 35rem;
 }
 
-nav a,
-nav button,
-nav span {
-  margin-left: 2rem;
-  text-transform: uppercase;
+.input {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.8rem;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav span {
-  color: #white;
+input {
+  width: 100%;
+  border: none;
+  background-color: #ffffff;
+  padding: 0.4rem 0.4rem 0.4rem 1.6rem;
+  height: 2.5rem;
+  border-radius: 20rem;
+  outline: none;
 }
 
 button {
-  background: red;
-  border: 0;
-  padding: 1rem 1rem;
-  border-radius: 2rem;
-  color: #fff;
+  font-family: "Trade Winds", cursive;
+  width: 10rem;
+  height: 2.5rem;
+  border: none;
+  background: black;
+  border-radius: 0.4rem;
+  transition: ease-out 0.3s;
+  outline: none;
+}
+
+button:hover {
+  box-shadow: inset 30rem 0 0 0 red;
   cursor: pointer;
 }
 
-nav a.router-link-exact-active {
-  background: red;
-  padding: 1rem 1rem;
-  border-radius: 2rem;
+.opacity {
+  background: #000000;
+  opacity: 0.55;
+}
+
+.cardContainer {
+}
+
+.errorMessage {
+  color: red;
+  animation: 1s shake infinite alternate;
+}
+
+@keyframes shake {
+  0% {
+    transform: skewX(-15deg);
+  }
+  20% {
+    transform: skewX(15deg);
+  }
+  40% {
+    transform: skewX(-15deg);
+  }
+  60% {
+    transform: skewX(15deg);
+  }
+  80% {
+    transform: skewX(-15deg);
+  }
+  100% {
+    transform: skewX(15deg);
+  }
+}
+
+@keyframes cardCover {
 }

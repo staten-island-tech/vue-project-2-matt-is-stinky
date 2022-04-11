@@ -1,12 +1,13 @@
 <template>
-<div>
+<div class="main">
+  <input class="searchBar" type="text" v-model="search" placeholder="SEARCH FOR CHAMPION">
   <div class="post-card-wrap">
     <div class="toggle-edit">
           <span class="span">Toggle Editing Posts</span>
           <input type="checkbox"  v-model="editPost">
         </div>
       <div class="blog-cards">
-        <PostCard  v-for="post in Posts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
+        <PostCard  v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
       </div>
     </div>
     </div>
@@ -18,7 +19,7 @@ import { useStore } from 'vuex'
 import PostCard from '../components/PostCard'
 export default {
   components:{
-    PostCard
+    PostCard,
   },
   data(){
     return {    
@@ -36,6 +37,11 @@ export default {
         this.$store.commit("toggleEditPost", payload);
       },
     },
+    searchPosts: function() {
+            return this.Posts.filter((Post) => {
+                return Post.name.match(this.search);
+            })
+        }
   },
   setup() {
     const Champions = ref([
@@ -69,5 +75,25 @@ body {
   position: absolute;
   margin-top: .16rem;
   padding:.1rem;
+}
+.blog-cards:hover {
+  animation: 1s cardCover infinite; 
+}
+
+.searchBar {
+  width: 50rem;
+  height: 4rem;
+  background: #000000;
+  border-radius: 20rem;
+  color: white;
+  border: none;
+  background: black;
+  transition: ease-out 1s;
+  outline: none;
+}
+
+.searchBar:hover {
+  box-shadow: inset 77rem 0 0 0 rgb(39, 39, 39);
+  cursor: pointer;
 }
 </style>
