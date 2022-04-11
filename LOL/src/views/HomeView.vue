@@ -1,12 +1,7 @@
 <template>
 <div class="main">
   <input class="searchBar" type="text" v-model="search" placeholder="SEARCH FOR CHAMPION">
-<div>
   <div class="post-card-wrap">
-    <div class="toggle-edit">
-          <span class="span">Toggle Editing Posts</span>
-          <input type="checkbox"  v-model="editPost">
-        </div>
       <div class="blog-cards">
         <PostCard  v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
       </div>
@@ -23,21 +18,35 @@ export default {
     PostCard,
   },
   data(){
-    return {    
+    return {   
+      Posts: [
+        {
+          name: "Yasuo",
+          PostContent: "Kinda cool, has a brother, killed him tho :/",
+          PostImage: "../assets/images/yasuo.jpg",
+          PostDate: "date",   
+        },
+        {
+          name: "irelia",
+          PostContent: "Super cringe, not a wife, ionian menace,",
+          PostImage: "../assets/images/irelia.jpg",
+          PostDate: "date",
+        },
+        {
+          name: "sett",
+          PostContent: "Super awesome, mafiaboss, can do situps, ionian gigachad,",
+          PostImage: "../assets/images/sett.jpg",
+          PostDate: "date",
+        },
+        {
+          name: "talon",
+          PostContent: "talon",
+          PostImage: "../assets/images/talon.jpg",
+          PostDate: "date", 
+        },
+      ],  
+      search: '' 
     }
-  },
-  computed: {
-    Posts() {
-      return this.$store.state.Posts
-    },
-    editPost:{
-      get() {
-        return this.$store.state.editPost
-      },
-      set(payload) {
-        this.$store.commit("toggleEditPost", payload);
-      },
-    },
   },
   setup() {
     const Champions = ref([
@@ -67,7 +76,6 @@ export default {
 .post-card-wrap {
   flex-wrap: wrap;
 }
-
 .blog-cards{
   display: flex;
   flex-wrap: wrap;
@@ -93,12 +101,5 @@ export default {
 .searchBar:hover {
   box-shadow: inset 77rem 0 0 0 rgb(39, 39, 39);
   cursor: pointer;
-}
-.toggle-edit {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  margin-top: .16rem;
-  padding:.1rem;
 }
 </style>

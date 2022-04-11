@@ -17,47 +17,23 @@
             <p>Card Content:</p>
             <p>{{ card.content }}</p>
         </div>
+        <button>Publish</button>
     </div>
 </template>
 
 <script>
-// import firebase from "firebase/compat/app"
-import "firebase/compat/storage"
-// import db from "../firebase/config"
-
 export default {
     name: "AddCard",
-    data(){
+    data() {
         return{
             card:{
             title:"",
             content:"", 
-            error: null,
-            errorMsg: null,
-
             }
         }
     },
     methods:{
         
-    },
-    computed:{
-    blogTitle: {
-        get() {
-            return this.$store.state.blogTitle
-        },
-        set(payload) {
-            this.$store.commit("updateBlogTitle", payload)
-        }
-    },
-    blogHTML: {
-        get() {
-            return this.$store.state.blogHTML
-        },
-        set(payload) {
-            this.$store.commit("updateBlogHTML", payload)
-        }
-    }
     }
 }
 </script>
@@ -70,25 +46,37 @@ export default {
     margin: 1.25rem auto;
     max-width: 31.25rem;
 }
-label{
-    display: block;
-    margin: 1.25rem 0 .625rem
-}
-input[type="text"], textarea{
-    display: block;
-    width: 100%;
-    padding: .5rem;
-}
-.preview{
-    padding: .625rem 1.25rem;
-    border: .1rem dotted #ccc;
-    margin: 2rem 0
-}
+
 h3{
-    margin-top: .625rem;
-    color: black
+    margin-top: .625rem
 }
-.header-text{
-    color: white
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
 }
+
+h2 {
+    text-align: center;
+    font-size: 3.2rem;
+    color: #000000;
+    margin-bottom: 4rem;
+}
+
+.contentData {
+    background-color: white;
+    color: gray;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 0.2rem solid transparent;
+    outline: none;
+    font-weight: 500;
+    line-height: 1.4;
+    width: 500rem;
+    height: 20rem;
+}
+
 </style>
