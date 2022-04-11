@@ -9,6 +9,9 @@
                 <div class="input">
                     <textarea class="contentData" placeholder="Content" v-model.lazy="card.content"/>
                 </div>
+                <div class="input">
+                    <input class="fileUpload" type="file" placeholder="Upload Image" required />
+                </div>
             </div>
         </form>
         <div class="cardPreview">
@@ -78,5 +81,9 @@ h2 {
     width: 500rem;
     height: 20rem;
 }
+/* 
+.fileUpload {
+    display: none;
+} */
 
 </style>
