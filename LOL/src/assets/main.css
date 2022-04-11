@@ -8,13 +8,13 @@ body,
   box-sizing: border-box;
   background: no-repeat;
   font-family: "Trade Winds", cursive;
-  background-image: url("../assets/notstolenbtw.jpg");
 }
 
 body {
   color: white;
   margin: 0;
   padding: 0;
+  background-image: url("../assets/notstolenbtw.jpg");
 }
 
 img {
@@ -91,6 +91,7 @@ button:hover {
   box-shadow: inset 30rem 0 0 0 red;
   cursor: pointer;
 }
+
 
 .opacity {
   background: #000000;

@@ -4,16 +4,17 @@
         <form>
             <label>Title:</label>
             <input type="text" placeholder="Enter Blog Title" v-model="blogTitle"/>
-            <label>Content:</label> 
-            <textarea placeholder="Enter Blog Content" v-model="blogHTMl"></textarea>
+            <label>Content:</label>          
+            <textarea v-model="blogHTML"></textarea>
+            <input type="file" placeholder="Choose Image">  
             <button @click = "uploadBlog">submit</button>
         </form>
-        <!-- <div class="cardPreview">
+         <!-- <div class="cardPreview">
             <h3>Preview Card</h3>
             <p>Card Title: {{ card.title }}</p>
             <p>Card Content:</p>
             <p>{{ card.content }}</p>
-        </div> -->
+        </div>  -->
     </div>
 </template>
 
@@ -52,7 +53,7 @@ export default {
             return this.$store.state.blogHTML
         },
         set(payload) {
-            this.$store.commit("updateBlogHTML", payload)
+            this.$store.commit("newBlogPost", payload)
         }
     }
     }
@@ -104,25 +105,5 @@ h2 {
     margin: 1.25rem auto;
     max-width: 31.25rem;
 }
-label{
-    display: block;
-    margin: 1.25rem 0 .625rem
-}
-input[type="text"], textarea{
-    display: block;
-    width: 100%;
-    padding: .5rem;
-}
-.preview{
-    padding: .625rem 1.25rem;
-    border: .1rem dotted #ccc;
-    margin: 2rem 0
-}
-h3{
-    margin-top: .625rem;
-    color: black
-}
-.header-text{
-    color: white
-}
+
 </style>

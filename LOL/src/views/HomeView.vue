@@ -2,7 +2,7 @@
 <div class="main">
   <input class="searchBar" type="text" v-model="search" placeholder="SEARCH FOR CHAMPION">
   <div class="post-card-wrap">
-    <div class="toggle-edit">
+    <div v-if="user" class="toggle-edit">
           <span class="span">Toggle Editing Posts</span>
           <input type="checkbox"  v-model="editPost">
         </div>
@@ -61,9 +61,7 @@ export default {
 </script>
 
 <style>
-body {
-  color: black;
-}
+
 .blog-cards{
   display: flex;
   flex-wrap: wrap;
