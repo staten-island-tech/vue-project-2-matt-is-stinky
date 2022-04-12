@@ -3,10 +3,12 @@
         <h2 class="header-text">Create a New Card</h2>
         <form>
             <label>Title:</label>
-            <input type="text" placeholder="Enter Blog Title" v-model="blogTitle"/>
+            <input type="text" v-model="blogTitle"/>
             <label>Content:</label>          
             <textarea v-model="blogHTML"></textarea>
-            <input type="file" placeholder="Choose Image">  
+            <label for="blog-photo">Upload Cover Photo</label>
+            <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg">
+            <span>File Chosen:{{ this.$store.state.blogPhotoName }}</span>  
             <button @click = "uploadBlog">submit</button>
         </form>
          <!-- <div class="cardPreview">
@@ -37,7 +39,11 @@ export default {
         }
     },
     methods:{
-        
+        fileChange() {
+            this.file = this.$refs.blogPhoto.files[0];
+            const fileName = this.file.name;
+            this.$store.commit("fileNameChange", fileName)
+        }
     },
     computed:{
     blogTitle: {
