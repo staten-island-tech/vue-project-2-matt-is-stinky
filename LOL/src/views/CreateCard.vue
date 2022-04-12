@@ -51,7 +51,7 @@ export default {
             return this.$store.state.blogTitle
         },
         set(payload) {
-            this.$store.commit("updateBlogTitle", payload)
+            this.$store.commit("newBlogTitle", payload)
         }
     },
     blogHTML: {

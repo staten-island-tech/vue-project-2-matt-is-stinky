@@ -49,8 +49,6 @@ const store = createStore({
       state.blogHTML = payload;
       console.log(state.blogHTML);
     },
-    updateBlogTitle() {},
-    updateBlogHTML() {},
     newBlogTitle(state, payload) {
       state.blogTitle = payload;
       console.log(state.blogTitle);

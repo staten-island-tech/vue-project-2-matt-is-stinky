@@ -4,10 +4,10 @@
   <div class="post-card-wrap">
     <div v-if="user" class="toggle-edit">
           <span class="span">Toggle Editing Posts</span>
-          <input type="checkbox"  v-model="editPost">
+          <input type="checkbox" v-model="editPost">
         </div>
       <div class="blog-cards">
-        <PostCard  v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
+        <PostCard v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
       </div>
     </div>
     </div>
@@ -22,7 +22,8 @@ export default {
     PostCard,
   },
   data(){
-    return {    
+    return {
+      search: "",    
     }
   },
   computed: {
@@ -38,10 +39,10 @@ export default {
       },
     },
     searchPosts: function() {
-            return this.Posts.filter((Post) => {
-                return Post.name.match(this.search);
-            })
-        }
+        return this.Posts.filter((Post) => {
+          return Post.name.match(this.search);
+      })
+    },
   },
   setup() {
     const Champions = ref([
