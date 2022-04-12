@@ -1,40 +1,38 @@
 <template>
     <div class="addCard">
-        <h2 class="header-text">Create a New Card</h2>
+        <h2>Create a New Card</h2>
         <form>
-            <label>Title:</label>
-            <input type="text" v-model="blogTitle"/>
-            <label>Content:</label>          
-            <textarea v-model="blogHTML"></textarea>
-            <label for="blog-photo">Upload Cover Photo</label>
-            <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg">
+            <div class="inputs">
+                <div class="input">
+                    <input class="title" type="text" v-model="blogTitle" placeholder="Title" />
+                </div>
+                <div class="input">
+                    <textarea class="contentData" v-model="blogHTML"/>
+                </div>
+                <div class="input">
+                   <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg">
             <span>File Chosen:{{ this.$store.state.blogPhotoName }}</span>  
-            <button @click = "uploadBlog">submit</button>
+                </div>
+            </div>
         </form>
-         <!-- <div class="cardPreview">
+        <!-- <div class="cardPreview">
             <h3>Preview Card</h3>
             <p>Card Title: {{ card.title }}</p>
             <p>Card Content:</p>
             <p>{{ card.content }}</p>
-        </div>  -->
+        </div> -->
+        <button>Publish</button>
     </div>
 </template>
 
 <script>
-// import firebase from "firebase/compat/app"
-import "firebase/compat/storage"
-// import db from "../firebase/config"
-
 export default {
     name: "AddCard",
-    data(){
+    data() {
         return{
             card:{
             title:"",
             content:"", 
-            error: null,
-            errorMsg: null,
-
             }
         }
     },
@@ -51,7 +49,7 @@ export default {
             return this.$store.state.blogTitle
         },
         set(payload) {
-            this.$store.commit("updateBlogTitle", payload)
+            this.$store.commit("newBlogTitle", payload)
         }
     },
     blogHTML: {
@@ -86,12 +84,14 @@ form {
     align-items: center;
     flex: 1;
 }
+
 h2 {
     text-align: center;
     font-size: 3.2rem;
     color: #000000;
     margin-bottom: 4rem;
 }
+
 .contentData {
     background-color: white;
     color: gray;
@@ -104,12 +104,9 @@ h2 {
     width: 500rem;
     height: 20rem;
 }
-.add-card *{
-    box-sizing: border-box;
-}
-.add-card{
-    margin: 1.25rem auto;
-    max-width: 31.25rem;
-}
+/* 
+.fileUpload {
+    display: none;
+} */
 
 </style>
