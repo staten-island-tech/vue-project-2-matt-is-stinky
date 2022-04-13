@@ -10,8 +10,7 @@
                     <textarea class="contentData" v-model="blogHTML"/>
                 </div>
                 <div class="input">
-                   <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg">
-            <span>File Chosen:{{ this.$store.state.blogPhotoName }}</span>  
+                   <input class="input-file" type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg"> 
                 </div>
             </div>
         </form>
@@ -21,11 +20,15 @@
             <p>Card Content:</p>
             <p>{{ card.content }}</p>
         </div> -->
-        <button>Publish</button>
+        <button @click="uploadBlog">Publish</button>
     </div>
 </template>
 
 <script>
+import "firebase/compat/firestore";
+//import db from "..firebase/config";
+import firebase from "firebase/app"
+
 export default {
     name: "AddCard",
     data() {
@@ -41,7 +44,20 @@ export default {
             this.file = this.$refs.blogPhoto.files[0];
             const fileName = this.file.name;
             this.$store.commit("fileNameChange", fileName)
-        }
+            this.$store.commit("createFileURL", URL.createObjectURL(this.file));
+        },
+        uploadBlog() {
+            if (this.blogTitle.length !== 0 && this.blogHTML.length !== 0) {
+                if (this.file) {
+                    const storageRef = firebase.storage().ref();
+                    const docRef = storageRef.child(`Storage/Post-Images/${this.$store.state.blogPhotoName}`);
+                    docRef.put(this.file)
+                }
+                return;
+            }
+            this.error = true;
+            this.errorMsg = "enter values";
+        },
     },
     computed:{
     blogTitle: {
@@ -104,9 +120,7 @@ h2 {
     width: 500rem;
     height: 20rem;
 }
-/* 
-.fileUpload {
-    display: none;
-} */
-
+.input-file {
+    color: black;
+}
 </style>
