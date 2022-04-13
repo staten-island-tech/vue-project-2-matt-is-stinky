@@ -45,11 +45,7 @@ export default {
     },
   },
   setup() {
-    const Champions = ref([
-      { name: 'thing 1', id: 1},
-      { name: 'thing 2', id: 2},
-      { name: 'thing 3', id: 3}
-    ])
+    const Champions = ref([])
 
     const store = useStore()
   

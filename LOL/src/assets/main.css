@@ -76,6 +76,11 @@ input {
   height: 2.5rem;
   border-radius: 20rem;
   outline: none;
+  transition: 1s;
+}
+
+input:hover {
+  background-color: black;
 }
 
 button {
@@ -109,6 +114,12 @@ button:hover {
 
 .card-post {
   background-image: url("../assets/images/yasuo.jpg");
+  transition: 1s;
+}
+
+.card-post:hover {
+  background: black;
+  opacity: 0.5;
 }
 
 @keyframes shake {
@@ -133,4 +144,16 @@ button:hover {
 }
 
 @keyframes cardCover {
+  0% {
+  }
+  20% {
+  }
+  40% {
+  }
+  60% {
+  }
+  80% {
+  }
+  100% {
+  }
 }
