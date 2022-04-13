@@ -14,7 +14,9 @@ body {
   color: white;
   margin: 0;
   padding: 0;
+  background: black;
   background-image: url("../assets/notstolenbtw.jpg");
+  background-size: cover;
 }
 
 img {
@@ -91,7 +93,6 @@ button:hover {
   box-shadow: inset 30rem 0 0 0 red;
   cursor: pointer;
 }
-
 
 .opacity {
   background: #000000;
