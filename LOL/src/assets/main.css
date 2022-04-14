@@ -80,7 +80,6 @@ input {
 }
 
 input:hover {
-  background-color: black;
 }
 
 button {
@@ -99,11 +98,6 @@ button:hover {
   cursor: pointer;
 }
 
-.opacity {
-  background: #000000;
-  opacity: 0.55;
-}
-
 .cardContainer {
 }
 
@@ -119,7 +113,6 @@ button:hover {
 
 .card-post:hover {
   background: black;
-  opacity: 0.5;
 }
 
 @keyframes shake {
