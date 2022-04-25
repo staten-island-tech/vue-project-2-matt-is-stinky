@@ -3,7 +3,6 @@
       <div class="card-wrapper">
             <h2> {{ name }} </h2>
             <h3> {{ date }} </h3>
-            <img src="../assets/images/yasuo.jpg">
       </div>
     </div>
 </template>
