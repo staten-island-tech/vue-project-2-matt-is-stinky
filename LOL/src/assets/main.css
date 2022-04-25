@@ -74,6 +74,10 @@ input {
   height: 2.5rem;
   border-radius: 20rem;
   outline: none;
+  transition: 1s;
+}
+
+input:hover {
 }
 
 button {
@@ -104,6 +108,15 @@ button:hover {
 .errorMessage {
   color: red;
   animation: 1s shake infinite alternate;
+}
+
+.card-post {
+  background-image: url("../assets/images/yasuo.jpg");
+  transition: 1s;
+}
+
+.card-post:hover {
+  background: black;
 }
 
 @keyframes shake {

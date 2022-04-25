@@ -1,6 +1,10 @@
 <template>
 <div class="main">
   <input class="searchBar" type="text" v-model="search" placeholder="SEARCH FOR CHAMPION">
+  <div v-if="user" class="toggle-edit">
+      <span class="span">Toggle Editing Posts</span>
+      <input class="checkbox" type="checkbox" v-model="editPost">
+  </div>
   <div class="post-card-wrap">
     <div v-if="user" class="toggle-edit">
           <span class="span">Toggle Editing Posts</span>
@@ -10,7 +14,7 @@
         <PostCard  v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
       </div>
     </div>
-    </div>
+</div>
 </template>
 
 <script>
@@ -66,6 +70,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-self: left;
 }
 .toggle-edit {
   display: flex;
