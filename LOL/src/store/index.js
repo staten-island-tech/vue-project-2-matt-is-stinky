@@ -36,7 +36,7 @@ const store = createStore({
         PostDate: "date",
       },
     ],
-    blogHTML: "Write your blog title here...",
+    blogHTML: "",
     blogTitle: "",
     blogPhotoName: "",
     blogPhotoURL: null,
@@ -49,11 +49,15 @@ const store = createStore({
       state.blogHTML = payload;
       console.log(state.blogHTML);
     },
-    updateBlogTitle() {},
-    updateBlogHTML() {},
     newBlogTitle(state, payload) {
       state.blogTitle = payload;
       console.log(state.blogTitle);
+    },
+    fileNameChange(state, payload) {
+      state.blogPhotoName = payload;
+    },
+    createFileURL(state, payload) {
+      state.blogPhotoURL = payload;
     },
     setUser(state, payload) {
       state.user = payload;

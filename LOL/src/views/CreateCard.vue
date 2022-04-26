@@ -7,10 +7,10 @@
                     <input class="title" type="text" v-model="blogTitle" placeholder="Title" />
                 </div>
                 <div class="input">
-                    <textarea class="contentData" v-model="blogHTML"/>
+                    <textarea class="contentData" v-model="blogHTML" placeholder="Content"/>
                 </div>
                 <div class="input">
-                   <input class="input-file" type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, .jpeg"> 
+                   <input class="input-file" type="file" ref="blogPhoto" id="blog-photo" accept=".png, .jpg, .jpeg" @change="fileChange"> 
                 </div>
             </div>
         </form>
@@ -26,8 +26,8 @@
 
 <script>
 import "firebase/compat/firestore";
-//import db from "..firebase/config";
-import firebase from "firebase/app"
+/* import db from "..firebase/config"; */
+import firebase from "firebase/compat/app";
 
 export default {
     name: "AddCard",
@@ -45,6 +45,7 @@ export default {
             const fileName = this.file.name;
             this.$store.commit("fileNameChange", fileName)
             this.$store.commit("createFileURL", URL.createObjectURL(this.file));
+            console.log()
         },
         uploadBlog() {
             if (this.blogTitle.length !== 0 && this.blogHTML.length !== 0) {
