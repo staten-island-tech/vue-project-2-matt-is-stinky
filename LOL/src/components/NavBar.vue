@@ -1,81 +1,107 @@
 <template>
-<header>
-        <img class="logo" src="../assets/ugly.png" alt="logo">
-        <nav>
-        <template v-if="authIsReady">
-            <ul class="navigationLinks">
-                <li><router-link class="links" to="/">Home</router-link></li>
-            <div v-if="user">
+  <header>
+    <img class="logo" src="../assets/ugly.png" alt="logo" />
+    <nav>
+      <template v-if="authIsReady">
+        <ul class="navigationLinks">
+          <li><router-link class="links" to="/">Home</router-link></li>
+          <li class="userSection" v-if="user">
+            <ul>
+              <li>
                 <span>Logged in as {{ user.email }}</span>
-                <button class="logoutButton" @click="handleClick">Logout</button>
-                <!-- <li><router-link class="links" to "">Your Profile</router-link></li> -->
-            </div>
-            <div v-if="!user">
-                <li><router-link class="links" to="/Log-In">Login</router-link></li>
-                <li><router-link class="links" to="/Sign-Up">Signup</router-link></li>
-                </div>
-                <li><router-link class="links" to="/Create-Card">Add Card</router-link></li>
+              </li>
+              <li>
+                <button class="logoutButton" @click="handleClick">
+                  Logout
+                </button>
+              </li>
+              <!-- <li><router-link class="links" to "">Your Profile</router-link></li> -->
+              <li>
+                <router-link class="links" to="/Create-Card"
+                  >Add Card</router-link
+                >
+              </li>
             </ul>
-        </template>
+          </li>
+          <li class="userSection" v-if="!user">
+            <ul>
+              <li>
+                <router-link class="links" to="/Log-In">Login</router-link>
+              </li>
+              <li>
+                <router-link class="links" to="/Sign-Up">Signup</router-link>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </template>
     </nav>
-    </header>
+  </header>
 </template>
 
 <script>
-import { useStore } from 'vuex'
-import { computed } from 'vue'
+import { useStore } from "vuex";
+import { computed } from "vue";
 
 export default {
-    setup() {
-        const store = useStore()
-        const handleClick = () => {
-            store.dispatch('logout')
-        }
-        return { 
-            handleClick,
-            user: computed(() => store.state.user),
-            authIsReady: computed(() => store.state.authIsReady),
-        }
-    }
-}
-
+  setup() {
+    const store = useStore();
+    const handleClick = () => {
+      store.dispatch("logout");
+    };
+    return {
+      handleClick,
+      user: computed(() => store.state.user),
+      authIsReady: computed(() => store.state.authIsReady),
+    };
+  },
+};
 </script>
 
 <style>
-li, a, button {
-    font-weight: 500;
-    font-size: 1.6rem;
-    color: white;
-    text-decoration: none;
+a,
+button {
+  font-weight: 500;
+  font-size: 1.6rem;
+  color: white;
+  text-decoration: none;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3rem 1rem;
-    height: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 1rem;
+  height: 1rem;
 }
 
 .logo {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .navigationLinks {
-    list-style: none;
+  list-style: none;
+}
+
+.navigationLinks ul {
+  padding: 0rem;
 }
 
 .navigationLinks li {
-    display: inline-block;
-    padding: 0rem 2rem;
+  display: inline-block;
+  padding: 0.5rem;
+  margin-left: 1.5rem;
+}
+
+.navigationLinks .userSection {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
 }
 
 .logoutButton {
-    padding: 0.9rem 2.5rem;
-    background-color: red;
-    border: none;
-    border-radius: 5rem;
-    cursor: pointer;
+  background-color: red;
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
 }
-
 </style>

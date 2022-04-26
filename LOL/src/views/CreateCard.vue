@@ -45,7 +45,7 @@ export default {
             const fileName = this.file.name;
             this.$store.commit("fileNameChange", fileName)
             this.$store.commit("createFileURL", URL.createObjectURL(this.file));
-            console.log()
+            console.log(URL.createObjectURL(this.file))
         },
         uploadBlog() {
             if (this.blogTitle.length !== 0 && this.blogHTML.length !== 0) {
