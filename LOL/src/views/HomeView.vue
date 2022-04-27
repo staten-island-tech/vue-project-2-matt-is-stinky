@@ -7,7 +7,7 @@
   </div>
   <div class="post-card-wrap">
       <div class="blog-cards">
-        <PostCard v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
+        <PostCard :post="post" v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
       </div>
     </div>
 </div>
@@ -28,26 +28,26 @@ export default {
       {
         name: "Yasuo",
         PostContent: "Kinda cool, has a brother, killed him tho :/",
-        PostImage: "../assets/images/yasuo.jpg",
+        PostImage: "yasuo",
         PostDate: "date",
       },
       {
         name: "irelia",
         PostContent: "Super cringe, not a wife, ionian menace,",
-        PostImage: "../assets/images/irelia.jpg",
+        PostImage: "irelia",
         PostDate: "date",
       },
       {
         name: "sett",
         PostContent:
           "Super awesome, mafiaboss, can do situps, ionian gigachad,",
-        PostImage: "../assets/images/sett.jpg",
+        PostImage: "sett",
         PostDate: "date",
       },
       {
         name: "talon",
         PostContent: "talon",
-        PostImage: "../assets/images/talon.jpg",
+        PostImage: "talon",
         PostDate: "date",
       },
     ],    

@@ -1,8 +1,9 @@
 <template>
   <div class="card-post">
       <div class="card-wrapper">
-            <h2> {{ name }} </h2>
-            <h3> {{ date }} </h3>
+            <h2> {{ post.name }}</h2>
+            <h2> {{ post.date }} </h2>
+            <img :src="require(`../assets/images/${post.PostImage}.jpg`)" alt="">            
       </div>
     </div>
 </template>
@@ -10,10 +11,17 @@
 <script>
 export default {
 name: "PostCard",
-props: {
-    name:String,
-    image:String,
-    date:String,
+props: ["post"],
+computed: {
+    computedBackgroundImage: function () {
+        return this.background;
+    }
+},
+
+methods: {
+    /*returnBackground: function (event) {
+        return this.background=`../assets/images/${post.PostImage}.jpg`
+    }*/
 }
 }
 </script>
