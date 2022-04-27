@@ -26,7 +26,7 @@
 
 <script>
 import "firebase/compat/firestore";
-/* import db from "..firebase/config"; */
+ import db from "..firebase/config"; 
 import firebase from "firebase/compat/app";
 
 export default {
@@ -48,17 +48,36 @@ export default {
             console.log(URL.createObjectURL(this.file))
         },
         uploadBlog() {
-            if (this.blogTitle.length !== 0 && this.blogHTML.length !== 0) {
-                if (this.file) {
-                    const storageRef = firebase.storage().ref();
-                    const docRef = storageRef.child(`Storage/Post-Images/${this.$store.state.blogPhotoName}`);
-                    docRef.put(this.file)
+         if (this.blogTitle.length !== 0 && this.blogHTMLlength !== 0) {
+            if (this.file) {
+                const storageRef = firebase.storage().ref();
+                const docRef = storageRef.child(`Storage/Post-Images/${this.$store.state.blogPhotoName}`);
+                docRef.put(this.file).on("state_changed", (snapshot) => {
+                console.log(snapshot);
+                }, (err) =>{
+                console.log(err);
+                },
+                async () => {
+                    const downloadURL =await docRef.getDownloadURL();
+                    const timestamp = await Date.now();
+                    const database = await db.collection("blogPosts").doc();
+
+                    await database.set({
+                        blogId: database.id,
+                        blogHTML: this.blogHTML,
+                        blogTItle: this.blogTitle,
+                        profileId: this.profileId,
+                        date: timestamp,
+                        blogPhotoName: this.blogPhotoName
+                    })
                 }
+                )
                 return;
-            }
-            this.error = true;
-            this.errorMsg = "enter values";
-        },
+            } 
+        this.error = true;
+        this.errorMsg = "enter values";
+        } 
+    },
     },
     computed:{
     blogTitle: {
