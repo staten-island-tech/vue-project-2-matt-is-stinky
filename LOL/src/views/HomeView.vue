@@ -2,8 +2,10 @@
 <div class="main">
   <input class="searchBar" type="text" v-model="search" placeholder="SEARCH FOR CHAMPION">
   <div v-if="user" class="toggle-edit">
-      <span class="span">Toggle Editing Posts</span>
+    <div>
+      <span class="span">Toggle Edit</span>
       <input class="checkbox" type="checkbox" v-model="editPost">
+      </div>
   </div>
   <div class="post-card-wrap">
       <div class="blog-cards">

@@ -12,15 +12,14 @@
 export default {
 name: "PostCard",
 props: ["post"],
-/*
-computed: {
+/*computed: {
     computedBackgroundImage: function () {
         return this.background;
     }
 },
 
 methods: {
-    returnBackground: function () {
+    returnBackground: function (post) {
         return this.background=`../assets/images/${post.PostImage}.jpg`
     }
 }*/
