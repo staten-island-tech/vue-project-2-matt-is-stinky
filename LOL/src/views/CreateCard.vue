@@ -20,15 +20,15 @@
             <p>Card Content:</p>
             <p>{{ card.content }}</p>
         </div> -->
-        <button>Publish</button>
+        <button @click="uploadBlog">Publish</button>
     </div>
 </template>
 
 <script>
 import "firebase/compat/firestore";
-/* import db from "..firebase/config";  
+import db from "../firebase/config";  
 import firebase from "firebase/compat/app";
-  */
+  
 export default {
     name: "AddCard",
     data() {
@@ -47,7 +47,7 @@ export default {
             this.$store.commit("createFileURL", URL.createObjectURL(this.file));
             console.log(URL.createObjectURL(this.file))
         },
-        /* uploadBlog() {
+         uploadBlog() {
          if (this.blogTitle.length !== 0 && this.blogHTMLlength !== 0) {
             if (this.file) {
                 const storageRef = firebase.storage().ref();
@@ -63,13 +63,13 @@ export default {
                     const database = await db.collection("blogPosts").doc();
 
                 await database.set({                              
-                    blogId: database.id,
+                    blogID: database.id,
                     blogHTML: this.blogHTML,
                     blogTItle: this.blogTitle,
                     profileId: this.profileId,
-                    date: timestamp,
                     blogPhotoName: this.blogPhotoName,
-                    blogPhotoFileURL: downloadURL             
+                    blogPhotoFileURL: downloadURL, 
+                    date: timestamp            
                 })
                 })
                 return;
@@ -77,7 +77,7 @@ export default {
         this.error = true;
         this.errorMsg = "enter values";
         }  
-    },  */
+    },  
     },
     computed:{
     blogTitle: {
