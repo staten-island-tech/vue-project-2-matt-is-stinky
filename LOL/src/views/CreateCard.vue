@@ -27,8 +27,8 @@
 <script>
 import "firebase/compat/firestore";
 import db from "../firebase/config";  
-import firebase from "firebase/compat/app";
-  
+import storage from "../firebase/config"; 
+
 export default {
     name: "AddCard",
     data() {
@@ -50,7 +50,7 @@ export default {
          uploadBlog() {
          if (this.blogTitle.length !== 0 && this.blogHTMLlength !== 0) {
             if (this.file) {
-                const storageRef = firebase.storage().ref();
+                const storageRef = storage.ref  
                 const docRef = storageRef.child(`Storage/Post-Images/${this.$store.state.blogPhotoName}`);
                 docRef.put(this.file).on("state_changed", (snapshot) => {
                 console.log(snapshot);
@@ -69,7 +69,7 @@ export default {
                     profileId: this.profileId,
                     blogPhotoName: this.blogPhotoName,
                     blogPhotoFileURL: downloadURL, 
-                    date: timestamp            
+                    date: timestamp
                 })
                 })
                 return;
