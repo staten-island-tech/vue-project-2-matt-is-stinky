@@ -11,23 +11,28 @@ const routes = [
     path: "/Sign-Up",
     name: "Sign Up",
     component: function () {
-      return import(/* webpackChunkName: "SignUp" */ "../views/SignUp.vue");
+      return import("../views/SignUp.vue");
     },
   },
   {
     path: "/Log-In",
     name: "Log In",
     component: function () {
-      return import(/* webpackChunkName: "LogIn" */ "../views/LogIn.vue");
+      return import("../views/LogIn.vue");
     },
   },
   {
     path: "/Create-Card",
     name: "Create Card",
     component: function () {
-      return import(
-        /* webpackChunkName: "CreateCard" */ "../views/CreateCard.vue"
-      );
+      return import("../views/CreateCard.vue");
+    },
+  },
+  {
+    path: "/preview-blog",
+    name: "PreviewBlog",
+    component: function () {
+      return import("../views/PreviewBlog.vue");
     },
   },
 ];
