@@ -9,33 +9,6 @@ import {
 
 const store = createStore({
   state: {
-    Posts: [
-      {
-        name: "Yasuo",
-        PostContent: "Kinda cool, has a brother, killed him tho :/",
-        PostImage: "../assets/images/yasuo.jpg",
-        PostDate: "date",
-      },
-      {
-        name: "irelia",
-        PostContent: "Super cringe, not a wife, ionian menace,",
-        PostImage: "../assets/images/irelia.jpg",
-        PostDate: "date",
-      },
-      {
-        name: "sett",
-        PostContent:
-          "Super awesome, mafiaboss, can do situps, ionian gigachad,",
-        PostImage: "../assets/images/sett.jpg",
-        PostDate: "date",
-      },
-      {
-        name: "talon",
-        PostContent: "talon",
-        PostImage: "../assets/images/talon.jpg",
-        PostDate: "date",
-      },
-    ],
     blogHTML: "",
     blogTitle: "",
     blogPhotoName: "",

@@ -2,8 +2,6 @@
 <div class="main">
   <input class="searchBar" type="text" v-model="search" placeholder="SEARCH FOR CHAMPION">
   <div v-if="user" class="toggle-edit">
-      <span class="span">Toggle Editing Posts</span>
-      <input class="checkbox" type="checkbox" v-model="editPost">
   </div>
   <div class="post-card-wrap">
     <div v-if="user" class="toggle-edit">
@@ -11,7 +9,7 @@
           <input type="checkbox"  v-model="editPost">
         </div>
       <div class="blog-cards">
-        <PostCard  v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
+        <PostCard :post="post" v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
       </div>
     </div>
 </div>
@@ -26,21 +24,38 @@ export default {
     PostCard,
   },
   data(){
-    return {    
+    return {
+      search: "",
+      Posts: [
+      {
+        name: "Yasuo",
+        PostContent: "Kinda cool, has a brother, killed him tho :/",
+        PostImage: "yasuo",
+        PostDate: "date",
+      },
+      {
+        name: "irelia",
+        PostContent: "Super cringe, not a wife, ionian menace,",
+        PostImage: "irelia",
+        PostDate: "date",
+      },
+      {
+        name: "sett",
+        PostContent:
+          "Super awesome, mafiaboss, can do situps, ionian gigachad,",
+        PostImage: "sett",
+        PostDate: "date",
+      },
+      {
+        name: "talon",
+        PostContent: "talon",
+        PostImage: "talon",
+        PostDate: "date",
+      },
+    ],    
     }
   },
   computed: {
-    Posts() {
-      return this.$store.state.Posts
-    },
-    editPost:{
-      get() {
-        return this.$store.state.editPost
-      },
-      set(payload) {
-        this.$store.commit("toggleEditPost", payload);
-      },
-    },
     searchPosts: function() {
             return this.Posts.filter((Post) => {
                 return Post.name.match(this.search);

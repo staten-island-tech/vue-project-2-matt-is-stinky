@@ -79,6 +79,36 @@ input {
 
 input:hover {
 }
+input[type="checkbox"] {
+  position: relative;
+  border: none;
+  -webkit-appearance: none;
+  background: #fff;
+  outline: none;
+  width: 4rem;
+  height: 1.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 0.4rem 0.6rem -0.1rem;
+}
+
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 2rem;
+  top: 0;
+  left: 0;
+  background: red;
+  transform: scale(1.1);
+  transition: 750ms ease all;
+  box-shadow: 0 0.4rem 0.6rem -0.1rem;
+}
+
+input:checked[type="checkbox"]:before {
+  background: #fff;
+  left: 2.6rem;
+}
 
 button {
   font-family: "Trade Winds", cursive;
@@ -111,7 +141,6 @@ button:hover {
 }
 
 .card-post {
-  background-image: url("../assets/images/yasuo.jpg");
   transition: 1s;
 }
 
