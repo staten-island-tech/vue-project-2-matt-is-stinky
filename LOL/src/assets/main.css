@@ -14,9 +14,7 @@ body {
   color: white;
   margin: 0;
   padding: 0;
-  background: black;
   background-image: url("../assets/notstolenbtw.jpg");
-  background-size: cover;
 }
 
 img {
@@ -128,6 +126,12 @@ button:hover {
   cursor: pointer;
 }
 
+
+.opacity {
+  background: #000000;
+  opacity: 0.55;
+}
+
 .cardContainer {
 }
 
@@ -166,16 +170,4 @@ button:hover {
 }
 
 @keyframes cardCover {
-  0% {
-  }
-  20% {
-  }
-  40% {
-  }
-  60% {
-  }
-  80% {
-  }
-  100% {
-  }
 }

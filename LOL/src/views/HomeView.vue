@@ -9,7 +9,7 @@
   </div>
   <div class="post-card-wrap">
       <div class="blog-cards">
-        <PostCard :post="post" v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate" />
+        <PostCard :post="post" v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate"/>
       </div>
     </div>
 </div>
@@ -57,13 +57,17 @@ export default {
   },
   computed: {
     searchPosts: function() {
-        return this.Posts.filter((Post) => {
-          return Post.name.match(this.search);
-      })
-    },
+            return this.Posts.filter((Post) => {
+                return Post.name.match(this.search);
+            })
+        }
   },
   setup() {
-    const Champions = ref([])
+    const Champions = ref([
+      { name: 'thing 1', id: 1},
+      { name: 'thing 2', id: 2},
+      { name: 'thing 3', id: 3}
+    ])
 
     const store = useStore()
   
@@ -76,9 +80,6 @@ export default {
 </script>
 
 <style>
-.post-card-wrap {
-  flex-wrap: wrap;
-}
 
 .blog-cards{
   display: flex;
@@ -86,7 +87,6 @@ export default {
   justify-content: space-around;
   align-self: left;
 }
-
 .toggle-edit {
   display: flex;
   align-items: center;

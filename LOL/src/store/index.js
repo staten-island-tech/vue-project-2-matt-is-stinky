@@ -12,7 +12,7 @@ const store = createStore({
     blogHTML: "",
     blogTitle: "",
     blogPhotoName: "",
-    blogPhotoURL: null,
+    blogPhotoFileURL: null,
     editPost: null,
     user: null,
     authIsReady: false,
@@ -25,6 +25,12 @@ const store = createStore({
     newBlogTitle(state, payload) {
       state.blogTitle = payload;
       console.log(state.blogTitle);
+    },
+    fileNameChange(state, payload) {
+      state.blogPhotoName = payload;
+    },
+    createFileURL(state, payload) {
+      state.blogPhotoFileURL = payload;
     },
     setUser(state, payload) {
       state.user = payload;

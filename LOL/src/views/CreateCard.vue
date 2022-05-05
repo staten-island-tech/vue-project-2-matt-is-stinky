@@ -1,49 +1,83 @@
 <template>
     <div class="addCard">
-        <h2 class="header-text">Create a New Card</h2>
+        <h2>Create a New Card</h2>
         <form>
             <div class="inputs">
                 <div class="input">
-                    <input class="title" type="text" placeholder="Title" v-model="blogTitle" />
+                    <input class="title" type="text" v-model="blogTitle" placeholder="Title" />
                 </div>
                 <div class="input">
-                    <textarea class="contentData" placeholder="Content" v-model="blogHTML"/>
+                    <textarea class="contentData" v-model="blogHTML" placeholder="Content"/>
                 </div>
                 <div class="input">
-                    <input class="fileUpload" type="file"/>
+                   <input class="input-file" type="file" ref="blogPhoto" id="blog-photo" accept=".png, .jpg, .jpeg" @change="fileChange"> 
                 </div>
             </div>
-            <button @click="uploadBlog">submit</button>
         </form>
-         <!-- <div class="cardPreview">
+        <!-- <div class="cardPreview">
             <h3>Preview Card</h3>
             <p>Card Title: {{ card.title }}</p>
             <p>Card Content:</p>
             <p>{{ card.content }}</p>
-        </div>  -->
+        </div> -->
+        <button @click="uploadBlog">Publish</button>
     </div>
 </template>
 
 <script>
-// import firebase from "firebase/compat/app"
-import "firebase/compat/storage"
-// import db from "../firebase/config"
+import "firebase/compat/firestore";
+import db from "../firebase/config";  
+import storage from "../firebase/config"; 
 
 export default {
     name: "AddCard",
-    data(){
+    data() {
         return{
             card:{
             title:"",
             content:"", 
-            error: null,
-            errorMsg: null,
-
             }
         }
     },
     methods:{
-        
+        fileChange() {
+            this.file = this.$refs.blogPhoto.files[0];
+            const fileName = this.file.name;
+            this.$store.commit("fileNameChange", fileName)
+            this.$store.commit("createFileURL", URL.createObjectURL(this.file));
+            console.log(URL.createObjectURL(this.file))
+        },
+         uploadBlog() {
+         if (this.blogTitle.length !== 0 && this.blogHTMLlength !== 0) {
+            if (this.file) {
+                const storageRef = storage.ref  
+                const docRef = storageRef.child(`Storage/Post-Images/${this.$store.state.blogPhotoName}`);
+                docRef.put(this.file).on("state_changed", (snapshot) => {
+                console.log(snapshot);
+                }, (err) =>{
+                console.log(err);
+                },
+                async () => {
+                    const downloadURL =await docRef.getDownloadURL();
+                    const timestamp = await Date.now();
+                    const database = await db.collection("blogPosts").doc();
+
+                await database.set({                              
+                    blogID: database.id,
+                    blogHTML: this.blogHTML,
+                    blogTItle: this.blogTitle,
+                    profileId: this.profileId,
+                    blogPhotoName: this.blogPhotoName,
+                    blogPhotoFileURL: downloadURL, 
+                    date: timestamp
+                })
+                })
+                return;
+            } 
+        this.error = true;
+        this.errorMsg = "enter values";
+        }  
+    },  
     },
     computed:{
     blogTitle: {
@@ -86,12 +120,14 @@ form {
     align-items: center;
     flex: 1;
 }
+
 h2 {
     text-align: center;
     font-size: 3.2rem;
     color: #000000;
     margin-bottom: 4rem;
 }
+
 .contentData {
     background-color: white;
     color: gray;
@@ -104,9 +140,7 @@ h2 {
     width: 500rem;
     height: 20rem;
 }
-/* 
-.fileUpload {
-    display: none;
-} */
-
+.input-file {
+    color: black;
+}
 </style>
