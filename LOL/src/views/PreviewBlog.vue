@@ -1,8 +1,8 @@
 <template>
     <div class="post-view">
-        <h2> {{ post.name }}</h2>
-        <img :src="require(`../assets/images/${post.PostImage}.jpg`)" alt="">           
-        <h2> {{ post.date }} </h2> "
+        <h2> {{ this.blogTitle }}</h2>
+        <img :src="blogCoverPhoto" alt="" />           
+        <div class="post-content" v-html="blogHTML"></div>
     </div>
 </template>
 
@@ -10,10 +10,25 @@
 export default {
     name: "PreviewPost",
     computed: {
-        
+        blogTitle() {
+            return this.$store.state.blogTitle;
+        },
+        blogHTML() {
+            return this.$store.state.blogHTML;
+        },
+        blogCoverPhoto() {
+            return this.$store.state.blogPhotoFileURL;
+        }
     },
 };
 </script>
 
 <style>
+.post-view {
+    min-height: 100%;
+}
+
+img {
+    width: 100%;
+}
 </style>

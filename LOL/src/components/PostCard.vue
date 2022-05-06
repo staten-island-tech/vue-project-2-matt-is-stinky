@@ -51,5 +51,7 @@ p{
      flex-direction: column;
      justify-content: center;
      margin: .5rem .5rem;
+     z-index: -1;
+     
 }
 </style>
