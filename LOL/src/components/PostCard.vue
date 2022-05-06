@@ -1,10 +1,14 @@
 <template>
   <div class="card-post">
+       <router-link class="links" to="/View-Blog">
       <div class="card-wrapper">
+         
             <h2> {{ post.name }}</h2>
             <img :src="require(`../assets/images/${post.PostImage}.jpg`)" alt="">           
             <h2> {{ post.date }} </h2> 
+        
       </div>
+       </router-link>
     </div>
 </template>
 
