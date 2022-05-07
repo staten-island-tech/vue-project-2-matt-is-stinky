@@ -35,6 +35,15 @@ const routes = [
       return import("../views/PreviewBlog.vue");
     },
   },
+  {
+    path: "/View-Blog",
+    name: "View Blog",
+    component: function () {
+      return import(
+        /* webpackChunkName: "CreateCard" */ "../views/ViewBlog.vue"
+      );
+    },
+  },
 ];
 
 const router = createRouter({

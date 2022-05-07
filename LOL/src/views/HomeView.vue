@@ -1,87 +1,94 @@
 <template>
-<div class="main">
-  <input class="searchBar" type="text" v-model="search" placeholder="SEARCH FOR CHAMPION">
-  <div v-if="user" class="toggle-edit">
-    <div>
-      <span class="span">Toggle Edit</span>
-      <input class="checkbox" type="checkbox" v-model="editPost">
-      </div>
-  </div>
-  <div class="post-card-wrap">
+  <div class="main">
+    <input
+      class="searchBar"
+      type="text"
+      v-model="search"
+      placeholder="SEARCH FOR CHAMPION"
+    />
+    <div v-if="user" class="toggle-edit"></div>
+    <div class="post-card-wrap">
       <div class="blog-cards">
-        <PostCard :post="post" v-for="post in searchPosts" :key="post.name" :name="post.name" :content="post.PostContent" :image="post.PostImage" :date="post.PostDate"/>
+        <PostCard
+          :post="post"
+          v-for="post in searchPosts"
+          :key="post.name"
+          :name="post.name"
+          :content="post.PostContent"
+          :image="post.PostImage"
+          :date="post.PostDate"
+        />
       </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
-import { ref, computed } from 'vue'
-import { useStore } from 'vuex'
-import PostCard from '../components/PostCard'
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
+import PostCard from "../components/PostCard";
 export default {
-  components:{
+  components: {
     PostCard,
   },
-  data(){
+  data() {
     return {
       search: "",
       Posts: [
-      {
-        name: "Yasuo",
-        PostContent: "Kinda cool, has a brother, killed him tho :/",
-        PostImage: "yasuo",
-        PostDate: "date",
-      },
-      {
-        name: "irelia",
-        PostContent: "Super cringe, not a wife, ionian menace,",
-        PostImage: "irelia",
-        PostDate: "date",
-      },
-      {
-        name: "sett",
-        PostContent:
-          "Super awesome, mafiaboss, can do situps, ionian gigachad,",
-        PostImage: "sett",
-        PostDate: "date",
-      },
-      {
-        name: "talon",
-        PostContent: "talon",
-        PostImage: "talon",
-        PostDate: "date",
-      },
-    ],    
-    }
+        {
+          name: "Yasuo",
+          PostContent: "Kinda cool, has a brother, killed him tho :/",
+          PostImage: "yasuo",
+          PostDate: "date",
+        },
+        {
+          name: "irelia",
+          PostContent: "Super cringe, not a wife, ionian menace,",
+          PostImage: "irelia",
+          PostDate: "date",
+        },
+        {
+          name: "sett",
+          PostContent:
+            "Super awesome, mafiaboss, can do situps, ionian gigachad,",
+          PostImage: "sett",
+          PostDate: "date",
+        },
+        {
+          name: "talon",
+          PostContent: "talon",
+          PostImage: "talon",
+          PostDate: "date",
+        },
+      ],
+    };
   },
   computed: {
-    searchPosts: function() {
-            return this.Posts.filter((Post) => {
-                return Post.name.match(this.search);
-            })
-        }
+    searchPosts: function () {
+      return this.Posts.filter((Post) => {
+        return Post.name.match(this.search);
+      });
+    },
   },
   setup() {
     const Champions = ref([
-      { name: 'thing 1', id: 1},
-      { name: 'thing 2', id: 2},
-      { name: 'thing 3', id: 3}
-    ])
+      { name: "thing 1", id: 1 },
+      { name: "thing 2", id: 2 },
+      { name: "thing 3", id: 3 },
+    ]);
 
-    const store = useStore()
-  
+    const store = useStore();
+
     return {
-      Champions, 
-      user: computed(() => store.state.user)
-    }
+      Champions,
+      user: computed(() => store.state.user),
+    };
   },
-}
+};
 </script>
 
 <style>
-
-.blog-cards{
+.blog-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -91,11 +98,11 @@ export default {
   display: flex;
   align-items: center;
   position: absolute;
-  margin-top: .16rem;
-  padding:.1rem;
+  margin-top: 0.16rem;
+  padding: 0.1rem;
 }
 .blog-cards:hover {
-  animation: 1s cardCover infinite; 
+  animation: 1s cardCover infinite;
 }
 
 .searchBar {

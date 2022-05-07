@@ -1,18 +1,20 @@
 <template>
   <div class="card-post">
+    <router-link class="links" to="/View-Blog">
       <div class="card-wrapper">
-            <h2> {{ post.name }}</h2>
-            <img :src="require(`../assets/images/${post.PostImage}.jpg`)" alt="">           
-            <h2> {{ post.date }} </h2> 
+        <h2>{{ post.name }}</h2>
+        <img :src="require(`../assets/images/${post.PostImage}.jpg`)" alt="" />
+        <h2>{{ post.date }}</h2>
       </div>
-    </div>
+    </router-link>
+  </div>
 </template>
 
 <script>
 export default {
-name: "PostCard",
-props: ["post"],
-/*computed: {
+  name: "PostCard",
+  props: ["post"],
+  /*computed: {
     computedBackgroundImage: function () {
         return this.background;
     }
@@ -23,35 +25,34 @@ methods: {
         return this.background=`../assets/images/${post.PostImage}.jpg`
     }
 }*/
-}
+};
 </script>
 
 <style>
-h2{
-    font-size: 2.5rem;
+h2 {
+  font-size: 2.5rem;
 }
-h3{
-    font-size: 1.5rem;
+h3 {
+  font-size: 1.5rem;
 }
-p{
-    font-size: 1.23rem;
+p {
+  font-size: 1.23rem;
 }
-.card-post{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 30%;
-    margin: 2rem auto;
-    background: "";
+.card-post {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 30%;
+  margin: 2rem auto;
+  background: "";
 }
-.card-wrapper{
-     width: 30%;
-     height: 20rem;
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     margin: .5rem .5rem;
-     z-index: -1;
-     
+.card-wrapper {
+  width: 30%;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0.5rem 0.5rem;
+  z-index: -1;
 }
 </style>
