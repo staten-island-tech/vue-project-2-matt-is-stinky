@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img class="logo" src="../assets/ugly.png" alt="logo" />
+    <img class="logo" src="../assets/logo.png" alt="logo" />
     <nav>
       <template v-if="authIsReady">
         <ul class="navigationLinks">
