@@ -1,4 +1,4 @@
-<template>
+<!--<template>
   <header>
     <img class="logo" src="../assets/logo.png" alt="logo" />
     <nav>
@@ -15,7 +15,7 @@
                   Logout
                 </button>
               </li>
-              <!-- <li><router-link class="links" to "">Your Profile</router-link></li> -->
+              <li><router-link class="links" to "">Your Profile</router-link></li>
               <li>
                 <router-link class="links" to="/Create-Card"
                   >Add Card</router-link
@@ -38,12 +38,36 @@
     </nav>
   </header>
 </template>
+-->
+<template>
+  <header>
+    <nav class="container">
+      <div class="branding">
+        <router-link class="header" :to="{ name: Home }"
+          >League of Legends</router-link
+        >
+        <!-- <img class="logo" src="../assets/logo.png" alt="logo" /> -->
+      </div>
+      <div class="nav-links">
+        <ul>
+          <router-link class="link" to="/">Home</router-link>
+          <router-link class="link" to="/Blogs-View">Blogs</router-link>
+          <router-link class="link" to="/Create-Card">Create Card</router-link>
+          <router-link class="link" to="/Log-In">Login</router-link>
+          <router-link class="link" to="/Sign-Up">Register</router-link>
+        </ul>
+      </div>
+    </nav>
+  </header>
+</template>
 
 <script>
 import { useStore } from "vuex";
 import { computed } from "vue";
 
 export default {
+  name: "NavBar",
+  components: {},
   setup() {
     const store = useStore();
     const handleClick = () => {
@@ -58,23 +82,71 @@ export default {
 };
 </script>
 
-<style>
-a,
+<style scoped>
+/*a,
 button {
   font-weight: 500;
   font-size: 1.6rem;
   color: white;
   text-decoration: none;
-}
+}*/
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3rem 1rem;
-  height: 1rem;
+  background-color: #000;
+  padding: 0 2.5rem;
+  box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
+    0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
 }
 
+.link {
+  font-weight: 500;
+  padding: 0 0.8rem;
+  transition: 0.3s color ease;
+}
+
+.link:hover {
+  color: red;
+}
+
+nav {
+  display: flex;
+  padding: 2.5rem 0;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  font-weight: 600;
+  font-size: 2.4rem;
+  color: white;
+  text-decoration: none;
+  margin-left: 3.2rem;
+}
+
+.nav-links {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+ul {
+  margin-right: 3.2rem;
+}
+
+.link {
+  margin-right: 3.2rem;
+}
+
+.link:last-child {
+  margin-right: 0;
+}
+
+/*
 .logo {
   cursor: pointer;
 }
@@ -103,5 +175,5 @@ header {
   border: none;
   border-radius: 5rem;
   cursor: pointer;
-}
+}*/
 </style>

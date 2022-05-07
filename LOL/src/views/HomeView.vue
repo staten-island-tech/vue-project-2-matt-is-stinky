@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="main">
     <input
       class="searchBar"
@@ -21,19 +21,55 @@
       </div>
     </div>
   </div>
+</template> -->
+<template>
+  <div class="home">
+    <BlogPost :post="welcomeScreen" />
+    <BlogPost :post="post" v-for="post in sampleBlogPost" :key="post" />
+    <div class="blog-card-wrap">
+      <div class="container">
+        <h3>View More Recent Blogs</h3>
+        <div class="blog-cards">
+          <BlogCard :post="post" v-for="post in sampleBlogCards" :key="post" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import { ref, computed } from "vue";
-import { useStore } from "vuex";
-import PostCard from "../components/PostCard";
+import BlogPost from "../components/BlogPost.vue";
+import BlogCard from "../components/BlogCard";
+/*import { ref, computed } from "vue";
+import { useStore } from "vuex";*/
 export default {
+  name: "HomeView",
   components: {
-    PostCard,
+    BlogPost,
+    BlogCard,
   },
   data() {
     return {
-      search: "",
+      welcomeScreen: {
+        title: "Welcome!",
+        blogPost:
+          "Weekly blog articles with all things programming including HTML, CSS, Javascript and more. Register today to never miss a post!",
+        welcomeScreen: true,
+        photo: "irelia",
+      },
+      sampleBlogPost: [
+        {
+          title: "This is a Filler Title!",
+          blogHTML: "This is a filler blog post title!",
+          blogCoverPhoto: "sett",
+        },
+        {
+          title: "This is a Filler Title!",
+          blogHTML: "This is a filler blog post title!",
+          blogCoverPhoto: "talon",
+        },
+      ],
+      /*search: "",
       Posts: [
         {
           name: "Yasuo",
@@ -60,17 +96,20 @@ export default {
           PostImage: "talon",
           PostDate: "date",
         },
-      ],
+      ],*/
     };
   },
   computed: {
-    searchPosts: function () {
+    sampleBlogCards() {
+      return this.$store.state.sampleBlogCards;
+    },
+    /*searchPosts: function () {
       return this.Posts.filter((Post) => {
         return Post.name.match(this.search);
       });
-    },
+    },*/
   },
-  setup() {
+  /*setup() {
     const Champions = ref([
       { name: "thing 1", id: 1 },
       { name: "thing 2", id: 2 },
@@ -83,12 +122,17 @@ export default {
       Champions,
       user: computed(() => store.state.user),
     };
-  },
+  },*/
 };
 </script>
 
 <style>
-.blog-cards {
+h3 {
+  font-weight: 300;
+  font-size: 2.8rem;
+  margin-bottom: 3.2rem;
+}
+/*.blog-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -120,5 +164,5 @@ export default {
 .searchBar:hover {
   box-shadow: inset 77rem 0 0 0 rgb(39, 39, 39);
   cursor: pointer;
-}
+}*/
 </style>

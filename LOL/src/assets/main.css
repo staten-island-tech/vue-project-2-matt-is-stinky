@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap");
 
 html,
 body,
@@ -7,20 +6,17 @@ body,
   padding: 0;
   box-sizing: border-box;
   background: no-repeat;
-  font-family: "Trade Winds", cursive;
 }
 
 body {
-  color: white;
   margin: 0;
   padding: 0;
-  background-image: url("../assets/homeBackground.png");
 }
 
 img {
   max-width: 15rem;
 }
-
+/* 
 .container {
   max-width: 100%;
   margin-top: 0rem;
@@ -78,36 +74,6 @@ input {
 }
 
 input:hover {
-}
-input[type="checkbox"] {
-  position: relative;
-  border: none;
-  -webkit-appearance: none;
-  background: #fff;
-  outline: none;
-  width: 4rem;
-  height: 1.5rem;
-  border-radius: 2rem;
-  box-shadow: 0 0.4rem 0.6rem -0.1rem;
-}
-
-input[type="checkbox"]:before {
-  content: "";
-  position: absolute;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 2rem;
-  top: 0;
-  left: 0;
-  background: red;
-  transform: scale(1.1);
-  transition: 750ms ease all;
-  box-shadow: 0 0.4rem 0.6rem -0.1rem;
-}
-
-input:checked[type="checkbox"]:before {
-  background: #fff;
-  left: 2.6rem;
 }
 
 button {
@@ -171,3 +137,4 @@ button:hover {
 
 @keyframes cardCover {
 }
+  */

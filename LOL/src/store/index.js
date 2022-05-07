@@ -9,11 +9,33 @@ import {
 
 const store = createStore({
   state: {
+    sampleBlogCards: [
+      {
+        blogTitle: "Blog Card #1",
+        blogCoverPhoto: "irelia",
+        blogDate: "May 7, 2022",
+      },
+      {
+        blogTitle: "Blog Card #2",
+        blogCoverPhoto: "sett",
+        blogDate: "May 7, 2022",
+      },
+      {
+        blogTitle: "Blog Card #3",
+        blogCoverPhoto: "talon",
+        blogDate: "May 7, 2022",
+      },
+      {
+        blogTitle: "Blog Card #4",
+        blogCoverPhoto: "yasuo",
+        blogDate: "May 7, 2022",
+      },
+    ],
+    editPost: null,
     blogHTML: "",
     blogTitle: "",
     blogPhotoName: "",
     blogPhotoFileURL: null,
-    editPost: null,
     user: null,
     authIsReady: false,
   },

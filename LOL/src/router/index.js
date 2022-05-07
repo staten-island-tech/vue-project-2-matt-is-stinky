@@ -4,8 +4,21 @@ import HomeView from "../views/HomeView.vue";
 const routes = [
   {
     path: "/",
-    name: "home",
+    name: "Home",
     component: HomeView,
+    meta: {
+      title: "Home",
+    },
+  },
+  {
+    path: "/Blogs-View",
+    name: "Blogs",
+    component: function () {
+      return import("../views/BlogsView.vue");
+    },
+    meta: {
+      title: "Blogs",
+    },
   },
   {
     path: "/Sign-Up",
@@ -49,6 +62,11 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title} | League of Legends`;
+  next();
 });
 
 export default router;
