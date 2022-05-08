@@ -1,0 +1,53 @@
+<template>
+    <div class="loading">
+        <span></span>
+    </div>
+</template>
+<script>
+export default {
+    name: "LoadingPage",
+    data(){
+        return{
+
+        };
+    },
+    computed: {
+        
+    },
+    methods: {
+
+    },
+    components: {
+
+    },
+};
+</script>
+<style >
+.loading{
+    top: 0;
+    z-index: 101;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes spin {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+span{
+    display: block;
+    width: 3.75rem;
+    height: 3.75rem;
+    margin: 0 auto;
+    border: .1875rem solid transparent;
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+    border-radius: 50%;
+    animation: spin ease 1000ms infinite;
+}
+</style>

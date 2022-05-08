@@ -1,54 +1,51 @@
 <template>
-<div class="form-warp">
-    <form @submit.prevent="handleSubmit">        
-        <h2>Sign Up</h2>
-            <div class="inputs">
-                <div class="input">
-                    <input type="text" placeholder="Email" v-model="email" required />
-                </div>
-                <div class="input">
-                    <input type="password" placeholder="Password" v-model="password" required />
-                </div>
-            </div>
-            <button>Register</button>
-        <h3 class="errorMessage" v-if="error">The email address is already in use!</h3>
-    </form>
-    </div>
+   <div class="form-wrap">
+      <form class="register">
+          <p class="login-register">Already have an account?
+              <router-link class="router-link" to="/Log-In">LogIn</router-link>
+          </p>
+          <h2>Create Your League of Legends Account</h2>
+          <div class="inputs">
+              <div class="input">
+                  <input type="text" placeholder="First Name" v-model="firstName">
+              </div>
+              <div class="input">
+                  <input type="text" placeholder="Last Name" v-model="lastName">
+              </div>
+              <div class="input">
+                  <input type="text" placeholder="Username" v-model="username">
+              </div>   
+              <div class="input">
+                  <input type="text" placeholder="Email" v-model="email">
+              </div>
+              <div class="input">
+                  <input type="password" placeholder="Password" v-model="password">
+              </div>
+          </div>
+          <button>Sign Up</button>
+          <div class="angle"></div>
+      </form>
+      <div class="background"></div>
+  </div>
 </template>
 
 <script>
-import { ref } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
-
 export default {
-    setup() {
-        const username = ref('')
-        const email = ref('')
-        const password = ref('')
-        const error = ref(null)
-        
-        const store = useStore()
-        const router = useRouter()
-
-        const handleSubmit = async () => {
-            try {
-                await store.dispatch('signup', {
-                    username: username.value,
-                    email: email.value,
-                    password: password.value
-                })
-                router.push("/")
-            } catch (err) {
-                error.value = err.message
-            }
-        }
-        return { handleSubmit, username, email, password, error }
-    }
-}
+    name:"SignUp",
+    data() {
+        return {
+            firstName: null,
+            lastName: null,
+            username: null,
+            email: null,
+            password: null,
+        };
+    },
+};
 </script>
 
 <style>
-
-
+h2{
+    max-width: 21.875rem;
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper">
     <div class="app">
-      <Navigation />
+      <Navigation v-if="!navigation"/>
       <router-view />
     </div>
   </div>
@@ -15,12 +15,28 @@ export default {
     Navigation,
   },
   data() {
-    return {};
+    return {
+      navigation: null,
+    };
   },
-  created() {},
+  created() {
+    this.checkRoute();
+  },
   mounted() {},
-  methods: {},
-  watch: {},
+  methods: {
+    checkRoute() {
+      if(this.$route.name === "Log In" || this.$route.name === "Sign Up" || this.$route.name === "ForgotPassword"){
+        this.navigation = true;
+        return; 
+      }
+      this.navigation = false;
+    }
+  },
+  watch: {
+    $route() {
+      this.checkRoute();
+    }
+  },
 };
 </script>
 

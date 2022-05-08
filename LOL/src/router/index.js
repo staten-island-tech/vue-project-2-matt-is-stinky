@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-
 const routes = [
   {
     path: "/",
@@ -26,12 +25,28 @@ const routes = [
     component: function () {
       return import("../views/SignUp.vue");
     },
+    meta: {
+      title: "SignUp",
+    },
   },
   {
     path: "/Log-In",
     name: "Log In",
     component: function () {
       return import("../views/LogIn.vue");
+    },
+    meta: {
+      title: "LogIn",
+    },
+  },
+  {
+    path: "/Forgot-Password",
+    name: "ForgotPassword",
+    component: function () {
+      return import("../views/ForgotPassword.vue");
+    },
+    meta: {
+      title: "Forgot Password",
     },
   },
   {
