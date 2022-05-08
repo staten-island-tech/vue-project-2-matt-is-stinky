@@ -9,6 +9,9 @@
 
 <script>
 import Navigation from "./components/NavBar";
+import firebase from "firebase/compat/app";
+import "firebase/auth";
+
 export default {
   name: "app",
   components: {
@@ -20,6 +23,13 @@ export default {
     };
   },
   created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      this.$store.commit("updateUser", user);
+      if (user) {
+        this.$store.dispatch("getCurrentUser");
+        console.log(this.$store.state.profileEmail);
+      }
+    });
     this.checkRoute();
   },
   mounted() {},

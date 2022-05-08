@@ -1,11 +1,7 @@
 import { createStore } from "vuex";
-import { auth } from "../firebase/config";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-} from "firebase/auth";
+import firebase from "firebase/compat/app";
+import "firebase/auth";
+import db from "../firebase/config";
 
 const store = createStore({
   state: {
@@ -32,15 +28,40 @@ const store = createStore({
       },
     ],
     editPost: null,
+    user: null,
+    profileEmail: null,
+    profileFirstName: null,
+    profileLastName: null,
+    profileUsername: null,
+    profileId: null,
+    profileInitials: null,
+
     blogHTML: "",
     blogTitle: "",
     blogPhotoName: "",
     blogPhotoFileURL: null,
-    user: null,
     authIsReady: false,
   },
   mutations: {
-    newBlogPost(state, payload) {
+    toggleEditPost(state, payload) {
+      state.editPost = payload;
+    },
+    updateUser(state, payload) {
+      state.user = payload;
+    },
+    setProfileInfo(state, doc) {
+      state.profileId = doc.id;
+      state.profileEmail = doc.data().email;
+      state.profileFirstName = doc.data().firstName;
+      state.profileLastName = doc.data().lastName;
+      state.profileUsername = doc.data().username;
+    },
+    setProfileInitials(state) {
+      state.profileInitials =
+        state.profileFirstName.match(/(\b\S)?/g).join("") +
+        state.profileLastName.match(/(\b\S)?/g).join("");
+    },
+    /*newBlogPost(state, payload) {
       state.blogHTML = payload;
       console.log(state.blogHTML);
     },
@@ -60,14 +81,19 @@ const store = createStore({
     },
     setAuthIsReady(state, payload) {
       state.authIsReady = payload;
-    },
-    toggleEditPost(state, payload) {
-      state.editPost = payload;
-      console.log(state.editPost);
-    },
+    },*/
   },
   actions: {
-    async signup(context, { email, password }) {
+    async getCurrentUser({ commit }) {
+      const dataBase = await db
+        .collection("users")
+        .doc(firebase.auth().currentUser.uid);
+      const dbResults = await dataBase.get();
+      commit("setProfileInfo", dbResults);
+      commit("setProfileInitials");
+      console.log(dbResults);
+    },
+    /*async signup(context, { email, password }) {
       console.log("signup action");
       const res = await createUserWithEmailAndPassword(auth, email, password);
       if (res) {
@@ -88,15 +114,8 @@ const store = createStore({
     async logout(context) {
       console.log("logout action");
       await signOut(auth);
-      context.commit("setUser", null);
-    },
+      context.commit("setUser", null);*/
   },
-});
-
-const unsub = onAuthStateChanged(auth, (user) => {
-  store.commit("setAuthIsReady", true);
-  store.commit("setUser", user);
-  unsub();
 });
 
 export default store;

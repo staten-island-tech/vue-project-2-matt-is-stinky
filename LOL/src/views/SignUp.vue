@@ -3,7 +3,7 @@
     <form class="register">
       <p class="login-register">
         Already have an account?
-        <router-link class="router-link" to="/Log-In">LogIn</router-link>
+        <router-link class="router-link" to="/Log-In">Log In</router-link>
       </p>
       <h2>Create Your League of Legends Account</h2>
       <div class="inputs">
@@ -35,9 +35,8 @@
 import firebase from "firebase/compat/app";
 import "firebase/auth";
 import db from "../firebase/config";
-
 export default {
-  name: "SignUp",
+  name: "Sign-Up",
   data() {
     return {
       firstName: "",
@@ -61,14 +60,14 @@ export default {
         this.error = false;
         this.errorMsg = "";
         const firebaseAuth = await firebase.auth();
-        const createUser = await firebaseAuth.createUserWithEmailAndPassowrd(
+        const createUser = await firebaseAuth.createUserWithEmailAndPassword(
           this.email,
           this.password
         );
         const result = await createUser;
         const dataBase = db.collection("users").doc(result.user.uid);
         await dataBase.set({
-          firstName: this.fireName,
+          firstName: this.firstName,
           lastName: this.lastName,
           username: this.username,
           email: this.email,
