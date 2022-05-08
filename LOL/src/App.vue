@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper">
     <div class="app">
-      <Navigation v-if="!navigation"/>
+      <Navigation v-if="!navigation" />
       <router-view />
     </div>
   </div>
@@ -25,17 +25,21 @@ export default {
   mounted() {},
   methods: {
     checkRoute() {
-      if(this.$route.name === "Log In" || this.$route.name === "Sign Up" || this.$route.name === "ForgotPassword"){
+      if (
+        this.$route.name === "Log In" ||
+        this.$route.name === "Sign Up" ||
+        this.$route.name === "ForgotPassword"
+      ) {
         this.navigation = true;
-        return; 
+        return;
       }
       this.navigation = false;
-    }
+    },
   },
   watch: {
     $route() {
       this.checkRoute();
-    }
+    },
   },
 };
 </script>
@@ -82,5 +86,11 @@ export default {
 .blog-cards {
   display: flex;
   gap: 3.2rem;
+}
+
+.error {
+  text-align: center;
+  font-size: 1.2rem;
+  color: red;
 }
 </style>

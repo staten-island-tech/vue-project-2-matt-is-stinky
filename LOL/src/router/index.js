@@ -68,7 +68,7 @@ const routes = [
     name: "View Blog",
     component: function () {
       return import(
-        /* webpackChunkName: "CreateCard" */ "../views/ViewBlog.vue"
+        "../views/ViewBlog.vue"
       );
     },
   },
