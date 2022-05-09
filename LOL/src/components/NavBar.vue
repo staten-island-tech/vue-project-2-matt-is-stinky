@@ -56,6 +56,14 @@
           <router-link class="link" to="/Log-In">Login</router-link>
           <router-link class="link" to="/Sign-Up">Register</router-link>
         </ul>
+        <div class="profile" ref="profile">
+          <span>{{ this.$store.state.profileInitials }}</span>
+          <div class="profile-menu">
+            <div class="info">
+              <p class="initials">{{ this.$store.state.profileInitials }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
