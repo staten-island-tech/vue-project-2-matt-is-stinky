@@ -1,44 +1,3 @@
-<!--<template>
-  <header>
-    <img class="logo" src="../assets/logo.png" alt="logo" />
-    <nav>
-      <template v-if="authIsReady">
-        <ul class="navigationLinks">
-          <li><router-link class="links" to="/">Home</router-link></li>
-          <li class="userSection" v-if="user">
-            <ul>
-              <li>
-                <span>Logged in as {{ user.email }}</span>
-              </li>
-              <li>
-                <button class="logoutButton" @click="handleClick">
-                  Logout
-                </button>
-              </li>
-              <li><router-link class="links" to "">Your Profile</router-link></li>
-              <li>
-                <router-link class="links" to="/Create-Card"
-                  >Add Card</router-link
-                >
-              </li>
-            </ul>
-          </li>
-          <li class="userSection" v-if="!user">
-            <ul>
-              <li>
-                <router-link class="links" to="/Log-In">Login</router-link>
-              </li>
-              <li>
-                <router-link class="links" to="/Sign-Up">Signup</router-link>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </template>
-    </nav>
-  </header>
-</template>
--->
 <template>
   <header>
     <nav class="container">
@@ -53,14 +12,48 @@
           <router-link class="link" to="/">Home</router-link>
           <router-link class="link" to="/Blogs-View">Blogs</router-link>
           <router-link class="link" to="/Create-Card">Create Card</router-link>
-          <router-link class="link" to="/Log-In">Login</router-link>
-          <router-link class="link" to="/Sign-Up">Register</router-link>
+          <router-link v-if="!user" class="link" to="/Log-In"
+            >Login</router-link
+          >
+          <router-link v-if="!user" class="link" to="/Sign-Up"
+            >Register</router-link
+          >
         </ul>
-        <div class="profile" ref="profile">
-          <span>{{ this.$store.state.profileInitials }}</span>
-          <div class="profile-menu">
+        <div
+          v-if="user"
+          @click="toggleProfileMenu"
+          class="profile"
+          ref="profile"
+        >
+          <span class="profileSpan">{{
+            this.$store.state.profileInitials
+          }}</span>
+          <div v-show="profileMenu" class="profile-menu">
             <div class="info">
               <p class="initials">{{ this.$store.state.profileInitials }}</p>
+              <div class="right">
+                <p>
+                  {{ this.$store.state.profileFirstName }}
+                  {{ this.$store.state.profileLastName }}
+                </p>
+                <p>{{ this.$store.state.profileUsername }}</p>
+                <p>{{ this.$store.state.profileEmail }}</p>
+              </div>
+            </div>
+            <div class="options">
+              <div class="option">
+                <router-link class="option" to="#">
+                  <p class="routeNames">Profile</p>
+                </router-link>
+              </div>
+              <div class="option">
+                <router-link class="option" to="#">
+                  <p class="routeNames">Admin</p>
+                </router-link>
+              </div>
+              <div @click="signOut" class="option">
+                <p class="routeNames">Sign Out</p>
+              </div>
             </div>
           </div>
         </div>
@@ -72,10 +65,17 @@
 <script>
 import { useStore } from "vuex";
 import { computed } from "vue";
+import firebase from "firebase/compat/app";
+import "firebase/auth";
 
 export default {
   name: "NavBar",
   components: {},
+  data() {
+    return {
+      profileMenu: null,
+    };
+  },
   setup() {
     const store = useStore();
     const handleClick = () => {
@@ -87,18 +87,22 @@ export default {
       authIsReady: computed(() => store.state.authIsReady),
     };
   },
+  methods: {
+    toggleProfileMenu(e) {
+      if (e.target === this.$refs.profile) {
+        this.profileMenu = !this.profileMenu;
+      }
+    },
+    signOut() {
+      firebase.auth().signOut();
+      window.location.reload();
+    },
+  },
+  computed: {},
 };
 </script>
 
 <style scoped>
-/*a,
-button {
-  font-weight: 500;
-  font-size: 1.6rem;
-  color: white;
-  text-decoration: none;
-}*/
-
 header {
   background-color: #000;
   padding: 0 2.5rem;
@@ -154,34 +158,86 @@ ul {
   margin-right: 0;
 }
 
-/*
-.logo {
+.profile {
+  position: relative;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  color: #000;
+  background-color: #fff;
 }
 
-.navigationLinks {
-  list-style: none;
+.profile-menu {
+  position: absolute;
+  top: 6rem;
+  right: 0;
+  width: 25rem;
+  background-color: #fff;
+  box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
+    0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
 }
 
-.navigationLinks ul {
-  padding: 0rem;
+.info {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 0.1rem solid #000;
 }
 
-.navigationLinks li {
-  display: inline-block;
-  padding: 0.5rem;
-  margin-left: 1.5rem;
+.initials {
+  position: initial;
+  width: 4rem;
+  height: 4rem;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
-.navigationLinks .userSection {
-  margin: 0 0 0 0;
-  padding: 0 0 0 0;
+.right {
+  flex: 1;
+  margin-left: 2.4rem;
 }
 
-.logoutButton {
-  background-color: red;
-  border: none;
-  border-radius: 5rem;
-  cursor: pointer;
-}*/
+p:nth-child(1) {
+  font-size: 1.4rem;
+}
+p:nth-child(2) p:nth-child(3) {
+  font-size: 1.2rem;
+}
+
+.options {
+  padding: 1.5rem;
+}
+
+.option {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.routeNames {
+  font-size: 1.4rem;
+  margin-left: 1.2rem;
+}
+
+.routNames:last-child {
+  margin-bottom: 0rem;
+}
+
+.option:last-child {
+  margin-bottom: 0rem;
+}
+
+.profileSpan {
+  pointer-events: none;
+}
 </style>
