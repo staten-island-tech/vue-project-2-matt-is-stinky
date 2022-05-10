@@ -61,6 +61,15 @@ const store = createStore({
         state.profileFirstName.match(/(\b\S)?/g).join("") +
         state.profileLastName.match(/(\b\S)?/g).join("");
     },
+    changeFirstName(state, payload) {
+      state.profileFirstName = payload;
+    },
+    changeLastName(state, payload) {
+      state.profileLastName = payload;
+    },
+    changeUsername(state, payload) {
+      state.profileUsername = payload;
+    },
     /*newBlogPost(state, payload) {
       state.blogHTML = payload;
       console.log(state.blogHTML);
@@ -92,6 +101,15 @@ const store = createStore({
       commit("setProfileInfo", dbResults);
       commit("setProfileInitials");
       console.log(dbResults);
+    },
+    async updateUserSettings({ commit, state }) {
+      const dataBase = await db.collection("users").doc(state.profileId);
+      await dataBase.update({
+        firstName: state.profileFirstName,
+        lastName: state.profileLastName,
+        username: state.profileUsername,
+      });
+      commit("setProfileInitials");
     },
     /*async signup(context, { email, password }) {
       console.log("signup action");

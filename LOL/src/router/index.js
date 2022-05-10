@@ -50,6 +50,16 @@ const routes = [
     },
   },
   {
+    path: "/Acc-Profile",
+    name: "Acc Profile",
+    component: function () {
+      return import("../views/AccProfile.vue");
+    },
+    meta: {
+      title: "Acc Profile",
+    },
+  },
+  {
     path: "/Create-Card",
     name: "Create Card",
     component: function () {
@@ -67,9 +77,7 @@ const routes = [
     path: "/View-Blog",
     name: "View Blog",
     component: function () {
-      return import(
-        "../views/ViewBlog.vue"
-      );
+      return import("../views/ViewBlog.vue");
     },
   },
 ];

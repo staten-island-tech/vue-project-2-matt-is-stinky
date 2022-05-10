@@ -42,13 +42,8 @@
             </div>
             <div class="options">
               <div class="option">
-                <router-link class="option" to="#">
+                <router-link class="option" to="/Acc-Profile">
                   <p class="routeNames">Profile</p>
-                </router-link>
-              </div>
-              <div class="option">
-                <router-link class="option" to="#">
-                  <p class="routeNames">Admin</p>
                 </router-link>
               </div>
               <div @click="signOut" class="option">

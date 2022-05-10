@@ -1,146 +1,29 @@
 <template>
-    <div class="addCard">
-        <h2>Create a New Card</h2>
-        <form>
-            <div class="inputs">
-                <div class="input">
-                    <input class="title" type="text" v-model="blogTitle" placeholder="Title" />
-                </div>
-                <div class="input">
-                    <textarea class="contentData" v-model="blogHTML" placeholder="Content"/>
-                </div>
-                <div class="input">
-                   <input class="input-file" type="file" ref="blogPhoto" id="blog-photo" accept=".png, .jpg, .jpeg" @change="fileChange"> 
-                </div>
-            </div>
-        </form>
-        <!-- <div class="cardPreview">
-            <h3>Preview Card</h3>
-            <p>Card Title: {{ card.title }}</p>
-            <p>Card Content:</p>
-            <p>{{ card.content }}</p>
-        </div> -->
-        <button @click="uploadBlog">Publish</button>
-    </div>
+ <div class="create-card-warp">
+     <div class="create-card-container">
+         <h2>Create Post</h2>
+         <div class="inputs">
+             <div class="input">
+                <input type="text" placeholder="Enter Post Title" v-model="postTitle">
+             </div>
+             <div class="input">
+                <textarea placeholder="Enter Post Content" v-model="postContent"></textarea>
+             </div>
+             <div class="input">
+                <input type="file" accept="jpeg,jpg,png"/>
+             </div>
+         </div>
+         <button>Create Post</button>
+     </div>
+ </div>
 </template>
 
 <script>
-import "firebase/compat/firestore";
-import db from "../firebase/config";  
-import storage from "../firebase/config"; 
-
 export default {
-    name: "AddCard",
-    data() {
-        return{
-            card:{
-            title:"",
-            content:"", 
-            }
-        }
-    },
-    methods:{
-        fileChange() {
-            this.file = this.$refs.blogPhoto.files[0];
-            const fileName = this.file.name;
-            this.$store.commit("fileNameChange", fileName)
-            this.$store.commit("createFileURL", URL.createObjectURL(this.file));
-            console.log(URL.createObjectURL(this.file))
-        },
-         uploadBlog() {
-         if (this.blogTitle.length !== 0 && this.blogHTMLlength !== 0) {
-            if (this.file) {
-                const storageRef = storage.ref  
-                const docRef = storageRef.child(`Storage/Post-Images/${this.$store.state.blogPhotoName}`);
-                docRef.put(this.file).on("state_changed", (snapshot) => {
-                console.log(snapshot);
-                }, (err) =>{
-                console.log(err);
-                },
-                async () => {
-                    const downloadURL =await docRef.getDownloadURL();
-                    const timestamp = await Date.now();
-                    const database = await db.collection("blogPosts").doc();
 
-                await database.set({                              
-                    blogID: database.id,
-                    blogHTML: this.blogHTML,
-                    blogTItle: this.blogTitle,
-                    profileId: this.profileId,
-                    blogPhotoName: this.blogPhotoName,
-                    blogPhotoFileURL: downloadURL, 
-                    date: timestamp
-                })
-                })
-                return;
-            } 
-        this.error = true;
-        this.errorMsg = "enter values";
-        }  
-    },  
-    },
-    computed:{
-    blogTitle: {
-        get() {
-            return this.$store.state.blogTitle
-        },
-        set(payload) {
-            this.$store.commit("newBlogTitle", payload)
-        }
-    },
-    blogHTML: {
-        get() {
-            return this.$store.state.blogHTML
-        },
-        set(payload) {
-            this.$store.commit("newBlogPost", payload)
-        }
-    }
-    }
 }
 </script>
 
 <style>
-.add-card *{
-    box-sizing: border-box;
-}
-.add-card{
-    margin: 1.25rem auto;
-    max-width: 31.25rem;
-}
 
-h3{
-    margin-top: .625rem
-}
-form {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-}
-
-h2 {
-    text-align: center;
-    font-size: 3.2rem;
-    color: #000000;
-    margin-bottom: 4rem;
-}
-
-.contentData {
-    background-color: white;
-    color: gray;
-    padding: 1rem;
-    border-radius: 2rem;
-    border: 0.2rem solid transparent;
-    outline: none;
-    font-weight: 500;
-    line-height: 1.4;
-    width: 500rem;
-    height: 20rem;
-}
-.input-file {
-    color: black;
-}
 </style>
