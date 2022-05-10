@@ -5,6 +5,9 @@
         Don't have an account?
         <router-link class="router-link" to="/Sign-Up">SignUp</router-link>
       </p>
+        <p class="back-home">Go back to 
+          <router-link class="router-link" to="/">Home</router-link>
+        </p>
       <h2>Login to League of Legends</h2>
       <div class="inputs">
         <div class="input">
