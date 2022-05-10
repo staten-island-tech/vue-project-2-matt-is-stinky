@@ -5,6 +5,9 @@
         Already have an account?
         <router-link class="router-link" to="/Log-In">Log In</router-link>
       </p>
+      <p class="back-home">Go back to 
+          <router-link class="router-link" to="/">Home</router-link>
+        </p>
       <h2>Create Your League of Legends Account</h2>
       <div class="inputs">
         <div class="input">
