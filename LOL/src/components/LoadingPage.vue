@@ -22,7 +22,7 @@ export default {
     },
 };
 </script>
-<style >
+<style scoped>
 .loading{
     top: 0;
     z-index: 101;

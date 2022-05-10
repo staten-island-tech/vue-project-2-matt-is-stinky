@@ -1,13 +1,11 @@
 <template>
   <div class="form-wrap">
+    <LoadingPage v-if="loading" />
     <form class="register">
       <p class="login-register">
         Already have an account?
         <router-link class="router-link" to="/Log-In">Log In</router-link>
       </p>
-      <p class="back-home">Go back to 
-          <router-link class="router-link" to="/">Home</router-link>
-        </p>
       <h2>Create Your League of Legends Account</h2>
       <div class="inputs">
         <div class="input">
@@ -35,11 +33,15 @@
 </template>
 
 <script>
+import LoadingPage from "../components/LoadingPage.vue"
 import firebase from "firebase/compat/app";
 import "firebase/auth";
 import db from "../firebase/config";
 export default {
   name: "Sign-Up",
+  components: {
+    LoadingPage,
+  },
   data() {
     return {
       firstName: "",
@@ -49,6 +51,7 @@ export default {
       password: "",
       error: null,
       errorMsg: "",
+      loading: null,
     };
   },
   methods: {
@@ -60,6 +63,7 @@ export default {
         this.lastName !== "" &&
         this.username !== ""
       ) {
+        this.loading = true;
         this.error = false;
         this.errorMsg = "";
         const firebaseAuth = await firebase.auth();

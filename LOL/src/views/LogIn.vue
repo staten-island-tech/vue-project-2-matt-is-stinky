@@ -1,9 +1,10 @@
 <template>
   <div class="form-wrap">
+    <LoadingPage v-if="loading" />
     <form class="login">
       <p class="login-register">
         Don't have an account?
-        <router-link class="router-link" to="/Sign-Up">SignUp</router-link>
+        <router-link class="router-link" to="/Sign-Up">Sign Up</router-link>
       </p>
         <p class="back-home">Go back to 
           <router-link class="router-link" to="/">Home</router-link>
@@ -29,21 +30,27 @@
 </template>
 
 <script>
+import LoadingPage from "../components/LoadingPage.vue"
 import firebase from "firebase/compat/app";
 import "firebase/auth";
 
 export default {
   name: "LogIn",
+  components: {
+    LoadingPage
+  },
   data() {
     return {
       email: "",
       password: "",
       error: null,
       errorMsg: "",
+      loading: null,
     };
   },
   methods: {
     signIn() {
+      this.loading = true;
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
