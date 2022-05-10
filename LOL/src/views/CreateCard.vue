@@ -13,93 +13,49 @@
                    <input class="input-file" type="file" ref="blogPhoto" id="blog-photo" accept=".png, .jpg, .jpeg" > 
                 </div>
             </div>
+            <div v-show="error" class="error">{{ this.errorMsg }}</div>
         </form>
         <button @click="uploadBlog">Publish</button>
     </div>
 </template>
 
 <script>
-import "firebase/compat/firestore";
-/* import db from "../firebase/config";  
-import storage from "../firebase/config";  */
-
+import "firebase/auth"
+import db from "../firebase/config" 
 export default {
-    name: "AddCard",
+    name: "Create-Post",
     data() {
         return{
-            card:{
-            title:"",
-            content:"", 
-            }
-        }
+            blogHTML: "",
+            blogTitle: "",
+            error: null,
+            errorMsg: "",
+        };
     },
-    methods:{
-        async upload() {
-
-        }
-    },
-    computed:{
-    blogTitle: {
-        get() {
-            return this.$store.state.blogTitle
+    methods: {
+        async uploadBlog(){
+            if(
+                this.blogHTML !== "" &&
+                this.blogTitle !== "" 
+            ) {
+               this.error = false; 
+               this.errorMsg = "";
+               const dataBase = db.collection("posts").doc(this.id)
+               await dataBase.set({
+                   postContent: this.blogHTML,
+                   postTitle: this.blogTitle
+               });
+               this.$router.push({ name: "Blogs" });
+               return;
+            } 
+            this.error = true;
+            this.errorMsg = "Please fill out all the fields!"
+            return;
         },
-        set(payload) {
-            this.$store.commit("newBlogTitle", payload)
-        }
     },
-    blogHTML: {
-        get() {
-            return this.$store.state.blogHTML
-        },
-        set(payload) {
-            this.$store.commit("newBlogPost", payload)
-        }
-    }
-    }
-}
+};
 </script>
 
 <style>
-.add-card *{
-    box-sizing: border-box;
-}
-.add-card{
-    margin: 1.25rem auto;
-    max-width: 31.25rem;
-}
 
-h3{
-    margin-top: .625rem
-}
-form {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-}
-
-h2 {
-    text-align: center;
-    font-size: 3.2rem;
-    color: #000000;
-    margin-bottom: 4rem;
-}
-
-.contentData {
-    background-color: white;
-    color: gray;
-    padding: 1rem;
-    border-radius: 2rem;
-    border: 0.2rem solid transparent;
-    outline: none;
-    font-weight: 500;
-    line-height: 1.4;
-    width: 500rem;
-    height: 20rem;
-}
-.input-file {
-    color: black;
-}
 </style>
