@@ -11,7 +11,9 @@
         <ul>
           <router-link class="link" to="/">Home</router-link>
           <router-link class="link" to="/Blogs-View">Blogs</router-link>
-          <router-link class="link" to="/Create-Card">Create Card</router-link>
+          <router-link v-if="user" class="link" to="/Create-Card"
+            >Create Card</router-link
+          >
           <router-link v-if="!user" class="link" to="/Log-In"
             >Login</router-link
           >

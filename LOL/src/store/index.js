@@ -7,22 +7,22 @@ const store = createStore({
   state: {
     sampleBlogCards: [
       {
-        blogTitle: "Blog Card #1",
+        blogTitle: "Irelia",
         blogCoverPhoto: "irelia",
         blogDate: "May 7, 2022",
       },
       {
-        blogTitle: "Blog Card #2",
+        blogTitle: "Sett",
         blogCoverPhoto: "sett",
         blogDate: "May 7, 2022",
       },
       {
-        blogTitle: "Blog Card #3",
+        blogTitle: "Talon",
         blogCoverPhoto: "talon",
         blogDate: "May 7, 2022",
       },
       {
-        blogTitle: "Blog Card #4",
+        blogTitle: "Yasuo",
         blogCoverPhoto: "yasuo",
         blogDate: "May 7, 2022",
       },

@@ -9,14 +9,10 @@
     <div v-if="user" class="toggle-edit"></div>
     <div class="post-card-wrap">
       <div class="blog-cards">
-        <PostCard
+        <BlogCard
           :post="post"
-          v-for="post in searchPosts"
-          :key="post.name"
-          :name="post.name"
-          :content="post.PostContent"
-          :image="post.PostImage"
-          :date="post.PostDate"
+          v-for="post in sampleBlogCards"
+          :key="post"
         />
       </div>
     </div>
@@ -24,8 +20,14 @@
 </template> -->
 <template>
   <div class="home">
-    <BlogPost :post="welcomeScreen" />
-    <BlogPost :post="post" v-for="post in sampleBlogPost" :key="post" />
+    <!-- <BlogPost :post="welcomeScreen" />
+    <BlogPost :post="post" v-for="post in sampleBlogPost" :key="post" /> -->
+    <input
+      class="searchBar"
+      type="text"
+      v-model="search"
+      placeholder="SEARCH FOR CHAMPION"
+    />
     <div class="blog-card-wrap">
       <div class="container">
         <h3>View More Recent Blogs</h3>
@@ -38,14 +40,14 @@
 </template>
 
 <script>
-import BlogPost from "../components/BlogPost.vue";
+/*import BlogPost from "../components/BlogPost.vue";*/
 import BlogCard from "../components/BlogCard";
 /*import { ref, computed } from "vue";
 import { useStore } from "vuex";*/
 export default {
   name: "HomeView",
   components: {
-    BlogPost,
+    /*BlogPost,*/
     BlogCard,
   },
   data() {
@@ -69,8 +71,8 @@ export default {
           blogCoverPhoto: "talon",
         },
       ],
-      /*search: "",
-      Posts: [
+      search: "",
+      /*Posts: [
         {
           name: "Yasuo",
           PostContent: "Kinda cool, has a brother, killed him tho :/",
@@ -103,11 +105,11 @@ export default {
     sampleBlogCards() {
       return this.$store.state.sampleBlogCards;
     },
-    /*searchPosts: function () {
+    searchPosts: function () {
       return this.Posts.filter((Post) => {
         return Post.name.match(this.search);
       });
-    },*/
+    },
   },
 };
 </script>
@@ -118,12 +120,13 @@ h3 {
   font-size: 2.8rem;
   margin-bottom: 3.2rem;
 }
-/*.blog-cards {
+.blog-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-self: left;
 }
+/*
 .toggle-edit {
   display: flex;
   align-items: center;
@@ -133,7 +136,7 @@ h3 {
 }
 .blog-cards:hover {
   animation: 1s cardCover infinite;
-}
+}*/
 
 .searchBar {
   width: 50rem;
@@ -150,5 +153,5 @@ h3 {
 .searchBar:hover {
   box-shadow: inset 77rem 0 0 0 rgb(39, 39, 39);
   cursor: pointer;
-}*/
+}
 </style>

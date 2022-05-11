@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import LoadingPage from "../components/LoadingPage.vue"
+import LoadingPage from "../components/LoadingPage.vue";
 import firebase from "firebase/compat/app";
 import "firebase/auth";
 import db from "../firebase/config";

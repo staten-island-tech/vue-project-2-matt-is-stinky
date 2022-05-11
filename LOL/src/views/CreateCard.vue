@@ -1,5 +1,6 @@
 <template>
   <div class="addCard">
+    <LoadingPage v-if="loading" />
     <h2>Create a New Card</h2>
     <form>
       <div class="inputs">
@@ -35,21 +36,28 @@
 </template>
 
 <script>
+import LoadingPage from "../components/LoadingPage";
 import "firebase/auth";
 import db from "../firebase/config";
 export default {
   name: "Create-Post",
+  components: {
+    LoadingPage,
+  },
   data() {
     return {
       blogHTML: "",
       blogTitle: "",
+      blogPicture: null,
       error: null,
       errorMsg: "",
+      loading: null,
     };
   },
   methods: {
     async uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
+        this.loading = true;
         this.error = false;
         this.errorMsg = "";
         const dataBase = db.collection("posts").doc(this.id);
