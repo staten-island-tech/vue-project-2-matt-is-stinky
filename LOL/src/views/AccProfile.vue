@@ -25,7 +25,7 @@
                 <input type="text" id="username" v-model="username"/>
             </div>
             <div class="input">
-                <label for="emial">Email:</label>
+                <label for="email">Email:</label>
                 <input disabled type="text" id="email" v-model="email"/>
             </div>
             <button @click="updateProfile"> Save Changes </button>

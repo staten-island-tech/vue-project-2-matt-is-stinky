@@ -25,6 +25,7 @@
             ref="blogPhoto"
             id="blog-photo"
             accept=".png, .jpg, .jpeg"
+            @change="logFiles"
           />
         </div>
       </div>
@@ -64,6 +65,12 @@ export default {
       this.errorMsg = "Please fill out all the fields!";
       return;
     },
+    /* logFiles(e) { 
+        const file = e.target.files || e.data
+        const file = this.target.file[0];
+        const url = URL.createObjectURL(file);
+        console.log(url);
+    } */
   },
 };
 </script>
