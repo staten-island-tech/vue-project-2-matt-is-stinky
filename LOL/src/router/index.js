@@ -26,7 +26,7 @@ const routes = [
       return import("../views/SignUp.vue");
     },
     meta: {
-      title: "SignUp",
+      title: "Sign Up",
     },
   },
   {
@@ -36,7 +36,7 @@ const routes = [
       return import("../views/LogIn.vue");
     },
     meta: {
-      title: "LogIn",
+      title: "Log In",
     },
   },
   {
@@ -67,9 +67,7 @@ const routes = [
     path: "/View-Blog",
     name: "View Blog",
     component: function () {
-      return import(
-        "../views/ViewBlog.vue"
-      );
+      return import("../views/ViewBlog.vue");
     },
   },
 ];
