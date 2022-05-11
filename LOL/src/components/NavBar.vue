@@ -166,6 +166,7 @@ ul {
   border-radius: 50%;
   color: #000;
   background-color: #fff;
+  z-index: 50;
 }
 
 .profile-menu {
