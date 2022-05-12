@@ -63,7 +63,6 @@ export default {
         this.lastName !== "" &&
         this.username !== ""
       ) {
-        this.loading = true;
         this.error = false;
         this.errorMsg = "";
         const firebaseAuth = await firebase.auth();

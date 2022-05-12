@@ -61,6 +61,7 @@ export default {
           console.log(firebase.auth().currentUser.uid);
         })
         .catch((err) => {
+          this.loading = null;
           this.error = true;
           this.errorMsg = err.message;
         });

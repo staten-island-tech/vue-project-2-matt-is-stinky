@@ -68,6 +68,7 @@ export default {
         this.$router.push({ name: "Blogs" });
         return;
       }
+      this.loading = false;
       this.error = true;
       this.errorMsg = "Please fill out all the fields!";
       return;
