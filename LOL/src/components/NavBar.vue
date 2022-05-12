@@ -31,10 +31,6 @@
             <div class="info">
               <p class="initials">{{ this.$store.state.profileInitials }}</p>
               <div class="right">
-                <p>
-                  {{ this.$store.state.profileFirstName }}
-                  {{ this.$store.state.profileLastName }}
-                </p>
                 <p>{{ this.$store.state.profileUsername }}</p>
                 <p>{{ this.$store.state.profileEmail }}</p>
               </div>
@@ -163,6 +159,7 @@ ul {
   border-radius: 50%;
   color: #000;
   background-color: #fff;
+  z-index: 50;
 }
 
 .profile-menu {

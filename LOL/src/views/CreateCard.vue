@@ -24,8 +24,8 @@
             type="file"
             ref="blogPhoto"
             id="blog-photo"
-            accept=".png, .jpg, .jpeg"
-            @change="logFiles"
+            accept="image/*"
+            name="file"
           />
         </div>
       </div>
@@ -38,6 +38,7 @@
 <script>
 import "firebase/auth";
 import db from "../firebase/config";
+import storage from "../firebase/config"
 export default {
   name: "Create-Post",
   data() {
@@ -65,12 +66,9 @@ export default {
       this.errorMsg = "Please fill out all the fields!";
       return;
     },
-    /* logFiles(e) { 
-        const file = e.target.files || e.data
-        const file = this.target.file[0];
-        const url = URL.createObjectURL(file);
-        console.log(url);
-    } */
+    selectImagee() {
+      let imageData = 
+    }
   },
 };
 </script>

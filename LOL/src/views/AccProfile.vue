@@ -46,22 +46,6 @@ export default {
         }
     },
     computed: {
-        firstName: {
-            get() {
-                return this.$store.state.profileFirstName
-            },
-            set(payload){
-                this.$store.commit("changeFirstName", payload)
-            },
-        },
-        lastName: {
-            get() {
-                return this.$store.state.profileLastName
-            },
-            set(payload){
-                this.$store.commit("changeLastName", payload)
-            },
-        },
         username: {
             get() {
                 return this.$store.state.profileUsername
@@ -90,6 +74,7 @@ h2{
 .container{
     max-width: 62.5rem;
     padding: 3.75rem 1.5625rem;
+    z-index: 101;
 }
 .profile-info{
     border-radius: .5rem;
