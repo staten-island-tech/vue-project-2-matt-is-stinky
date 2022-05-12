@@ -20,8 +20,6 @@
 </template> -->
 <template>
   <div class="home">
-    <!-- <BlogPost :post="welcomeScreen" />
-    <BlogPost :post="post" v-for="post in sampleBlogPost" :key="post" /> -->
     <input
       class="searchBar"
       type="text"
@@ -30,7 +28,6 @@
     />
     <div class="blog-card-wrap">
       <div class="container">
-        <h3>View More Recent Blogs</h3>
         <div class="blog-cards">
           <BlogCard :post="post" v-for="post in sampleBlogCards" :key="post" />
         </div>
@@ -40,7 +37,6 @@
 </template>
 
 <script>
-/*import BlogPost from "../components/BlogPost.vue";*/
 import BlogCard from "../components/BlogCard";
 /*import { ref, computed } from "vue";
 import { useStore } from "vuex";*/
@@ -52,25 +48,6 @@ export default {
   },
   data() {
     return {
-      welcomeScreen: {
-        title: "Welcome!",
-        blogPost:
-          "Weekly blog articles with all things programming including HTML, CSS, Javascript and more. Register today to never miss a post!",
-        welcomeScreen: true,
-        photo: "irelia",
-      },
-      sampleBlogPost: [
-        {
-          title: "This is a Filler Title!",
-          blogHTML: "This is a filler blog post title!",
-          blogCoverPhoto: "sett",
-        },
-        {
-          title: "This is a Filler Title!",
-          blogHTML: "This is a filler blog post title!",
-          blogCoverPhoto: "talon",
-        },
-      ],
       search: "",
       /*Posts: [
         {
@@ -106,8 +83,8 @@ export default {
       return this.$store.state.sampleBlogCards;
     },
     searchPosts: function () {
-      return this.Posts.filter((Post) => {
-        return Post.name.match(this.search);
+      return this.sampleBlogCards.filter((blogCard) => {
+        return blogCard.blogTitle.match(this.search);
       });
     },
   },
@@ -127,13 +104,6 @@ h3 {
   align-self: left;
 }
 /*
-.toggle-edit {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  margin-top: 0.16rem;
-  padding: 0.1rem;
-}
 .blog-cards:hover {
   animation: 1s cardCover infinite;
 }*/

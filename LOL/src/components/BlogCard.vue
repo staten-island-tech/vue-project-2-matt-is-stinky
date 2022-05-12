@@ -56,7 +56,6 @@ methods: {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  border-radius: 0.8rem;
   background-color: #fff;
   min-height: 8rem;
   transition: 0.5s ease all;
@@ -70,11 +69,10 @@ methods: {
 
 img {
   display: block;
-  border-radius: 0.8rem 0.8rem 0 0;
   z-index: 1;
   width: 100%;
-  min-height: 20rem;
   object-fit: cover;
+  margin: 2rem auto;
 }
 
 .info {
@@ -144,15 +142,7 @@ h6 {
   fill: #fff;
 }
 
-/*h2 {
-  font-size: 2.5rem;
-}
-h3 {
-  font-size: 1.5rem;
-}
-p {
-  font-size: 1.23rem;
-}
+/*
 .card-post {
   display: flex;
   flex-wrap: wrap;

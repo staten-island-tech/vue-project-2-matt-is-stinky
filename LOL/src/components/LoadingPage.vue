@@ -6,20 +6,6 @@
 <script>
 export default {
     name: "LoadingPage",
-    data(){
-        return{
-
-        };
-    },
-    computed: {
-        
-    },
-    methods: {
-
-    },
-    components: {
-
-    },
 };
 </script>
 <style scoped>
