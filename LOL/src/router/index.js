@@ -10,16 +10,6 @@ const routes = [
     },
   },
   {
-    path: "/Blogs-View",
-    name: "Blogs",
-    component: function () {
-      return import("../views/BlogsView.vue");
-    },
-    meta: {
-      title: "Blogs",
-    },
-  },
-  {
     path: "/Sign-Up",
     name: "Sign Up",
     component: function () {
