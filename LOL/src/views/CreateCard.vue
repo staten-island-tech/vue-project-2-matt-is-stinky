@@ -38,7 +38,7 @@
 <script>
 import "firebase/auth";
 import db from "../firebase/config";
-import storage from "../firebase/config"
+/* import storage from "../firebase/config" */
 export default {
   name: "Create-Post",
   data() {
@@ -67,8 +67,8 @@ export default {
       return;
     },
     selectImagee() {
-      let imageData = 
-    }
+       
+    },
   },
 };
 </script>
