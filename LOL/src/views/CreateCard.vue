@@ -66,9 +66,6 @@ export default {
       this.errorMsg = "Please fill out all the fields!";
       return;
     },
-    selectImagee() {
-       
-    },
   },
 };
 </script>
