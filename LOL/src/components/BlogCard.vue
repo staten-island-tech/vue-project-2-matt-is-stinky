@@ -63,6 +63,7 @@ methods: {
 
 .blog-card:hover {
   transform: rotateZ(-1deg) scale(1.01);
+  background-color:#000;
   box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
     0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
 }
@@ -82,6 +83,11 @@ img {
   z-index: 3;
   padding: 3.2rem 1.6rem;
   color: #000;
+  visibility: hidden;
+}
+
+.info:hover{
+  visibility: visible;
 }
 
 h4 {
