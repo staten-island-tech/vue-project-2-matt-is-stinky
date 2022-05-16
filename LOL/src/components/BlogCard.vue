@@ -18,11 +18,11 @@
       </div>
     </div>
     <img :src="require(`../assets/images/${post.blogCoverPhoto}.jpg`)" alt="" />
-    <div class="info">
+    <!-- <div class="info">
       <h4>{{ post.blogTitle }}</h4>
       <h6>Posted on: {{ post.blogDate }}</h6>
-      <!-- <router-link class="link" to="#"> View The Post </router-link> -->
-    </div>
+      <router-link class="link" to="#"> View The Post </router-link>
+    </div> -->
   </div>
 </template>
 
@@ -56,7 +56,6 @@ methods: {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
   min-height: 8rem;
   transition: 0.5s ease all;
 }
@@ -73,7 +72,6 @@ img {
   z-index: 1;
   width: 100%;
   object-fit: cover;
-  margin: 2rem auto;
 }
 
 .info {
