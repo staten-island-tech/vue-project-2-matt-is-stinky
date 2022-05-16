@@ -33,6 +33,8 @@ const store = createStore({
     profileUsername: null,
     profileId: null,
     profileInitials: null,
+    blogFileURL: null,
+    blogPhotoName: null, 
 
     /* blogHTML: "",
     blogTitle: "",

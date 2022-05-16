@@ -25,7 +25,7 @@
             ref="blogPhoto"
             id="blog-photo"
             accept="image/*"
-            name="file"
+            name="file" @change="fileChange"
           />
         </div>
       </div>
@@ -50,6 +50,14 @@ export default {
     };
   },
   methods: {
+    fileChange() {
+      this.file = this.$refs.blogPhoto.files[0]
+      const filename = this.file.name
+      console.log(filename)
+      const imageLink = URL.createObjectURL(this.file)
+      console.log(imageLink)
+      return;
+    },
     async uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
         this.error = false;
@@ -58,6 +66,7 @@ export default {
         await dataBase.set({
           postContent: this.blogHTML,
           postTitle: this.blogTitle,
+          imageLink: this.imageLink,
         });
         this.$router.push({ name: "Blogs" });
         return;
