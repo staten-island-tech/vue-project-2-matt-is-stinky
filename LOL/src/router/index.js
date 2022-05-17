@@ -55,6 +55,9 @@ const routes = [
     component: function () {
       return import("../views/CreateCard.vue");
     },
+    meta: {
+      title: "Create Card",
+    },
   },
   {
     path: "/preview-blog",
