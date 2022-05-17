@@ -66,7 +66,6 @@ export default {
         await dataBase.set({
           postContent: this.blogHTML,
           postTitle: this.blogTitle,
-          imageLink: this.imageLink,
         });
         this.$router.push({ name: "Blogs" });
         return;
