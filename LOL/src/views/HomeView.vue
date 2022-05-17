@@ -29,16 +29,13 @@
     <div class="blog-card-wrap">
       <div class="container">
         <div class="blog-cards">
+                <div class="toggle-edit">
+                  <span>Toggle Editing Post</span>
+                <input type="checkbox" v-model="editPost" />
+          </div>
           <BlogCard :post="post" v-for="post in sampleBlogCards" :key="post" />
         </div>
-<template>
-  <div class="blog-card-wrap">
-    <div class="blog-cards container">
-      <div class="toggle-edit">
-        <span>Toggle Editing Post</span>
-        <input type="checkbox" v-model="editPost" />
       </div>
-      <BlogCard :post="post" v-for="post in sampleBlogCards" :key="post" />
     </div>
   </div>
 </template>
@@ -106,11 +103,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 h3 {
   font-weight: 300;
   font-size: 2.8rem;
-p  margin-bottom: 3.2rem;
+}
+p {  
+  margin-bottom: 3.2rem;
 }
 .blog-cards {
   display: flex;
@@ -122,7 +121,6 @@ p  margin-bottom: 3.2rem;
 .blog-cards:hover {
   animation: 1s cardCover infinite;
 }*/
-<style scoped>
 .blog-cards {
   position: relative;
 }
@@ -143,13 +141,23 @@ input[type="checkbox"] {
   position: relative;
   border: none;
   -webkit-appearance: none;
-  background: white;
+  background: #FFF;
   outline: none;
   width: 8rem;
   height: 3rem;
   border-radius: 2rem;
   box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
     0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
+    transition: ease-out 1s;
+}
+
+.searchBar {
+  width: 50rem;
+  height: 4rem;
+  background: #000000;
+  border-radius: 20rem;
+  color: white;
+  border: none;
 }
 
 .searchBar:hover {

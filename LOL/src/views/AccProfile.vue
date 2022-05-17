@@ -9,20 +9,6 @@
         <h2>Account Settings</h2>
         <div class="profile-info">
             <div class="initials">{{ $store.state.profileInitials }}</div>
-            <div class="input">
-                <label for="username">Username:</label>
-                <input type="text" id="username" v-model="username"/>
-            </div>
-            <div class="input">
-                <label for="email">Email:</label>
-                <input disabled type="text" id="email" v-model="email"/>
-            </div>
-            <button @click="updateProfile"> Save Changes </button>
-        </div>
-        <div class="input">
-          <label for="lastName">last Name:</label>
-          <input type="text" id="lastName" v-model="lastName" />
-        </div>
         <div class="input">
           <label for="username">Username:</label>
           <input type="text" id="username" v-model="username" />
