@@ -25,7 +25,8 @@
             type="file"
             ref="blogPhoto"
             id="blog-photo"
-            accept=".png, .jpg, .jpeg"
+            accept="image/*"
+            name="file" @change="fileChange"
           />
         </div>
       </div>
@@ -39,6 +40,7 @@
 import LoadingPage from "../components/LoadingPage";
 import "firebase/auth";
 import db from "../firebase/config";
+/* import storage from "../firebase/config" */
 export default {
   name: "Create-Post",
   components: {
@@ -55,6 +57,14 @@ export default {
     };
   },
   methods: {
+    fileChange() {
+      this.file = this.$refs.blogPhoto.files[0]
+      const filename = this.file.name
+      console.log(filename)
+      const imageLink = URL.createObjectURL(this.file)
+      console.log(imageLink)
+      return;
+    },
     async uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
         this.loading = true;
@@ -64,6 +74,7 @@ export default {
         await dataBase.set({
           postContent: this.blogHTML,
           postTitle: this.blogTitle,
+          imageLink: this.imageLink,
         });
         this.$router.push({ name: "Blogs" });
         return;

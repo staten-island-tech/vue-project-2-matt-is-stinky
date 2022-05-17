@@ -31,19 +31,23 @@
         <div class="blog-cards">
           <BlogCard :post="post" v-for="post in sampleBlogCards" :key="post" />
         </div>
+<template>
+  <div class="blog-card-wrap">
+    <div class="blog-cards container">
+      <div class="toggle-edit">
+        <span>Toggle Editing Post</span>
+        <input type="checkbox" v-model="editPost" />
       </div>
+      <BlogCard :post="post" v-for="post in sampleBlogCards" :key="post" />
     </div>
   </div>
 </template>
 
 <script>
 import BlogCard from "../components/BlogCard";
-/*import { ref, computed } from "vue";
-import { useStore } from "vuex";*/
 export default {
-  name: "HomeView",
+  name: "Blog-View",
   components: {
-    /*BlogPost,*/
     BlogCard,
   },
   data() {
@@ -87,6 +91,17 @@ export default {
         return blogCard.blogTitle.match(this.search);
       });
     },
+    editPost: {
+      get() {
+        return this.$store.state.editPost;
+      },
+      set(payload) {
+        this.$store.commit("toggleEditPost", payload);
+      },
+    },
+  },
+  beforeUnmount() {
+    this.$store.commit("toggleEditPost", false);
   },
 };
 </script>
@@ -95,7 +110,7 @@ export default {
 h3 {
   font-weight: 300;
   font-size: 2.8rem;
-  margin-bottom: 3.2rem;
+p  margin-bottom: 3.2rem;
 }
 .blog-cards {
   display: flex;
@@ -107,21 +122,57 @@ h3 {
 .blog-cards:hover {
   animation: 1s cardCover infinite;
 }*/
+<style scoped>
+.blog-cards {
+  position: relative;
+}
 
-.searchBar {
-  width: 50rem;
-  height: 4rem;
-  background: #000000;
-  border-radius: 20rem;
-  color: white;
+.toggle-edit {
+  display: flex;
+  align-items: center;
+
+  top: -7rem;
+  right: 0;
+}
+
+span {
+  margin-right: 1.6rem;
+}
+
+input[type="checkbox"] {
+  position: relative;
   border: none;
-  background: black;
-  transition: ease-out 1s;
+  -webkit-appearance: none;
+  background: white;
   outline: none;
+  width: 8rem;
+  height: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
+    0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
 }
 
 .searchBar:hover {
   box-shadow: inset 77rem 0 0 0 rgb(39, 39, 39);
   cursor: pointer;
+}
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 2rem;
+  top: 0;
+  left: 0;
+  background: white;
+  transform: scale(1.1);
+  transition: 750ms ease all;
+  box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
+    0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
+}
+
+input:checked[type="checkbox"]:before {
+  background: red;
+  left: 5.2rem;
 }
 </style>

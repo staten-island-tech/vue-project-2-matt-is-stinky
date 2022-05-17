@@ -9,12 +9,6 @@
       <h2>Create Your League of Legends Account</h2>
       <div class="inputs">
         <div class="input">
-          <input type="text" placeholder="First Name" v-model="firstName" />
-        </div>
-        <div class="input">
-          <input type="text" placeholder="Last Name" v-model="lastName" />
-        </div>
-        <div class="input">
           <input type="text" placeholder="Username" v-model="username" />
         </div>
         <div class="input">
@@ -59,8 +53,6 @@ export default {
       if (
         this.email !== "" &&
         this.password !== "" &&
-        this.firstName !== "" &&
-        this.lastName !== "" &&
         this.username !== ""
       ) {
         this.error = false;
@@ -73,8 +65,6 @@ export default {
         const result = await createUser;
         const dataBase = db.collection("users").doc(result.user.uid);
         await dataBase.set({
-          firstName: this.firstName,
-          lastName: this.lastName,
           username: this.username,
           email: this.email,
         });

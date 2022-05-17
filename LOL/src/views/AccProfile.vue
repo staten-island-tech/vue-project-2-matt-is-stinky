@@ -6,12 +6,18 @@
       v-on:close-modal="closeModal"
     />
     <div class="container">
-      <h2>Account Settings</h2>
-      <div class="profile-info">
-        <div class="initials">{{ $store.state.profileInitials }}</div>
-        <div class="input">
-          <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" v-model="firstName" />
+        <h2>Account Settings</h2>
+        <div class="profile-info">
+            <div class="initials">{{ $store.state.profileInitials }}</div>
+            <div class="input">
+                <label for="username">Username:</label>
+                <input type="text" id="username" v-model="username"/>
+            </div>
+            <div class="input">
+                <label for="email">Email:</label>
+                <input disabled type="text" id="email" v-model="email"/>
+            </div>
+            <button @click="updateProfile"> Save Changes </button>
         </div>
         <div class="input">
           <label for="lastName">last Name:</label>
@@ -62,13 +68,18 @@ export default {
         this.$store.commit("changeFirstName", payload);
       },
     },
-    lastName: {
-      get() {
-        return this.$store.state.profileLastName;
-      },
-      set(payload) {
-        this.$store.commit("changeLastName", payload);
-      },
+    computed: {
+        username: {
+            get() {
+                return this.$store.state.profileUsername
+            },
+            set(payload){
+                this.$store.commit("changeUsername", payload)
+            },
+        },
+        email() {
+            return this.$store.state.profileEmail
+        },
     },
     username: {
       get() {
@@ -95,15 +106,10 @@ h2 {
   font-weight: 300;
   font-size: 32px;
 }
-.container {
-  max-width: 62.5rem;
-  padding: 3.75rem 1.5625rem;
-}
 .profile-info {
   border-radius: 0.5rem;
   box-shadow: 0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1),
     0 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.6);
-  padding: 2rem;
   background-color: #f1f1f1;
   display: flex;
   flex-direction: column;
