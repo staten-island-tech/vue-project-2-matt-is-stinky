@@ -1,3 +1,4 @@
+@ -1,74 +1,83 @@
 <template>
   <div class="addCard">
     <h2>Create a New Card</h2>
@@ -24,7 +25,9 @@
             type="file"
             ref="blogPhoto"
             id="blog-photo"
-            name="file" @change="fileChange"
+            accept=".png, .jpeg, .png"
+            name="file"
+            @change="fileChange"
           />
         </div>
       </div>
@@ -37,7 +40,7 @@
 <script>
 import "firebase/auth";
 import db from "../firebase/config";
-/* import storage from "../firebase/config" */
+import storage from "../firebase/config" 
 export default {
   name: "Create-Post",
   data() {
@@ -52,22 +55,30 @@ export default {
     fileChange() {
       this.file = this.$refs.blogPhoto.files[0]
       const filename = this.file.name
-      console.log(this.file)
-      const imageLink = URL.createObjectURL(this.file);
-      this.$store.commit("createFileURL", imageLink);
-      this.$store.commit("changePhotoName", filename)
-      console.log(this.$store.state.blogFileURL);
-      console.log(this.$store.state.blogPhotoName)
+      console.log(filename)
+      const imageLink = URL.createObjectURL(this.file)
+      return imageLink
     },
     async uploadBlog() {
+     if (this.blogHTML !== "" && this.blogTitel !== "") {
+       if(this.file) {
+         const storageRef = storage.ref();
+         const DocRef = storageRef.child(`documents/BlogPhotoPosts/`)
+       }
+     }
+    },
+    /* async uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
+        if (this.file){
+          const storageRef = storage.ref
+        }
         this.error = false;
         this.errorMsg = "";
         const dataBase = db.collection("posts").doc(this.id);
         await dataBase.set({
           postContent: this.blogHTML,
           postTitle: this.blogTitle,
-          imageLink: this.imageLink
+          imageLink: this.imageLink,
         });
         this.$router.push({ name: "Blogs" });
         return;
@@ -75,7 +86,7 @@ export default {
       this.error = true;
       this.errorMsg = "Please fill out all the fields!";
       return;
-    },
+    }, */
   },
 };
 </script>

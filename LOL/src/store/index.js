@@ -35,6 +35,11 @@ const store = createStore({
     profileInitials: null,
     blogFileURL: null,
     blogPhotoName: null,
+    /* blogHTML: "",
+    blogTitle: "",
+    blogPhotoName: "",
+    blogPhotoFileURL: null,
+    authIsReady: false, */
   },
   mutations: {
     toggleEditPost(state, payload) {
