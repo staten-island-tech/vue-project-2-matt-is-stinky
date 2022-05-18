@@ -43,7 +43,7 @@
 <script>
 import BlogCard from "../components/BlogCard";
 export default {
-  name: "Blog-View",
+  name: "Home-View",
   components: {
     BlogCard,
   },

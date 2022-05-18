@@ -71,7 +71,6 @@ img {
   display: block;
   z-index: 1;
   width: 100%;
-  object-fit: cover;
 }
 
 .info {
@@ -145,7 +144,9 @@ h6 {
 .delete path {
   fill: #fff;
 }
-
+button {
+  background: none;
+}
 /*
 .card-post {
   display: flex;
