@@ -24,7 +24,6 @@
             type="file"
             ref="blogPhoto"
             id="blog-photo"
-            accept="image/*"
             name="file" @change="fileChange"
           />
         </div>
@@ -53,10 +52,12 @@ export default {
     fileChange() {
       this.file = this.$refs.blogPhoto.files[0]
       const filename = this.file.name
-      console.log(filename)
-      const imageLink = URL.createObjectURL(this.file)
-      console.log(imageLink)
-      return;
+      console.log(this.file)
+      const imageLink = URL.createObjectURL(this.file);
+      this.$store.commit("createFileURL", imageLink);
+      this.$store.commit("changePhotoName", filename)
+      console.log(this.$store.state.blogFileURL);
+      console.log(this.$store.state.blogPhotoName)
     },
     async uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
@@ -66,6 +67,7 @@ export default {
         await dataBase.set({
           postContent: this.blogHTML,
           postTitle: this.blogTitle,
+          imageLink: this.imageLink
         });
         this.$router.push({ name: "Blogs" });
         return;

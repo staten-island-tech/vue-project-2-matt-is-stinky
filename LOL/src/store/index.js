@@ -34,13 +34,7 @@ const store = createStore({
     profileId: null,
     profileInitials: null,
     blogFileURL: null,
-    blogPhotoName: null, 
-
-    /* blogHTML: "",
-    blogTitle: "",
-    blogPhotoName: "",
-    blogPhotoFileURL: null,
-    authIsReady: false, */
+    blogPhotoName: null,
   },
   mutations: {
     toggleEditPost(state, payload) {
@@ -65,6 +59,12 @@ const store = createStore({
     },
     changeUsername(state, payload) {
       state.profileUsername = payload;
+    },
+    createFileURL(state, payload) {
+      state.blogFileURL = payload;
+    },
+    changePhotoName(state, payload) {
+      state.blogPhotoName = payload;
     },
     /*newBlogPost(state, payload) {
       state.blogHTML = payload;
