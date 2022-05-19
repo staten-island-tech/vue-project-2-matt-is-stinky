@@ -35,6 +35,9 @@ const store = createStore({
     profileInitials: null,
     blogFileURL: null,
     blogPhotoName: null,
+    postContent: null,
+    postTitle: null,
+    postTime: null,
     /* blogHTML: "",
     blogTitle: "",
     blogPhotoName: "",
@@ -52,6 +55,9 @@ const store = createStore({
       state.profileId = doc.id;
       state.profileEmail = doc.data().email;
       state.profileUsername = doc.data().username;
+    },
+    setBlogInfo(state, doc) {
+      state;
     },
     setProfileInitials(state) {
       state.profileInitials = state.profileUsername.match(/(\b\S)?/g).join("");

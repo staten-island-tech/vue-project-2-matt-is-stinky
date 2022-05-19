@@ -21,14 +21,13 @@
         </div>
         <div class="input">
           <input
-            class="input-file"
-            type="file"
-            ref="blogPhoto"
-            id="blog-photo"
-            accept=".png, .jpeg, .png"
+            class="input-file" 
+            type="file" 
+            ref="blogPhoto" 
+            id="blog-photo" 
+            accept="image/*" 
             name="file"
-            @change="fileChange"
-          />
+            />
         </div>
       </div>
       <div v-show="error" class="error">{{ this.errorMsg }}</div>
@@ -40,7 +39,6 @@
 <script>
 import "firebase/auth";
 import db from "../firebase/config";
-import storage from "../firebase/config" 
 export default {
   name: "Create-Post",
   data() {
@@ -52,33 +50,28 @@ export default {
     };
   },
   methods: {
-    fileChange() {
+    /* fileChange() {
       this.file = this.$refs.blogPhoto.files[0]
       const filename = this.file.name
       console.log(filename)
       const imageLink = URL.createObjectURL(this.file)
-      return imageLink
-    },
-    async uploadBlog() {
-     if (this.blogHTML !== "" && this.blogTitel !== "") {
-       if(this.file) {
-         const storageRef = storage.ref();
-         const DocRef = storageRef.child(`documents/BlogPhotoPosts/`)
-       }
-     }
-    },
-    /* async uploadBlog() {
+      console.log(imageLink)
+    }, */
+     async uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
-        if (this.file){
-          const storageRef = storage.ref
-        }
+        
         this.error = false;
         this.errorMsg = "";
         const dataBase = db.collection("posts").doc(this.id);
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2,'0');
+        var mm = String(today.getMonth() + 1).padStart(2,'0');
+        var yyyy = today.getFullYear();
+        const timestamp = mm + '/' + dd + '/' + yyyy;
         await dataBase.set({
           postContent: this.blogHTML,
           postTitle: this.blogTitle,
-          imageLink: this.imageLink,
+          timestamp: timestamp,
         });
         this.$router.push({ name: "Blogs" });
         return;
@@ -86,7 +79,7 @@ export default {
       this.error = true;
       this.errorMsg = "Please fill out all the fields!";
       return;
-    }, */
+    }, 
   },
 };
 </script>
