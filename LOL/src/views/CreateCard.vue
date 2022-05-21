@@ -37,8 +37,7 @@
 
 <script>
 import "firebase/auth";
-import firebase from "firebase/compat/app";
-/*import db from "../firebase/config";*/
+import db from "../firebase/config";
 /* import storage from "../firebase/config" */
 export default {
   name: "Create-Post",
@@ -62,7 +61,7 @@ export default {
       console.log(imageLink)
       return;
     },
-    /*async uploadBlog() {
+    async uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
         this.error = false;
         this.errorMsg = "";
@@ -78,33 +77,6 @@ export default {
       this.error = true;
       this.errorMsg = "Please fill out all the fields!";
       return;
-    },*/
-    uploadBlog() {
-       if (this.blogTitle.length !== 0 && this.blogHTML.length !== 0)
-        {
-          if (this.file) {
-            const storageRef = firebase.storage().ref();
-            const docRef = storageRef.child(`documents/images/${this.$store.state.blogPhotoName}`);
-            docRef.put(this.file).on("state_changed", (snapshot) => {
-              console.log(snapshot);
-            }, (err) => {
-              console.log(err);
-            }, async ()
-            );
-            return;
-          }
-          this.error = true;
-          this.errorMsg = "Please ensure you uploaded a cover photo";
-          setTimeout(() => {
-          this.error = false;
-        }, 5000)
-          return;
-        }
-        this.error = true;
-        this.errorMsg = "Please make sure the title and post is filled!";
-        setTimeout(() => {
-          this.error = false;
-        }, 5000)
     },
   },
 };
