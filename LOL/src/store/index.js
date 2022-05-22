@@ -6,6 +6,8 @@ import db from "../firebase/config";
 const store = createStore({
   state: {
     blogPosts: [],
+    postContent: "",
+    postTitle: "",
     postLoaded: null,
     editPost: null,
     user: null,
@@ -55,6 +57,15 @@ const store = createStore({
     fileNameChange(state, payload) {
       state.blogPhotoName = payload;
     },
+    filterBlogPost(state, payload) {
+      state.blogPosts = state.blogPosts.filter(
+        (post) => post.postID !== payload
+      );
+    },
+    setPostState(state, payload) {
+      state.postTitle = payload.postTitle;
+      state.postContent = payload.postContent;
+    },
   },
   actions: {
     async getCurrentUser({ commit }) {
@@ -81,7 +92,6 @@ const store = createStore({
         }
       });
       state.postLoaded = true;
-      console.log(state.blogPosts);
     },
     async updateUserSettings({ commit, state }) {
       const dataBase = await db.collection("users").doc(state.profileId);
@@ -91,6 +101,11 @@ const store = createStore({
         username: state.profileUsername,
       });
       commit("setProfileInitials");
+    },
+    async deletePost({ commit }, payload) {
+      const getPost = await db.collection("posts").doc(payload);
+      await getPost.delete();
+      commit("filterBlogPost", payload);
     },
   },
 });

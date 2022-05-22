@@ -1,7 +1,6 @@
 @ -1,74 +1,83 @@
 <template>
   <div class="addCard">
-    <LoadingPage v-if="loading" />
     <h2>Create a New Card</h2>
     <form>
       <div class="inputs">
@@ -42,21 +41,26 @@
 import firebase from "firebase/compat/app";
 import "firebase/auth";
 import db from "../firebase/config";
-import LoadingPage from "../components/LoadingPage";
 export default {
   name: "Create-Post",
-  components: {
-    LoadingPage,
-  },
+  components: {},
   data() {
     return {
       blogHTML: "",
       blogTitle: "",
-      loading: null,
       file: null,
       error: null,
       errorMsg: "",
+      currentPost: null,
+      routeID: null,
     };
+  },
+  async mounted() {
+    this.routeID = this.$route.params.postid;
+    this.currentPost = await this.$store.state.blogPosts.filter((post) => {
+      return post.postID === this.routeID;
+    });
+    this.$store.commit("setPostState", this.currentPost[0]);
   },
   methods: {
     fileChange() {
@@ -68,7 +72,6 @@ export default {
     uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
         if (this.file) {
-          this.loading = true;
           const storageRef = firebase.storage().ref();
           const docRef = storageRef.child(
             `documents/BlogCoverPhotos/${this.$store.state.blogPhotoName}`
@@ -80,7 +83,6 @@ export default {
             },
             (err) => {
               console.log(err);
-              this.loading = false;
             },
             async () => {
               const downloadURL = await docRef.getDownloadURL();
@@ -91,12 +93,6 @@ export default {
                 postPhoto: downloadURL,
                 postContent: this.blogHTML,
                 postTitle: this.blogTitle,
-              });
-              await this.$store.dispatch("getPost");
-              this.loading = false;
-              this.$router.push({
-                name: "View Blog",
-                params: { postid: dataBase.id },
               });
             }
           );

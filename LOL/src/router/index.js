@@ -69,6 +69,16 @@ const routes = [
       title: "View Blog Post",
     },
   },
+  {
+    path: "/Edit-Card:postID",
+    name: "editPost",
+    component: function () {
+      return import("../views/EditCard.vue");
+    },
+    meta: {
+      title: "Edit Card",
+    },
+  },
 ];
 
 const router = createRouter({

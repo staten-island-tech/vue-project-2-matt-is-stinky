@@ -1,15 +1,15 @@
 <template>
   <div class="home">
-    <input
+    <!-- <input
       class="searchBar"
       type="text"
       v-model="search"
       placeholder="SEARCH FOR CHAMPION"
-    />
+    /> -->
     <div class="blog-card-wrap">
       <div class="container">
         <div class="blog-cards">
-          <div class="toggle-edit" v-if=user>
+          <div class="toggle-edit">
             <span>Toggle Editing Post</span>
             <input type="checkbox" v-model="editPost" />
           </div>
@@ -36,11 +36,12 @@ export default {
     blogPosts() {
       return this.$store.state.blogPosts;
     },
+    /*
     searchPosts: function () {
       return this.blogPosts.filter((blogCard) => {
         return blogCard.blogTitle.match(this.search);
       });
-    },
+    },*/
     editPost: {
       get() {
         return this.$store.state.editPost;
