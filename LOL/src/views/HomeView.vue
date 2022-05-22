@@ -1,23 +1,3 @@
-<!-- <template>
-  <div class="main">
-    <input
-      class="searchBar"
-      type="text"
-      v-model="search"
-      placeholder="SEARCH FOR CHAMPION"
-    />
-    <div v-if="user" class="toggle-edit"></div>
-    <div class="post-card-wrap">
-      <div class="blog-cards">
-        <BlogCard
-          :post="post"
-          v-for="post in sampleBlogCards"
-          :key="post"
-        />
-      </div>
-    </div>
-  </div>
-</template> -->
 <template>
   <div class="home">
     <input
@@ -29,7 +9,7 @@
     <div class="blog-card-wrap">
       <div class="container">
         <div class="blog-cards">
-          <div class="toggle-edit">
+          <div class="toggle-edit" v-if=user>
             <span>Toggle Editing Post</span>
             <input type="checkbox" v-model="editPost" />
           </div>
@@ -50,33 +30,6 @@ export default {
   data() {
     return {
       search: "",
-      /*Posts: [
-        {
-          name: "Yasuo",
-          PostContent: "Kinda cool, has a brother, killed him tho :/",
-          PostImage: "yasuo",
-          PostDate: "date",
-        },
-        {
-          name: "irelia",
-          PostContent: "Super cringe, not a wife, ionian menace,",
-          PostImage: "irelia",
-          PostDate: "date",
-        },
-        {
-          name: "sett",
-          PostContent:
-            "Super awesome, mafiaboss, can do situps, ionian gigachad,",
-          PostImage: "sett",
-          PostDate: "date",
-        },
-        {
-          name: "talon",
-          PostContent: "talon",
-          PostImage: "talon",
-          PostDate: "date",
-        },
-      ],*/
     };
   },
   computed: {

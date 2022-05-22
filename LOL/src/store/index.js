@@ -5,28 +5,6 @@ import db from "../firebase/config";
 
 const store = createStore({
   state: {
-    /*sampleBlogCards: [
-      {
-        blogTitle: "Irelia",
-        blogCoverPhoto: "irelia",
-        blogDate: "May 7, 2022",
-      },
-      {
-        blogTitle: "Sett",
-        blogCoverPhoto: "sett",
-        blogDate: "May 7, 2022",
-      },
-      {
-        blogTitle: "Talon",
-        blogCoverPhoto: "talon",
-        blogDate: "May 7, 2022",
-      },
-      {
-        blogTitle: "Yasuo",
-        blogCoverPhoto: "yasuo",
-        blogDate: "May 7, 2022",
-      },
-    ],*/
     blogPosts: [],
     postLoaded: null,
     editPost: null,
@@ -35,14 +13,6 @@ const store = createStore({
     profileUsername: null,
     profileId: null,
     profileInitials: null,
-    blogFileURL: null,
-    blogPhotoName: null,
-
-    /* blogHTML: "",
-    blogTitle: "",
-    blogPhotoName: "",
-    blogPhotoFileURL: null,
-    authIsReady: false, */
   },
   getterss: {
     blogPostsFeed(state) {
@@ -76,27 +46,15 @@ const store = createStore({
     changeUsername(state, payload) {
       state.profileUsername = payload;
     },
-    /*newBlogPost(state, payload) {
-      state.blogHTML = payload;
-      console.log(state.blogHTML);
+    createFileURL(state, payload) {
+      state.blogFileURL = payload;
     },
-    newBlogTitle(state, payload) {
-      state.blogTitle = payload;
-      console.log(state.blogTitle);
-    },*/
+    changePhotoName(state, payload) {
+      state.blogPhotoName = payload;
+    },
     fileNameChange(state, payload) {
       state.blogPhotoName = payload;
     },
-    createFileURL(state, payload) {
-      state.blogPhotoFileURL = payload;
-    } /*
-    setUser(state, payload) {
-      state.user = payload;
-      console.log("user state changed:", state.user);
-    },
-    setAuthIsReady(state, payload) {
-      state.authIsReady = payload;
-    },*/,
   },
   actions: {
     async getCurrentUser({ commit }) {

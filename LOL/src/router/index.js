@@ -60,10 +60,13 @@ const routes = [
     },
   },
   {
-    path: "/View-Blog",
+    path: "/View-Blog:postID",
     name: "View Blog",
     component: function () {
       return import("../views/ViewBlog.vue");
+    },
+    meta: {
+      title: "View Blog Post",
     },
   },
 ];

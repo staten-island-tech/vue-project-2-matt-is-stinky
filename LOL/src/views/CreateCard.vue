@@ -1,3 +1,4 @@
+@ -1,74 +1,83 @@
 <template>
   <div class="addCard">
     <h2>Create a New Card</h2>
@@ -40,7 +41,6 @@
 import firebase from "firebase/compat/app";
 import "firebase/auth";
 import db from "../firebase/config";
-/* import storage from "../firebase/config" */
 export default {
   name: "Create-Post",
   components: {},
@@ -142,5 +142,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
