@@ -25,7 +25,8 @@
             ref="blogPhoto"
             id="blog-photo"
             accept="image/*"
-            name="file" @change="fileChange"
+            name="file"
+            @change="fileChange"
           />
         </div>
       </div>
@@ -36,30 +37,53 @@
 </template>
 
 <script>
+import firebase from "firebase/compat/app";
 import "firebase/auth";
 import db from "../firebase/config";
 /* import storage from "../firebase/config" */
 export default {
   name: "Create-Post",
-  components: {
-  },
+  components: {},
   data() {
     return {
       blogHTML: "",
       blogTitle: "",
+      img1: "",
       blogPicture: null,
       error: null,
       errorMsg: "",
     };
   },
   methods: {
-    fileChange() {
-      this.file = this.$refs.blogPhoto.files[0]
-      const filename = this.file.name
-      console.log(filename)
-      const imageLink = URL.createObjectURL(this.file)
-      console.log(imageLink)
-      return;
+    fileChange(event) {
+      this.uploadValue = 0;
+      this.img1 = null;
+      this.blogPicture = event.target.files[0];
+      this.onUpload();
+    },
+    onUpload() {
+      this.img1 = null;
+      const storageRef = firebase
+        .storage()
+        .ref(`${this.blogPicture.name}`)
+        .put(this.blogPicture);
+      storageRef.on(
+        `state_changed`,
+        (snapshot) => {
+          this.uploadValue =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        },
+        (error) => {
+          console.log(error.message);
+        },
+        () => {
+          this.uploadValue = 100;
+          storageRef.snapshot.ref.getDownloadURL().then((url) => {
+            this.img1 = url;
+            console.log(this.img1);
+          });
+        }
+      );
     },
     async uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
@@ -69,9 +93,7 @@ export default {
         await dataBase.set({
           postContent: this.blogHTML,
           postTitle: this.blogTitle,
-          imageLink: this.imageLink,
         });
-        this.$router.push({ name: "Blogs" });
         return;
       }
       this.error = true;
