@@ -5,7 +5,7 @@ import db from "../firebase/config";
 
 const store = createStore({
   state: {
-    sampleBlogCards: [
+    /*sampleBlogCards: [
       {
         blogTitle: "Irelia",
         blogCoverPhoto: "irelia",
@@ -26,7 +26,9 @@ const store = createStore({
         blogCoverPhoto: "yasuo",
         blogDate: "May 7, 2022",
       },
-    ],
+    ],*/
+    blogPosts: [],
+    postLoaded: null,
     editPost: null,
     user: null,
     profileEmail: null,
@@ -41,6 +43,14 @@ const store = createStore({
     blogPhotoName: "",
     blogPhotoFileURL: null,
     authIsReady: false, */
+  },
+  getterss: {
+    blogPostsFeed(state) {
+      return state.blogPosts.slice(0, 2);
+    },
+    blogPostsCards(state) {
+      return state.blogPosts.slice(2, 6);
+    },
   },
   mutations: {
     toggleEditPost(state, payload) {
@@ -73,20 +83,20 @@ const store = createStore({
     newBlogTitle(state, payload) {
       state.blogTitle = payload;
       console.log(state.blogTitle);
-    },
+    },*/
     fileNameChange(state, payload) {
       state.blogPhotoName = payload;
     },
     createFileURL(state, payload) {
       state.blogPhotoFileURL = payload;
-    },
+    } /*
     setUser(state, payload) {
       state.user = payload;
       console.log("user state changed:", state.user);
     },
     setAuthIsReady(state, payload) {
       state.authIsReady = payload;
-    },*/
+    },*/,
   },
   actions: {
     async getCurrentUser({ commit }) {
@@ -97,6 +107,23 @@ const store = createStore({
       commit("setProfileInfo", dbResults);
       commit("setProfileInitials");
       console.log(dbResults);
+    },
+    async getPost({ state }) {
+      const dataBase = await db.collection("posts");
+      const dbResults = await dataBase.get();
+      dbResults.forEach((doc) => {
+        if (!state.blogPosts.some((post) => post.postID === doc.id)) {
+          const data = {
+            postID: doc.data().postID,
+            postPhoto: doc.data().postPhoto,
+            postContent: doc.data().postContent,
+            postTitle: doc.data().postTitle,
+          };
+          state.blogPosts.push(data);
+        }
+      });
+      state.postLoaded = true;
+      console.log(state.blogPosts);
     },
     async updateUserSettings({ commit, state }) {
       const dataBase = await db.collection("users").doc(state.profileId);

@@ -17,7 +17,7 @@
         <button class="delete" @click="handleClick">Delete</button>
       </div>
     </div>
-    <img :src="require(`../assets/images/${post.blogCoverPhoto}.jpg`)" alt="" />
+    <img :src="post.postPhoto" alt="" />
     <!-- <div class="info">
       <h4>{{ post.blogTitle }}</h4>
       <h6>Posted on: {{ post.blogDate }}</h6>
@@ -62,7 +62,7 @@ methods: {
 
 .blog-card:hover {
   transform: rotateZ(-1deg) scale(1.01);
-  background-color:#000;
+  background-color: #000;
   box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
     0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
 }
@@ -83,7 +83,7 @@ img {
   visibility: hidden;
 }
 
-.info:hover{
+.info:hover {
   visibility: visible;
 }
 

@@ -29,11 +29,11 @@
     <div class="blog-card-wrap">
       <div class="container">
         <div class="blog-cards">
-                <div class="toggle-edit">
-                  <span>Toggle Editing Post</span>
-                <input type="checkbox" v-model="editPost" />
+          <div class="toggle-edit">
+            <span>Toggle Editing Post</span>
+            <input type="checkbox" v-model="editPost" />
           </div>
-          <BlogCard :post="post" v-for="post in sampleBlogCards" :key="post" />
+          <BlogCard :post="post" v-for="post in blogPosts" :key="post" />
         </div>
       </div>
     </div>
@@ -80,11 +80,11 @@ export default {
     };
   },
   computed: {
-    sampleBlogCards() {
-      return this.$store.state.sampleBlogCards;
+    blogPosts() {
+      return this.$store.state.blogPosts;
     },
     searchPosts: function () {
-      return this.sampleBlogCards.filter((blogCard) => {
+      return this.blogPosts.filter((blogCard) => {
         return blogCard.blogTitle.match(this.search);
       });
     },
@@ -108,7 +108,7 @@ h3 {
   font-weight: 300;
   font-size: 2.8rem;
 }
-p {  
+p {
   margin-bottom: 3.2rem;
 }
 .blog-cards {
@@ -141,14 +141,14 @@ input[type="checkbox"] {
   position: relative;
   border: none;
   -webkit-appearance: none;
-  background: #FFF;
+  background: #fff;
   outline: none;
   width: 8rem;
   height: 3rem;
   border-radius: 2rem;
   box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
     0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
-    transition: ease-out 1s;
+  transition: ease-out 1s;
 }
 
 .searchBar {

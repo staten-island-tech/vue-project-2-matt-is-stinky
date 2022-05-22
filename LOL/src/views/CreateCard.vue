@@ -49,13 +49,20 @@ export default {
       blogHTML: "",
       blogTitle: "",
       img1: "",
+      file: null,
       blogPicture: null,
       error: null,
       errorMsg: "",
     };
   },
   methods: {
-    fileChange(event) {
+    fileChange() {
+      this.file = this.$refs.blogPhoto.files[0];
+      const fileName = this.file.name;
+      this.$store.commit("fileNameChange", fileName);
+      this.$store.commit("createFileURL", URL.createObjectURL(this.file));
+    },
+    /*fileChange(event) {
       this.uploadValue = 0;
       this.img1 = null;
       this.blogPicture = event.target.files[0];
@@ -84,21 +91,52 @@ export default {
           });
         }
       );
-    },
-    async uploadBlog() {
+    },*/
+    uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
+        if (this.file) {
+          const storageRef = firebase.storage().ref();
+          const docRef = storageRef.child(
+            `documents/BlogCoverPhotos/${this.$store.state.blogPhotoName}`
+          );
+          docRef.put(this.file).on(
+            "state_changed",
+            (snapshot) => {
+              console.log(snapshot);
+            },
+            (err) => {
+              console.log(err);
+            },
+            async () => {
+              const downloadURL = await docRef.getDownloadURL();
+              const dataBase = await db.collection("posts").doc();
+
+              await dataBase.set({
+                postID: dataBase.id,
+                postPhoto: downloadURL,
+                postContent: this.blogHTML,
+                postTitle: this.blogTitle,
+              });
+            }
+          );
+        }
         this.error = false;
         this.errorMsg = "";
-        const dataBase = db.collection("posts").doc(this.id);
-        await dataBase.set({
-          postContent: this.blogHTML,
-          postTitle: this.blogTitle,
-        });
         return;
       }
       this.error = true;
       this.errorMsg = "Please fill out all the fields!";
       return;
+    },
+    computed: {
+      postTitle: {
+        get() {
+          return this.$store.state.postTitle;
+        },
+        set(payload) {
+          this.$store.commit("updateBlogTitle", payload);
+        },
+      },
     },
   },
 };
