@@ -1,13 +1,5 @@
-<!-- <template>
-  <div class="card-post">
-    <router-link class="links" to="/View-Blog">
-      <h2>{{ post.name }}</h2>
-      <img :src="require(`../assets/images/${post.PostImage}.jpg`)" alt="" />
-      <h2>{{ post.date }}</h2>
-    </router-link>
-  </div>
-</template> -->
 <template>
+<router-link :to="{ name: 'View Blog', params: { postID: this.post.postID} }">
   <div class="blog-card">
     <div v-show="editPost" class="editButtons">
       <div class="editting">
@@ -18,12 +10,8 @@
       </div>
     </div>
     <img :src="post.postPhoto" alt="" />
-    <!-- <div class="info">
-      <h4>{{ post.blogTitle }}</h4>
-      <h6>Posted on: {{ post.blogDate }}</h6>
-      <router-link class="link" to="#"> View The Post </router-link>
-    </div> -->
   </div>
+  </router-link>
 </template>
 
 <script>
@@ -35,18 +23,6 @@ export default {
       return this.$store.state.editPost;
     },
   },
-  /*
-  computed: {
-    computedBackgroundImage: function () {
-        return this.background;
-    }
-},
-
-methods: {
-    returnBackground: function (post) {
-        return this.background=`../assets/images/${post.PostImage}.jpg`
-    }
-}*/
 };
 </script>
 

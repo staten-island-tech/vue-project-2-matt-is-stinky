@@ -60,17 +60,13 @@ const routes = [
     },
   },
   {
-    path: "/preview-blog",
-    name: "PreviewBlog",
-    component: function () {
-      return import("../views/PreviewBlog.vue");
-    },
-  },
-  {
-    path: "/View-Blog",
+    path: "/View-Blog:postID",
     name: "View Blog",
     component: function () {
       return import("../views/ViewBlog.vue");
+    },
+    meta: {
+      title: "View Blog Post",
     },
   },
 ];
