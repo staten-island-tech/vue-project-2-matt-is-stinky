@@ -21,13 +21,14 @@
         </div>
         <div class="input">
           <input
-            class="input-file" 
-            type="file" 
-            ref="blogPhoto" 
-            id="blog-photo" 
-            accept="image/*" 
+            class="input-file"
+            type="file"
+            ref="blogPhoto"
+            id="blog-photo"
+            accept="image/*"
             name="file"
-            />
+            @change="fileChange"
+          />
         </div>
       </div>
       <div v-show="error" class="error">{{ this.errorMsg }}</div>
@@ -37,51 +38,108 @@
 </template>
 
 <script>
+import firebase from "firebase/compat/app";
 import "firebase/auth";
 import db from "../firebase/config";
 export default {
   name: "Create-Post",
+  components: {},
   data() {
     return {
       blogHTML: "",
       blogTitle: "",
+      img1: "",
+      file: null,
+      blogPicture: null,
       error: null,
       errorMsg: "",
     };
   },
   methods: {
-    /* fileChange() {
-      this.file = this.$refs.blogPhoto.files[0]
-      const filename = this.file.name
-      console.log(filename)
-      const imageLink = URL.createObjectURL(this.file)
-      console.log(imageLink)
-    }, */
-     async uploadBlog() {
+    fileChange() {
+      this.file = this.$refs.blogPhoto.files[0];
+      const fileName = this.file.name;
+      this.$store.commit("fileNameChange", fileName);
+      this.$store.commit("createFileURL", URL.createObjectURL(this.file));
+    },
+    /*fileChange(event) {
+      this.uploadValue = 0;
+      this.img1 = null;
+      this.blogPicture = event.target.files[0];
+      this.onUpload();
+    },
+    onUpload() {
+      this.img1 = null;
+      const storageRef = firebase
+        .storage()
+        .ref(`${this.blogPicture.name}`)
+        .put(this.blogPicture);
+      storageRef.on(
+        `state_changed`,
+        (snapshot) => {
+          this.uploadValue =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        },
+        (error) => {
+          console.log(error.message);
+        },
+        () => {
+          this.uploadValue = 100;
+          storageRef.snapshot.ref.getDownloadURL().then((url) => {
+            this.img1 = url;
+            console.log(this.img1);
+          });
+        }
+      );
+    },*/
+    uploadBlog() {
       if (this.blogHTML !== "" && this.blogTitle !== "") {
-        
+        if (this.file) {
+          const storageRef = firebase.storage().ref();
+          const docRef = storageRef.child(
+            `documents/BlogCoverPhotos/${this.$store.state.blogPhotoName}`
+          );
+          docRef.put(this.file).on(
+            "state_changed",
+            (snapshot) => {
+              console.log(snapshot);
+            },
+            (err) => {
+              console.log(err);
+            },
+            async () => {
+              const downloadURL = await docRef.getDownloadURL();
+              const dataBase = await db.collection("posts").doc();
+
+              await dataBase.set({
+                postID: dataBase.id,
+                postPhoto: downloadURL,
+                postContent: this.blogHTML,
+                postTitle: this.blogTitle,
+              });
+            }
+          );
+        }
         this.error = false;
         this.errorMsg = "";
-        const dataBase = db.collection("posts").doc(this.id);
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2,'0');
-        var mm = String(today.getMonth() + 1).padStart(2,'0');
-        var yyyy = today.getFullYear();
-        const timestamp = mm + '/' + dd + '/' + yyyy;
-        await dataBase.set({
-          postContent: this.blogHTML,
-          postTitle: this.blogTitle,
-          timestamp: timestamp,
-        });
-        this.$router.push({ name: "Blogs" });
         return;
       }
       this.error = true;
       this.errorMsg = "Please fill out all the fields!";
       return;
-    }, 
+    },
+    computed: {
+      postTitle: {
+        get() {
+          return this.$store.state.postTitle;
+        },
+        set(payload) {
+          this.$store.commit("updateBlogTitle", payload);
+        },
+      },
+    },
   },
 };
 </script>
 
-<style></style>
+<style scoped></style>

@@ -17,12 +17,12 @@
         <button class="delete" @click="handleClick">Delete</button>
       </div>
     </div>
-    <img :src="require(`../assets/images/${post.blogCoverPhoto}.jpg`)" alt="" />
-    <div class="info">
+    <img :src="post.postPhoto" alt="" />
+    <!-- <div class="info">
       <h4>{{ post.blogTitle }}</h4>
       <h6>Posted on: {{ post.blogDate }}</h6>
-      <!-- <router-link class="link" to="#"> View The Post </router-link> -->
-    </div>
+      <router-link class="link" to="#"> View The Post </router-link>
+    </div> -->
   </div>
 </template>
 
@@ -56,25 +56,21 @@ methods: {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  border-radius: 0.8rem;
-  background-color: #fff;
   min-height: 8rem;
   transition: 0.5s ease all;
 }
 
 .blog-card:hover {
   transform: rotateZ(-1deg) scale(1.01);
+  background-color: #000;
   box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
     0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
 }
 
 img {
   display: block;
-  border-radius: 0.8rem 0.8rem 0 0;
   z-index: 1;
   width: 100%;
-  min-height: 20rem;
-  object-fit: cover;
 }
 
 .info {
@@ -84,6 +80,11 @@ img {
   z-index: 3;
   padding: 3.2rem 1.6rem;
   color: #000;
+  visibility: hidden;
+}
+
+.info:hover {
+  visibility: visible;
 }
 
 h4 {
@@ -143,16 +144,10 @@ h6 {
 .delete path {
   fill: #fff;
 }
-
-/*h2 {
-  font-size: 2.5rem;
+button {
+  background: none;
 }
-h3 {
-  font-size: 1.5rem;
-}
-p {
-  font-size: 1.23rem;
-}
+/*
 .card-post {
   display: flex;
   flex-wrap: wrap;

@@ -5,28 +5,30 @@ import db from "../firebase/config";
 
 const store = createStore({
   state: {
-    sampleBlogCards: [
+    /*sampleBlogCards: [
       {
-        blogTitle: "Blog Card #1",
+        blogTitle: "Irelia",
         blogCoverPhoto: "irelia",
         blogDate: "May 7, 2022",
       },
       {
-        blogTitle: "Blog Card #2",
+        blogTitle: "Sett",
         blogCoverPhoto: "sett",
         blogDate: "May 7, 2022",
       },
       {
-        blogTitle: "Blog Card #3",
+        blogTitle: "Talon",
         blogCoverPhoto: "talon",
         blogDate: "May 7, 2022",
       },
       {
-        blogTitle: "Blog Card #4",
+        blogTitle: "Yasuo",
         blogCoverPhoto: "yasuo",
         blogDate: "May 7, 2022",
       },
-    ],
+    ],*/
+    blogPosts: [],
+    postLoaded: null,
     editPost: null,
     user: null,
     profileEmail: null,
@@ -35,14 +37,19 @@ const store = createStore({
     profileInitials: null,
     blogFileURL: null,
     blogPhotoName: null,
-    postContent: null,
-    postTitle: null,
-    postTime: null,
     /* blogHTML: "",
     blogTitle: "",
     blogPhotoName: "",
     blogPhotoFileURL: null,
     authIsReady: false, */
+  },
+  getterss: {
+    blogPostsFeed(state) {
+      return state.blogPosts.slice(0, 2);
+    },
+    blogPostsCards(state) {
+      return state.blogPosts.slice(2, 6);
+    },
   },
   mutations: {
     toggleEditPost(state, payload) {
@@ -84,20 +91,20 @@ const store = createStore({
     newBlogTitle(state, payload) {
       state.blogTitle = payload;
       console.log(state.blogTitle);
-    },
+    },*/
     fileNameChange(state, payload) {
       state.blogPhotoName = payload;
     },
     createFileURL(state, payload) {
       state.blogPhotoFileURL = payload;
-    },
+    } /*
     setUser(state, payload) {
       state.user = payload;
       console.log("user state changed:", state.user);
     },
     setAuthIsReady(state, payload) {
       state.authIsReady = payload;
-    },*/
+    },*/,
   },
   actions: {
     async getCurrentUser({ commit }) {
@@ -109,6 +116,23 @@ const store = createStore({
       commit("setProfileInitials");
       console.log(dbResults);
     },
+    async getPost({ state }) {
+      const dataBase = await db.collection("posts");
+      const dbResults = await dataBase.get();
+      dbResults.forEach((doc) => {
+        if (!state.blogPosts.some((post) => post.postID === doc.id)) {
+          const data = {
+            postID: doc.data().postID,
+            postPhoto: doc.data().postPhoto,
+            postContent: doc.data().postContent,
+            postTitle: doc.data().postTitle,
+          };
+          state.blogPosts.push(data);
+        }
+      });
+      state.postLoaded = true;
+      console.log(state.blogPosts);
+    },
     async updateUserSettings({ commit, state }) {
       const dataBase = await db.collection("users").doc(state.profileId);
       await dataBase.update({
@@ -118,28 +142,6 @@ const store = createStore({
       });
       commit("setProfileInitials");
     },
-    /*async signup(context, { email, password }) {
-      console.log("signup action");
-      const res = await createUserWithEmailAndPassword(auth, email, password);
-      if (res) {
-        context.commit("setUser", res.user);
-      } else {
-        throw new Error("could not complete signup");
-      }
-    },
-    async login(context, { email, password }) {
-      console.log("login action");
-      const res = await signInWithEmailAndPassword(auth, email, password);
-      if (res) {
-        context.commit("setUser", res.user);
-      } else {
-        throw new Error("could not complete login");
-      }
-    },
-    async logout(context) {
-      console.log("logout action");
-      await signOut(auth);
-      context.commit("setUser", null);*/
   },
 });
 

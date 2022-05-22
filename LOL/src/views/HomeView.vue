@@ -1,11 +1,41 @@
-<template>
-  <div class="blog-card-wrap">
-    <div class="blog-cards container">
-      <div class="toggle-edit">
-        <span>Toggle Editing Post</span>
-        <input type="checkbox" v-model="editPost" />
+<!-- <template>
+  <div class="main">
+    <input
+      class="searchBar"
+      type="text"
+      v-model="search"
+      placeholder="SEARCH FOR CHAMPION"
+    />
+    <div v-if="user" class="toggle-edit"></div>
+    <div class="post-card-wrap">
+      <div class="blog-cards">
+        <BlogCard
+          :post="post"
+          v-for="post in sampleBlogCards"
+          :key="post"
+        />
       </div>
-      <BlogCard :post="post" v-for="post in sampleBlogCards" :key="post" />
+    </div>
+  </div>
+</template> -->
+<template>
+  <div class="home">
+    <input
+      class="searchBar"
+      type="text"
+      v-model="search"
+      placeholder="SEARCH FOR CHAMPION"
+    />
+    <div class="blog-card-wrap">
+      <div class="container">
+        <div class="blog-cards">
+          <div class="toggle-edit">
+            <span>Toggle Editing Post</span>
+            <input type="checkbox" v-model="editPost" />
+          </div>
+          <BlogCard :post="post" v-for="post in blogPosts" :key="post" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -13,13 +43,50 @@
 <script>
 import BlogCard from "../components/BlogCard";
 export default {
-  name: "Blog-View",
+  name: "Home-View",
   components: {
     BlogCard,
   },
+  data() {
+    return {
+      search: "",
+      /*Posts: [
+        {
+          name: "Yasuo",
+          PostContent: "Kinda cool, has a brother, killed him tho :/",
+          PostImage: "yasuo",
+          PostDate: "date",
+        },
+        {
+          name: "irelia",
+          PostContent: "Super cringe, not a wife, ionian menace,",
+          PostImage: "irelia",
+          PostDate: "date",
+        },
+        {
+          name: "sett",
+          PostContent:
+            "Super awesome, mafiaboss, can do situps, ionian gigachad,",
+          PostImage: "sett",
+          PostDate: "date",
+        },
+        {
+          name: "talon",
+          PostContent: "talon",
+          PostImage: "talon",
+          PostDate: "date",
+        },
+      ],*/
+    };
+  },
   computed: {
-    sampleBlogCards() {
-      return this.$store.state.sampleBlogCards;
+    blogPosts() {
+      return this.$store.state.blogPosts;
+    },
+    searchPosts: function () {
+      return this.blogPosts.filter((blogCard) => {
+        return blogCard.blogTitle.match(this.search);
+      });
     },
     editPost: {
       get() {
@@ -37,6 +104,23 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  font-weight: 300;
+  font-size: 2.8rem;
+}
+p {
+  margin-bottom: 3.2rem;
+}
+.blog-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-self: left;
+}
+/*
+.blog-cards:hover {
+  animation: 1s cardCover infinite;
+}*/
 .blog-cards {
   position: relative;
 }
@@ -57,15 +141,29 @@ input[type="checkbox"] {
   position: relative;
   border: none;
   -webkit-appearance: none;
-  background: white;
+  background: #fff;
   outline: none;
   width: 8rem;
   height: 3rem;
   border-radius: 2rem;
   box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
     0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
+  transition: ease-out 1s;
 }
 
+.searchBar {
+  width: 50rem;
+  height: 4rem;
+  background: #000000;
+  border-radius: 20rem;
+  color: white;
+  border: none;
+}
+
+.searchBar:hover {
+  box-shadow: inset 77rem 0 0 0 rgb(39, 39, 39);
+  cursor: pointer;
+}
 input[type="checkbox"]:before {
   content: "";
   position: absolute;

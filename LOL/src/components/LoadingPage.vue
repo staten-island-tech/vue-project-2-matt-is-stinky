@@ -6,23 +6,9 @@
 <script>
 export default {
     name: "LoadingPage",
-    data(){
-        return{
-
-        };
-    },
-    computed: {
-        
-    },
-    methods: {
-
-    },
-    components: {
-
-    },
 };
 </script>
-<style >
+<style scoped>
 .loading{
     top: 0;
     z-index: 101;
