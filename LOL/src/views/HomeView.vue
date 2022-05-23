@@ -6,13 +6,13 @@
       v-model="search"
       placeholder="SEARCH FOR CHAMPION"
     /> -->
+    <div class="toggle-edit" v-if="user">
+      <span>Toggle Editing Post</span>
+      <input type="checkbox" v-model="editPost" />
+    </div>
     <div class="blog-card-wrap">
       <div class="container">
         <div class="blog-cards">
-          <div class="toggle-edit">
-            <span>Toggle Editing Post</span>
-            <input type="checkbox" v-model="editPost" />
-          </div>
           <BlogCard :post="post" v-for="post in blogPosts" :key="post" />
         </div>
       </div>
@@ -22,6 +22,9 @@
 
 <script>
 import BlogCard from "../components/BlogCard";
+import { useStore } from "vuex";
+import { computed } from "vue";
+
 export default {
   name: "Home-View",
   components: {
@@ -30,6 +33,13 @@ export default {
   data() {
     return {
       search: "",
+    };
+  },
+  setup() {
+    const store = useStore();
+    return {
+      user: computed(() => store.state.user),
+      authIsReady: computed(() => store.state.authIsReady),
     };
   },
   computed: {
@@ -82,7 +92,6 @@ p {
 .toggle-edit {
   display: flex;
   align-items: center;
-
   top: -7rem;
   right: 0;
 }

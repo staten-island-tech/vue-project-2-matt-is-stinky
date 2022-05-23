@@ -6,8 +6,6 @@ import db from "../firebase/config";
 const store = createStore({
   state: {
     blogPosts: [],
-    postContent: "",
-    postTitle: "",
     postLoaded: null,
     editPost: null,
     user: null,
@@ -56,15 +54,6 @@ const store = createStore({
     },
     fileNameChange(state, payload) {
       state.blogPhotoName = payload;
-    },
-    filterBlogPost(state, payload) {
-      state.blogPosts = state.blogPosts.filter(
-        (post) => post.postID !== payload
-      );
-    },
-    setPostState(state, payload) {
-      state.postTitle = payload.postTitle;
-      state.postContent = payload.postContent;
     },
   },
   actions: {

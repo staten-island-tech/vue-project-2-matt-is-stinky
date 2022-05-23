@@ -123,4 +123,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.contentData {
+    background-color: white;
+    color: gray;
+    width: 50rem;
+    height: 20rem;
+    outline: none;
+}
+</style>

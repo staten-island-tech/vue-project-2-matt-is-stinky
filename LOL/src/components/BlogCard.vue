@@ -2,9 +2,6 @@
   <div class="blog-card">
     <div v-show="editPosts" class="editButtons">
       <div class="editting">
-        <button class="edit" @click="editPost">Edit</button>
-      </div>
-      <div class="editting">
         <button class="delete" @click="deletePost">Delete</button>
       </div>
     </div>
@@ -23,12 +20,6 @@ export default {
   methods: {
     deletePost() {
       this.$store.dispatch("deletePost", this.post.postID);
-    },
-    editPost() {
-      this.$router.push({
-        name: "editPost",
-        params: { postid: this.post.postID },
-      });
     },
   },
   computed: {
