@@ -1,11 +1,5 @@
 <template>
   <div class="home">
-    <!-- <input
-      class="searchBar"
-      type="text"
-      v-model="search"
-      placeholder="SEARCH FOR CHAMPION"
-    /> -->
     <div class="toggle-edit" v-if="user">
       <span>Toggle Editing Post</span>
       <input type="checkbox" v-model="editPost" />
@@ -46,12 +40,6 @@ export default {
     blogPosts() {
       return this.$store.state.blogPosts;
     },
-    /*
-    searchPosts: function () {
-      return this.blogPosts.filter((blogCard) => {
-        return blogCard.blogTitle.match(this.search);
-      });
-    },*/
     editPost: {
       get() {
         return this.$store.state.editPost;
@@ -81,10 +69,6 @@ p {
   justify-content: space-around;
   align-self: left;
 }
-/*
-.blog-cards:hover {
-  animation: 1s cardCover infinite;
-}*/
 .blog-cards {
   position: relative;
 }
@@ -92,8 +76,9 @@ p {
 .toggle-edit {
   display: flex;
   align-items: center;
-  top: -7rem;
-  right: 0;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 span {
