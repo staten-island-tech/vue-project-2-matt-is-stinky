@@ -128,12 +128,4 @@ h6 {
 button {
   background: none;
 }
-/*
-.card-post {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 30%;
-  margin: 2rem auto;
-}*/
 </style>
