@@ -170,6 +170,7 @@ ul {
 
 .profile-menu {
   position: absolute;
+  border-radius: 4rem;
   top: 6rem;
   right: 0;
   width: 25rem;
