@@ -6,7 +6,7 @@
       </div>
     </div>
     <router-link
-      :to="{ name: 'View Blog', params: { postID: this.post.postID } }"
+:to="{ name: 'View Blog', params: { postID: this.post.postID } }"
     >
       <img :src="post.postPhoto" alt="" />
     </router-link>
@@ -77,12 +77,4 @@ export default {
 button {
   background: none;
 }
-/*
-.card-post {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 30%;
-  margin: 2rem auto;
-}*/
 </style>

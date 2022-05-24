@@ -10,6 +10,8 @@
           <BlogCard :post="post" v-for="post in blogPosts" :key="post" />
         </div>
       </div>
+    </div>
+  </div>
 </template>
 
 <script>
