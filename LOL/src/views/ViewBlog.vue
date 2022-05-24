@@ -27,6 +27,7 @@ export default {
 <style scoped>
 img {
   margin-top: 1rem;
+  margin-bottom: 1rem;
   border-radius: 2rem;
 }
 
@@ -50,5 +51,6 @@ h3 {
   display: grid;
   align-items: center;
   justify-content: center;
+  margin: 1rem;
 }
 </style>
