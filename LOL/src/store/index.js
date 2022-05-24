@@ -37,12 +37,6 @@ const store = createStore({
     setProfileInitials(state) {
       state.profileInitials = state.profileUsername.match(/(\b\S)?/g).join("");
     },
-    changeFirstName(state, payload) {
-      state.profileFirstName = payload;
-    },
-    changeLastName(state, payload) {
-      state.profileLastName = payload;
-    },
     changeUsername(state, payload) {
       state.profileUsername = payload;
     },
@@ -85,8 +79,6 @@ const store = createStore({
     async updateUserSettings({ commit, state }) {
       const dataBase = await db.collection("users").doc(state.profileId);
       await dataBase.update({
-        firstName: state.profileFirstName,
-        lastName: state.profileLastName,
         username: state.profileUsername,
       });
       commit("setProfileInitials");
