@@ -56,21 +56,12 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  font-weight: 300;
-  font-size: 2.8rem;
-}
-p {
-  margin-bottom: 3.2rem;
-}
-.blog-cards {
+.blog-cards{
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-self: left;
-}
-.blog-cards {
-  position: relative;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .toggle-edit {
