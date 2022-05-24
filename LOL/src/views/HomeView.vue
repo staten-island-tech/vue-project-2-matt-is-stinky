@@ -1,13 +1,5 @@
 <template>
   <div class="home">
-    <input
-      class="searchBar"
-      type="text"
-      v-model="search"
-      placeholder="SEARCH FOR CHAMPION"
-    />
-    <div class="blog-card-wrap">
-      <div class="container">
         <div class="blog-cards">
           <div class="toggle-edit" v-if=user>
             <span>Toggle Editing Post</span>
@@ -16,8 +8,6 @@
           <BlogCard :post="post" v-for="post in blogPosts" :key="post" />
         </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -57,25 +47,12 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  font-weight: 300;
-  font-size: 2.8rem;
-}
-p {
-  margin-bottom: 3.2rem;
-}
-.blog-cards {
+.blog-cards{
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-self: left;
-}
-/*
-.blog-cards:hover {
-  animation: 1s cardCover infinite;
-}*/
-.blog-cards {
-  position: relative;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .toggle-edit {

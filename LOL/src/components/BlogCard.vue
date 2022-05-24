@@ -9,7 +9,7 @@
         <button class="delete" @click="handleClick">Delete</button>
       </div>
     </div>
-    <img :src="post.postPhoto" alt="" />
+    <img class="image" :src="post.postPhoto" alt="" />
   </div>
   </router-link>
 </template>
@@ -27,13 +27,9 @@ export default {
 </script>
 
 <style scoped>
-.blog-card {
-  position: relative;
-  cursor: pointer;
+.blog-card{
+  height: 14rem;
   display: flex;
-  flex-direction: column;
-  min-height: 8rem;
-  transition: 0.5s ease all;
 }
 
 .blog-card:hover {
@@ -41,53 +37,6 @@ export default {
   background-color: #000;
   box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
     0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
-}
-
-img {
-  display: block;
-  z-index: 1;
-  width: 100%;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  z-index: 3;
-  padding: 3.2rem 1.6rem;
-  color: #000;
-  visibility: hidden;
-}
-
-.info:hover {
-  visibility: visible;
-}
-
-h4 {
-  padding-bottom: 0.8rem;
-  font-size: 2rem;
-  font-weight: 300;
-}
-
-h6 {
-  font-weight: 400;
-  font-size: 1.2rem;
-  padding-bottom: 1.6rem;
-}
-
-.link {
-  display: inline-flex;
-  align-items: center;
-  margin-top: auto;
-  font-weight: 500;
-  padding-top: 2rem;
-  font-size: 1.2rem;
-  padding-bottom: 0.4rem;
-  transition: 0.5s ease-in all;
-}
-
-.link:hover {
-  color: rgba(48, 48, 48, 0.8);
 }
 
 .editButtons {
