@@ -129,8 +129,14 @@ input {
   background-color: #f2f7f6;
   padding: 0.5rem;
   height: 3.125rem;
+  background-color: #02122a;
 }
 input:focus {
   outline: none;
 }
+.profile-info{
+  background-color: #010b1a;
+}
+
+
 </style>

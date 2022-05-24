@@ -12,6 +12,7 @@ body {
   padding: 0;
   background-image: url("../assets/homeBackground.png");
   background-size: 100%;
+  color: #fff;
 }
 
 img {

@@ -57,11 +57,10 @@ export default {
 
 <style scoped>
 .blog-cards{
-  width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  position: relative;
 }
 
 .toggle-edit {
