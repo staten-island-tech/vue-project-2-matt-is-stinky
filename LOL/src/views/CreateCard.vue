@@ -43,6 +43,7 @@ import firebase from "firebase/compat/app";
 import "firebase/auth";
 import db from "../firebase/config";
 import LoadingPage from "../components/LoadingPage";
+
 export default {
   name: "Create-Post",
   components: {
@@ -94,15 +95,12 @@ export default {
               });
               await this.$store.dispatch("getPost");
               this.loading = false;
-              this.$router.push({
-                name: "View Blog",
-                params: { postid: dataBase.id },
-              });
             }
           );
         }
         this.error = false;
         this.errorMsg = "";
+        this.$router.push({ name: "Home" });
         return;
       }
       this.error = true;

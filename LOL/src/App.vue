@@ -91,6 +91,7 @@ export default {
   position: relative;
   height: 40rem;
   padding: 0rem 1.6rem;
+  padding-top: 1rem;
 }
 
 .blog-cards {

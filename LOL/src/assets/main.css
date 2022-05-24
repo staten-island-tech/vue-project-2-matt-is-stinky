@@ -12,6 +12,8 @@ body {
   padding: 0;
   background-image: url("../assets/homeBackground.png");
   background-size: 100%;
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 img {
