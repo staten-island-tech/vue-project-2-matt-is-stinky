@@ -2,15 +2,17 @@
   <header>
     <nav class="container">
       <div class="branding">
-        <router-link class="header" :to="{ name: Home }"
-          >League of Legends</router-link
-        >
+        <router-link class="header" :to="{ name: Home }">
+          <img class="logo" src="../assets/logo.png" alt="logo" />
+        </router-link>
         <!-- <img class="logo" src="../assets/logo.png" alt="logo" /> -->
       </div>
       <div class="nav-links">
         <ul>
           <router-link class="link" to="/">Home</router-link>
-          <router-link v-if="user" class="link" to="/Create-Card">Create Card</router-link>
+          <router-link v-if="user" class="link" to="/Create-Card"
+            >Create Card</router-link
+          >
           <router-link v-if="!user" class="link" to="/Log-In"
             >Login</router-link
           >
@@ -93,6 +95,11 @@ export default {
 </script>
 
 <style scoped>
+.logo {
+  width: 60%;
+  height: 10%;
+}
+
 header {
   background-color: #000;
   padding: 0 2.5rem;

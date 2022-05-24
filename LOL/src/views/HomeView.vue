@@ -1,10 +1,12 @@
 <template>
   <div class="home">
+    <div class="toggle-edit" v-if="user">
+      <span>Toggle Editing Post</span>
+      <input type="checkbox" v-model="editPost" />
+    </div>
+    <div class="blog-card-wrap">
+      <div class="container">
         <div class="blog-cards">
-          <div class="toggle-edit" v-if=user>
-            <span>Toggle Editing Post</span>
-            <input type="checkbox" v-model="editPost" />
-          </div>
           <BlogCard :post="post" v-for="post in blogPosts" :key="post" />
         </div>
       </div>
@@ -12,6 +14,9 @@
 
 <script>
 import BlogCard from "../components/BlogCard";
+import { useStore } from "vuex";
+import { computed } from "vue";
+
 export default {
   name: "Home-View",
   components: {
@@ -22,14 +27,16 @@ export default {
       search: "",
     };
   },
+  setup() {
+    const store = useStore();
+    return {
+      user: computed(() => store.state.user),
+      authIsReady: computed(() => store.state.authIsReady),
+    };
+  },
   computed: {
     blogPosts() {
       return this.$store.state.blogPosts;
-    },
-    searchPosts: function () {
-      return this.blogPosts.filter((blogCard) => {
-        return blogCard.blogTitle.match(this.search);
-      });
     },
     editPost: {
       get() {
@@ -58,9 +65,9 @@ export default {
 .toggle-edit {
   display: flex;
   align-items: center;
-
-  top: -7rem;
-  right: 0;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 span {

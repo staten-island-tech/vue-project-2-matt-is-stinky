@@ -81,7 +81,6 @@ const store = createStore({
         }
       });
       state.postLoaded = true;
-      console.log(state.blogPosts);
     },
     async updateUserSettings({ commit, state }) {
       const dataBase = await db.collection("users").doc(state.profileId);
@@ -91,6 +90,11 @@ const store = createStore({
         username: state.profileUsername,
       });
       commit("setProfileInitials");
+    },
+    async deletePost({ commit }, payload) {
+      const getPost = await db.collection("posts").doc(payload);
+      await getPost.delete();
+      commit("filterBlogPost", payload);
     },
   },
 });

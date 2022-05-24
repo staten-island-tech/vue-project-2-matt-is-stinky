@@ -1,25 +1,29 @@
 <template>
-<router-link :to="{ name: 'View Blog', params: { postID: this.post.postID} }">
   <div class="blog-card">
-    <div v-show="editPost" class="editButtons">
+    <div v-show="editPosts" class="editButtons">
       <div class="editting">
-        <button class="edit" @click="handleClick">Edit</button>
-      </div>
-      <div class="editting">
-        <button class="delete" @click="handleClick">Delete</button>
+        <button class="delete" @click="deletePost">Delete</button>
       </div>
     </div>
-    <img class="image" :src="post.postPhoto" alt="" />
+    <router-link
+      :to="{ name: 'View Blog', params: { postID: this.post.postID } }"
+    >
+      <img :src="post.postPhoto" alt="" />
+    </router-link>
   </div>
-  </router-link>
 </template>
 
 <script>
 export default {
   name: "PostCard",
   props: ["post"],
+  methods: {
+    deletePost() {
+      this.$store.dispatch("deletePost", this.post.postID);
+    },
+  },
   computed: {
-    editPost() {
+    editPosts() {
       return this.$store.state.editPost;
     },
   },
@@ -56,6 +60,7 @@ export default {
   border-radius: 50%;
   background-color: #fff;
   transition: 0.5s ease all;
+  z-index: 5;
 }
 
 .editting:hover {
