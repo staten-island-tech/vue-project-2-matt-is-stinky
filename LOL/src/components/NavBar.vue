@@ -119,7 +119,6 @@ header {
 
 nav {
   display: flex;
-  padding: 2.5rem 0;
 }
 
 .branding {
