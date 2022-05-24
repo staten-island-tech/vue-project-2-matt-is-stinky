@@ -8,7 +8,7 @@
     <router-link
 :to="{ name: 'View Blog', params: { postID: this.post.postID } }"
     >
-      <img :src="post.postPhoto" alt="" />
+      <img class="image" :src="post.postPhoto" alt="" />
     </router-link>
   </div>
 </template>
@@ -32,8 +32,9 @@ export default {
 
 <style scoped>
 .blog-card{
-  height: 14rem;
   display: flex;
+  object-fit: cover;
+  transition: 0.5s ease all;
 }
 
 .blog-card:hover {
