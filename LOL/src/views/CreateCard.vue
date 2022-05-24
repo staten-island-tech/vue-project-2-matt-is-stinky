@@ -124,11 +124,16 @@ export default {
 </script>
 
 <style scoped>
+.addCard {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
 .contentData {
-    background-color: white;
-    color: gray;
-    width: 50rem;
-    height: 20rem;
-    outline: none;
+  background-color: white;
+  color: gray;
+  width: 50rem;
+  height: 20rem;
+  outline: none;
 }
 </style>
