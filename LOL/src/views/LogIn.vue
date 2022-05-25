@@ -6,9 +6,10 @@
         Don't have an account?
         <router-link class="router-link" to="/Sign-Up">Sign Up</router-link>
       </p>
-        <p class="back-home">Go back to 
-          <router-link class="router-link" to="/">Home</router-link>
-        </p>
+      <p class="back-home">
+        Go back to
+        <router-link class="router-link" to="/">Home</router-link>
+      </p>
       <h2>Login to League of Legends</h2>
       <div class="inputs">
         <div class="input">
@@ -30,14 +31,14 @@
 </template>
 
 <script>
-import LoadingPage from "../components/LoadingPage.vue"
+import LoadingPage from "../components/LoadingPage.vue";
 import firebase from "firebase/compat/app";
 import "firebase/auth";
 
 export default {
   name: "LogIn",
   components: {
-    LoadingPage
+    LoadingPage,
   },
   data() {
     return {

@@ -1,8 +1,10 @@
 <template>
-  <div class="post-view" v-if="currentPost">
-    <h2>{{ this.currentPost[0].postTitle }}</h2>
-    <img :src="this.currentPost[0].postPhoto" alt="" />
-    <div class="post-content" v-html="this.currentPost[0].postContent"></div>
+  <div class="container">
+    <div class="post-view" v-if="currentPost">
+      <img :src="this.currentPost[0].postPhoto" alt="" />
+      <h2>{{ this.currentPost[0].postTitle }}</h2>
+      <h3 class="post-content" v-html="this.currentPost[0].postContent"></h3>
+    </div>
   </div>
 </template>
 
@@ -23,6 +25,32 @@ export default {
 </script>
 
 <style scoped>
-/*.post-view {
-}*/
+img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+}
+
+h2 {
+  font-size: 4rem;
+  color: #ffffff;
+}
+h3 {
+  font-size: 2rem;
+  color: #ffffffce;
+}
+
+.container {
+  margin-top: 1rem;
+  background: #010b1a;
+  border-radius: 2rem;
+  width: 40%;
+}
+
+.post-view {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
 </style>

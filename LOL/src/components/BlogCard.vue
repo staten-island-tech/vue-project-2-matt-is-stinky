@@ -99,7 +99,7 @@ h6 {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  z-index: 99;
+  z-index: 9;
 }
 
 .editting {
@@ -109,17 +109,13 @@ h6 {
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #303130;
   transition: 0.5s ease all;
   z-index: 5;
 }
 
 .editting:hover {
-  background: #303030;
-}
-
-.edit path {
-  fill: #fff;
+  background: #fff;
 }
 
 .delete path {

@@ -13,6 +13,8 @@ body {
   background-image: url("../assets/homeBackground.png");
   background-size: 100%;
   color: #fff;
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 img {

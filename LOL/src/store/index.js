@@ -55,6 +55,11 @@ const store = createStore({
     fileNameChange(state, payload) {
       state.blogPhotoName = payload;
     },
+    filterBlogPost(state, payload) {
+      state.blogPosts = state.blogPosts.filter(
+        (post) => post.postID !== payload
+      );
+    },
   },
   actions: {
     async getCurrentUser({ commit }) {
