@@ -29,11 +29,13 @@ img {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 2rem;
+  align-self: center;
 }
 
 h2 {
   font-size: 4rem;
   color: #ffffff;
+  align-self: center;
 }
 h3 {
   font-size: 2rem;
@@ -48,9 +50,9 @@ h3 {
 }
 
 .post-view {
-  display: grid;
-  align-items: center;
+  display: flex;
   justify-content: center;
+  flex-direction: column;
   margin: 1rem;
 }
 </style>

@@ -44,10 +44,11 @@ export default {
   transform: rotateZ(-1deg) scale(1.01);
   box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
     0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
+    border-radius: 2rem;
 }
 
 img {
-  display: block;
+  display: flex;
   z-index: 1;
   width: 100%;
   border-radius: 2rem;
