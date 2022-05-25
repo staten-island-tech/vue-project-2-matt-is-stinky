@@ -32,12 +32,12 @@ img {
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 3rem;
   color: #ffffff;
 }
 h3 {
-  font-size: 2rem;
-  color: #ffffffce;
+  font-size: 1rem;
+  color: #ffffff;
 }
 
 .container {

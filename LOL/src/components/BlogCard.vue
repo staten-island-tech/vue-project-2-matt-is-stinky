@@ -44,6 +44,7 @@ export default {
   transform: rotateZ(-1deg) scale(1.01);
   box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
     0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
+  border-radius: 2rem;
 }
 
 img {
@@ -109,13 +110,13 @@ h6 {
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  background-color: #303130;
+  background-color: #fff;
   transition: 0.5s ease all;
   z-index: 5;
 }
 
 .editting:hover {
-  background: #fff;
+  background: red;
 }
 
 .delete path {

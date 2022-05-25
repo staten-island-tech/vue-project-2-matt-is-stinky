@@ -72,6 +72,9 @@ export default {
 </script>
 
 <style scoped>
+p {
+  color: #000;
+}
 .form-wrap {
   overflow: hidden;
   display: flex;
@@ -137,15 +140,17 @@ input:focus {
   position: absolute;
   background-color: #fff;
   transform: rotateZ(3deg);
-  width: 3.75rem;
-  right: -1.875rem;
-  height: 101%;
+  width: 50rem;
+  right: -2rem;
+  height: 105%;
+  z-index: -1;
 }
 .background {
   display: none;
   flex: 2;
   background-size: cover;
   background-image: url("../assets/secondBackground.jpg");
+  z-index: -2;
   width: 100%;
   height: 100%;
 }

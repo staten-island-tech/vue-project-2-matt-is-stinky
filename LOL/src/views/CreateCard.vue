@@ -133,5 +133,7 @@ export default {
   width: 50rem;
   height: 20rem;
   outline: none;
+  border-radius: 1rem;
+  padding: 0.3rem 0.3rem 0.3rem 1rem;
 }
 </style>
