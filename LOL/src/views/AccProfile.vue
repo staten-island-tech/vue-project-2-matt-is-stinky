@@ -42,27 +42,6 @@ export default {
     },
   },
   computed: {
-    firstName: {
-      get() {
-        return this.$store.state.profileFirstName;
-      },
-      set(payload) {
-        this.$store.commit("changeFirstName", payload);
-      },
-    },
-    computed: {
-        username: {
-            get() {
-                return this.$store.state.profileUsername
-            },
-            set(payload){
-                this.$store.commit("changeUsername", payload)
-            },
-        },
-        email() {
-            return this.$store.state.profileEmail
-        },
-    },
     username: {
       get() {
         return this.$store.state.profileUsername;
@@ -125,8 +104,14 @@ input {
   background-color: #f2f7f6;
   padding: 0.5rem;
   height: 3.125rem;
+  background-color: #02122a;
 }
 input:focus {
   outline: none;
 }
+.profile-info{
+  background-color: #010b1a;
+}
+
+
 </style>

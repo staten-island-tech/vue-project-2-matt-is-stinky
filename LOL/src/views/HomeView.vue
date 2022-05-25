@@ -56,14 +56,7 @@ export default {
 </script>
 
 <style scoped>
-h3 {
-  font-weight: 300;
-  font-size: 2.8rem;
-}
-p {
-  margin-bottom: 3.2rem;
-}
-.blog-cards {
+.blog-cards{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

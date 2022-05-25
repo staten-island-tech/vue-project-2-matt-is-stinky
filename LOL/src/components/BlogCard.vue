@@ -50,7 +50,7 @@ img {
   display: block;
   z-index: 1;
   width: 100%;
-    border-radius: 2rem;
+  border-radius: 2rem;
 }
 
 .info {
