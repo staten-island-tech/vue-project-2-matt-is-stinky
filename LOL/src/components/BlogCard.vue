@@ -42,7 +42,6 @@ export default {
 
 .blog-card:hover {
   transform: rotateZ(-1deg) scale(1.01);
-  background-color: #000;
   box-shadow: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
     0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
 }
@@ -51,6 +50,7 @@ img {
   display: block;
   z-index: 1;
   width: 100%;
+    border-radius: 2rem;
 }
 
 .info {
@@ -99,7 +99,7 @@ h6 {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  z-index: 99;
+  z-index: 9;
 }
 
 .editting {
@@ -109,17 +109,13 @@ h6 {
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #303130;
   transition: 0.5s ease all;
   z-index: 5;
 }
 
 .editting:hover {
-  background: #303030;
-}
-
-.edit path {
-  fill: #fff;
+  background: #fff;
 }
 
 .delete path {
@@ -128,12 +124,4 @@ h6 {
 button {
   background: none;
 }
-/*
-.card-post {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 30%;
-  margin: 2rem auto;
-}*/
 </style>
