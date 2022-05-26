@@ -253,7 +253,7 @@ p:nth-child(2) p:nth-child(3) {
   }
 }
 
-@media screen and (max-width: 50rem) {
+@media screen and (min-width: 50rem) {
   header {
     width: 38rem;
   }
