@@ -63,7 +63,6 @@ const store = createStore({
       const dbResults = await dataBase.get();
       commit("setProfileInfo", dbResults);
       commit("setProfileInitials");
-      console.log(dbResults);
     },
     async getPost({ state }) {
       const dataBase = await db.collection("posts");
