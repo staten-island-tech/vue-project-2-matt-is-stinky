@@ -253,9 +253,9 @@ p:nth-child(2) p:nth-child(3) {
   }
 }
 
-@media screen and (max-width: 50rem) {
-  .branding {
-    width: 5%;
+@media screen and (min-width: 50rem) {
+  header {
+    width: 38rem;
   }
 }
 </style>
