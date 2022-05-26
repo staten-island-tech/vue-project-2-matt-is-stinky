@@ -56,4 +56,16 @@ h3 {
   flex-direction: column;
   margin: 1rem;
 }
+
+@media screen and (max-width: 50rem) {
+  .container {
+    width: 100%;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  h3 {
+    font-size: 0.5rem;
+  }
+}
 </style>
