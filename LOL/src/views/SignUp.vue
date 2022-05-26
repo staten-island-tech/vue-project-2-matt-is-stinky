@@ -50,11 +50,7 @@ export default {
   },
   methods: {
     async register() {
-      if (
-        this.email !== "" &&
-        this.password !== "" &&
-        this.username !== ""
-      ) {
+      if (this.email !== "" && this.password !== "" && this.username !== "") {
         this.error = false;
         this.errorMsg = "";
         const firebaseAuth = await firebase.auth();
@@ -165,7 +161,7 @@ input:focus {
   height: 100%;
   z-index: -2;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 90rem) {
   .background {
     display: initial;
   }
@@ -191,5 +187,19 @@ button {
   border-radius: 0.7rem;
   transition: ease-out 0.3s;
   outline: none;
+}
+@media screen and (max-width: 90rem) {
+  p {
+    color: #fff;
+  }
+  .router-link {
+    color: #fff;
+  }
+  h2 {
+    color: #fff;
+  }
+  .forgot-password {
+    color: #fff;
+  }
 }
 </style>

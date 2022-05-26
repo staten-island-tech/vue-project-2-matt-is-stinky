@@ -122,6 +122,10 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .addCard {
   display: grid;
   align-items: center;
@@ -135,5 +139,15 @@ export default {
   outline: none;
   border-radius: 1rem;
   padding: 0.3rem 0.3rem 0.3rem 1rem;
+}
+
+@media screen and (max-width: 50rem) {
+  .contentData {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+  }
 }
 </style>

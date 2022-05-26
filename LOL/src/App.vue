@@ -56,13 +56,13 @@ export default {
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;700&family=Roboto+Mono&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Trade Winds", cursive;
+  font-family: "Roboto Mono", monospace;
 }
 
 .app {

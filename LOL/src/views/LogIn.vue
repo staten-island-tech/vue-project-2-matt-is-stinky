@@ -181,4 +181,19 @@ button {
   transition: ease-out 0.3s;
   outline: none;
 }
+
+@media screen and (max-width: 50rem) {
+  p {
+    color: #fff;
+  }
+  .router-link {
+    color: #fff;
+  }
+  h2 {
+    color: #fff;
+  }
+  .forgot-password {
+    color: #fff;
+  }
+}
 </style>

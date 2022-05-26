@@ -5,13 +5,12 @@
         <router-link class="header" :to="{ name: Home }">
           <img class="logo" src="../assets/logo.png" alt="logo" />
         </router-link>
-        <!-- <img class="logo" src="../assets/logo.png" alt="logo" /> -->
       </div>
       <div class="nav-links">
         <ul>
-          <router-link class="link" to="/">Home</router-link>
-          <router-link v-if="user" class="link" to="/Create-Card"
-            >Create Card</router-link
+          <router-link class="link link2" to="/">Home</router-link>
+          <router-link v-if="user" class="link link2" to="/Create-Card"
+            >Create</router-link
           >
           <router-link v-if="!user" class="link" to="/Log-In"
             >Login</router-link
@@ -227,7 +226,7 @@ p:nth-child(2) p:nth-child(3) {
   margin-left: 1.2rem;
 }
 
-.routNames:last-child {
+.routeNames:last-child {
   margin-bottom: 0rem;
 }
 
@@ -238,5 +237,19 @@ p:nth-child(2) p:nth-child(3) {
 .profileSpan {
   pointer-events: none;
 }
+@media screen and (max-width: 90rem) {
+  .branding {
+    visibility: hidden;
+  }
 
+  .nav-links {
+    margin-right: 10.5rem;
+  }
+
+  .profile {
+    width: 2.5rem;
+    height: 2rem;
+    margin-right: 6rem;
+  }
+}
 </style>
