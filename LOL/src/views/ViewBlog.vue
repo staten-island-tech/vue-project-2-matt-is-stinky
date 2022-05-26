@@ -30,6 +30,7 @@ img {
   margin-bottom: 1rem;
   border-radius: 2rem;
   align-self: center;
+  width: 83%;
 }
 
 h2 {

@@ -13,7 +13,9 @@
           <input type="text" id="username" v-model="username" />
           <label for="email">Email:</label>
           <input disabled type="text" id="email" v-model="email" />
-        <button @click="updateProfile">Save Changes</button>
+          <div class="action">
+          <button @click="updateProfile">Save Changes</button>
+        </div>
       </div>
     </div>
   </div>
@@ -63,19 +65,21 @@ button {
 }
 h2 {
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
   font-weight: 300;
   font-size: 32px;
+  margin-top: 1rem;
 }
 .profile-info {
-  border-radius: 0.5rem;
+  border-radius: 2rem;
   box-shadow: 0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1),
     0 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.6);
   background-color: #f1f1f1;
   display: flex;
   flex-direction: column;
-  max-width: 37.5rem;
+  width: 44%;
   margin: 2rem auto;
+  height: 24rem;
 }
 .initials {
   position: initial;
@@ -90,21 +94,20 @@ h2 {
   justify-content: center;
   border-radius: 50%;
 }
-.input {
-  margin: 1rem 0;
-}
 label {
   font-size: 0.875rem;
   display: block;
   padding-bottom: 0.375rem;
+  align-self: center;
 }
 input {
-  width: 100%;
+  align-self: center;
+  width: 75%;
   border: none;
-  background-color: #f2f7f6;
-  padding: 0.5rem;
+  padding: 1rem;
   height: 3.125rem;
   background-color: #02122a;
+  color: #fff;
 }
 input:focus {
   outline: none;
@@ -112,6 +115,11 @@ input:focus {
 .profile-info{
   background-color: #010b1a;
 }
-
+.action{
+  width: 100%;
+  padding: 1rem;
+  justify-content: center;
+  display: flex;
+}
 
 </style>
