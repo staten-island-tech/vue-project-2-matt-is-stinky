@@ -48,7 +48,7 @@ export default {
 }
 
 img {
-  display: block;
+  display: flex;
   z-index: 1;
   width: 100%;
   border-radius: 2rem;
